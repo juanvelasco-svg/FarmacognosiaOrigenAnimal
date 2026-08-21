@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4: Sustancias Nutracéuticas | Farmacognosia</title>
+    <style>
+        :root { --QOMed-gold: #D4AF37; --QOMed-dark: #1a1a2e; --QOMed-blue: #16213e; --QOMed-light: #0f3460; --accent: #e94560; --text: #2c3e50; --white: #ffffff; --sand: #f4e9c1; --shadow: rgba(0, 0, 0, 0.15); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ul:not(.map-tree), ol { padding-left: 2.4rem; margin: 0.5rem 0 1rem; }
+        ul:not(.map-tree) { list-style: none; } ul:not(.map-tree) li, ol li { margin: 0.45rem 0; } ol { list-style: decimal; }
+        .quiz-progress { background: var(--QOMed-blue); color: #fff; border-left: 5px solid var(--QOMed-gold); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        header { background: linear-gradient(135deg, var(--QOMed-dark) 0%, var(--QOMed-blue) 100%); color: var(--white); padding: 2rem; text-align: center; box-shadow: 0 6px 20px var(--shadow); border-bottom: 5px solid var(--QOMed-gold); }
+        .logo-container { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .logo-farmacognosia { width: 120px; height: auto; background: var(--white); border-radius: 50%; padding: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); color: var(--QOMed-gold); }
+        .subtitle { font-size: 1.2rem; opacity: 0.95; font-weight: 300; }
+        .motivational-phrase { background: linear-gradient(135deg, var(--QOMed-gold), #f4d03f); color: var(--QOMed-dark); padding: 0.5rem 1.5rem; border-radius: 25px; display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.95rem; }
+        .nav-container { background: var(--QOMed-blue); padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px var(--shadow); }
+        .nav-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; max-width: 1400px; margin: 0 auto; }
+        .nav-btn { background: var(--white); color: var(--QOMed-dark); border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+        .nav-btn:hover, .nav-btn.active { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .section { display: none; animation: fadeIn 0.5s ease; } .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 24px var(--shadow); border-left: 6px solid var(--QOMed-gold); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        h2 { color: var(--QOMed-blue); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid var(--QOMed-gold); display: flex; align-items: center; gap: 0.8rem; font-size: 2rem; }
+        h3 { color: var(--QOMed-light); margin: 1.5rem 0 1rem; font-size: 1.5rem; }
+        .molecule-img { max-width: 100%; height: auto; border-radius: 12px; margin: 1rem 0; box-shadow: 0 4px 12px var(--shadow); }
+        .img-container { text-align: center; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow); }
+        th { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); padding: 1.2rem; text-align: left; font-weight: 600; }
+        td { padding: 1rem 1.2rem; border-bottom: 1px solid #eee; transition: background 0.3s; } tr:hover td { background: #f8fff0; }
+        .info-box { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .tip-box { background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 5px solid #ffc107; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .bio-box { background: linear-gradient(135deg, #d1ecf1 0%, #a8dadc 100%); border-left: 5px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .pharma-box { background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .problem-box { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #28a745; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        details.solution { margin-top: 1rem; background: #f8f9fa; border: 2px solid var(--QOMed-light); border-radius: 10px; padding: 0.8rem 1.2rem; }
+        details.solution summary { cursor: pointer; font-weight: 700; color: var(--QOMed-light); }
+        details.solution[open] summary { margin-bottom: 0.8rem; border-bottom: 1px dashed var(--QOMed-light); padding-bottom: .4rem; }
+        .mnemonic-card { background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%); border: 3px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; position: relative; overflow: hidden; }
+        .mnemonic-title { color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .glossary-term { background: var(--white); border: 2px solid var(--QOMed-gold); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; cursor: pointer; transition: all 0.3s; }
+        .glossary-term:hover { background: #fff9e6; transform: translateX(5px); }
+        .glossary-definition { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--QOMed-gold); }
+        .glossary-definition.show { display: block; animation: fadeIn 0.3s ease; }
+        .error-card { background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1rem 0; border-radius: 0 12px 12px 0; }
+        .error-title { color: #dc3545; font-weight: 700; margin-bottom: 0.5rem; }
+        .correction { background: #d4edda; border-left: 3px solid #28a745; padding: 1rem; margin-top: 1rem; border-radius: 0 8px 8px 0; }
+        .quiz-container { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .quiz-question { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 600; }
+        .quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .quiz-option { background: var(--white); color: var(--text); border: 3px solid transparent; padding: 1.2rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+        .quiz-option:hover:not(:disabled) { border-color: var(--QOMed-gold); transform: translateY(-3px); }
+        .quiz-option:disabled { cursor: not-allowed; opacity: 0.95; }
+        .quiz-option.correct { background: #4caf50; color: white; border-color: #2e7d32; }
+        .quiz-option.incorrect { background: #f44336; color: white; border-color: #c62828; }
+        .footer { background: var(--QOMed-dark); color: var(--white); text-align: center; padding: 2.5rem; margin-top: 3rem; border-top: 5px solid var(--QOMed-gold); }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow); }
+        .table-responsive table { min-width: 600px; width: 100%; margin: 0; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tab { background: var(--sand); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab.active { background: var(--QOMed-gold); color: var(--QOMed-dark); }
+        .tab-content { display: none; } .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .fc-stats { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0; }
+        .fc-stat { padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; color: #fff; font-size: 0.95rem; }
+        .fc-stat.good { background: #28a745; } .fc-stat.bad { background: #dc3545; } .fc-stat.pending { background: #6c757d; } .fc-stat.total { background: var(--QOMed-light); }
+        .fc-progress { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; max-width: 720px; margin: 0 auto 1.5rem; }
+        .fc-progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--QOMed-gold), var(--accent)); transition: width 0.4s; }
+        .flashcard-scene { perspective: 1400px; max-width: 720px; height: 320px; margin: 0 auto 1.5rem; }
+        .flashcard { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+        .flashcard.flipped { transform: rotateY(180deg); }
+        .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: auto; box-shadow: 0 8px 24px var(--shadow); font-size: 1.15rem; }
+        .fc-front { background: linear-gradient(135deg, var(--QOMed-blue), var(--QOMed-light)); color: #fff; border: 3px solid var(--QOMed-gold); }
+        .fc-back { background: linear-gradient(135deg, #fff9e6, var(--sand)); color: var(--text); border: 3px solid var(--QOMed-gold); transform: rotateY(180deg); }
+        .fc-label { font-size: 0.85rem; letter-spacing: 2px; font-weight: 800; opacity: 0.8; margin-bottom: 1rem; }
+        .fc-hint { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; font-style: italic; }
+        .fc-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        .fc-btn { border: none; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s; color: #fff; }
+        .fc-btn:disabled { opacity: 0.4; cursor: not-allowed; } .fc-btn.good { background: #28a745; } .fc-btn.bad { background: #dc3545; }
+        .fc-btn:not(:disabled):hover { transform: translateY(-3px); }
+        .fc-link { background: none; border: none; color: #6c757d; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 1rem; }
+        .map-container { overflow-x: auto; padding: 1rem 0; }
+        .map-tree, .map-tree ul { list-style: none; padding-left: 0; }
+        .map-tree ul { display: none; padding-left: 1.6rem; margin-top: 0.6rem; border-left: 3px solid var(--QOMed-gold); }
+        .map-tree li.open > ul { display: block; animation: fadeIn 0.4s ease; } .map-tree li { margin: 0.4rem 0; }
+        .map-node { display: inline-block; background: var(--QOMed-blue); color: #fff; padding: 0.6rem 1.1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .map-node:hover { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateX(4px); }
+        .map-node.root { background: var(--accent); font-size: 1.15rem; } .map-node.branch { background: var(--QOMed-light); }
+        .map-leaf { display: inline-block; background: var(--sand); color: var(--text); padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.95rem; border: 2px solid var(--QOMed-gold); }
+        li.has-children > .map-node::before { content: '▶ '; font-size: 0.8em; } li.has-children.open > .map-node::before { content: '▼ '; font-size: 0.8em; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } .logo-container { flex-direction: column; gap: 1rem; } .logo-farmacognosia { width: 80px; } .container { padding: 1rem; } .nav-buttons { gap: 0.5rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="LogoFarmacognosia.png" alt="Logo Farmacognosia" class="logo-farmacognosia">
+            <div>
+                <h1>Farmacognosia</h1>
+                <p class="subtitle">Tema 4: Sustancias Bioactivas Nutracéuticas de Origen Animal</p>
+                <div class="motivational-phrase">🌿 "Nutriendo el cuerpo con el poder de la naturaleza"</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showSection('inicio', this)">🏠 Inicio</button>
+            <button class="nav-btn" onclick="showSection('conceptos', this)">📚 Conceptos</button>
+            <button class="nav-btn" onclick="showSection('mapa', this)">🗺️ Mapa Conceptual</button>
+            <button class="nav-btn" onclick="showSection('flashcards', this)">🃏 Flashcards</button>
+            <button class="nav-btn" onclick="showSection('aplicaciones', this)">🏥 Aplicaciones</button>
+            <button class="nav-btn" onclick="showSection('mnemotecnias', this)">🧠 Mnemotecnias</button>
+            <button class="nav-btn" onclick="showSection('glosario', this)">📖 Glosario</button>
+            <button class="nav-btn" onclick="showSection('errores', this)">⚠️ Errores Comunes</button>
+            <button class="nav-btn" onclick="showSection('bibliografia', this)">📚 Bibliografía</button>
+            <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="inicio" class="section active">
+            <div class="card">
+                <h2>🎯 Objetivos de Aprendizaje</h2>
+                <div class="info-box">
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li>✓ Identificar las principales sustancias bioactivas de origen animal con relevancia nutricional.</li>
+                        <li>✓ Clasificar los compuestos según su estructura química, fuente y función biológica.</li>
+                        <li>✓ Distinguir entre productos obtenidos por extracción animal vs. producción industrial sintética/biotecnológica.</li>
+                        <li>✓ Analizar las tendencias históricas y futuras en el desarrollo de nutracéuticos de origen animal.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="conceptos" class="section">
+            <div class="card">
+                <h2>📚 Conceptos Fundamentales</h2>
+                <div id="conceptos-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('conceptos-tabs','sub-omega', this)">🐟 Omega-3 y CLA</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-quitina', this)">🦐 Quitina y Quitosano</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-peptidos', this)">🥛 Péptidos Bioactivos</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-otros', this)">⚙️ L-Carnitina, CoQ10 y más</button>
+                    </div>
+
+                    <div id="sub-omega" class="tab-content active">
+                        <h3>🐟 Ácidos Grasos Omega-3 y CLA</h3>
+                        <div class="img-container">
+                            <img src="omega3-estructura.png" alt="Estructura química de EPA y DHA" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 1: Estructuras del Ácido Eicosapentaenoico (EPA, 20:5 n-3) y Docosahexaenoico (DHA, 22:6 n-3).</p>
+                        </div>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Compuesto</th><th>Nombre Químico</th><th>Fuente Principal</th><th>Función Principal</th></tr>
+                            <tr><td><strong>EPA</strong></td><td>Ácido eicosapentaenoico (20:5 n-3)</td><td>Pescados grasos, krill</td><td>Antiinflamatorio, cardiovascular</td></tr>
+                            <tr><td><strong>DHA</strong></td><td>Ácido docosahexaenoico (22:6 n-3)</td><td>Pescados, microalgas</td><td>Desarrollo cerebral y retinal</td></tr>
+                            <tr><td><strong>CLA (cis-9, trans-11)</strong></td><td>Ácido ruménico</td><td>Carne y leche de rumiantes</td><td>Antiinflamatorio, cardiovascular</td></tr>
+                            <tr><td><strong>CLA (trans-10, cis-12)</strong></td><td>Isómero específico</td><td>Productos lácteos fermentados</td><td>Quema de grasa, reduce adipocitos</td></tr>
+                        </table>
+                        </div>
+                        <div class="tip-box">
+                            <strong>Tendencia Futura:</strong> Producción de Omega-3 mediante fermentación heterotrófica de microalgas (Schizochytrium), eliminando la dependencia del pescado y contaminantes como mercurio.
+                        </div>
+                    </div>
+
+                    <div id="sub-quitina" class="tab-content">
+                        <h3>🦐 Quitina y Quitosano</h3>
+                        <div class="img-container">
+                            <img src="quitina-quitosano-proceso.png" alt="Proceso de N-deacetilación de la quitina a quitosano" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 2: Reacción de N-deacetilación con NaOH/KOH (30-50%) para convertir quitina en quitosano.</p>
+                        </div>
+                        <div class="info-box">
+                            <strong>Proceso Químico (N-deacetilación):</strong> Reacción de sustitución nucleofílica en medio fuertemente alcalino.
+                            <ol>
+                                <li>Adición nucleofílica de OH⁻ sobre el grupo carbonilo de la función amida.</li>
+                                <li>Desprendimiento de ácido acético y formación de una amina, estabilizando la molécula de quitosano.</li>
+                            </ol>
+                        </div>
+                        <div class="bio-box">
+                            <strong>Fuentes Emergentes:</strong> Extracción de paredes celulares de hongos (Aspergillus, Mucor) mediante métodos enzimáticos, evitando el impacto ambiental de los ácidos fuertes usados en crustáceos.
+                        </div>
+                    </div>
+
+                    <div id="sub-peptidos" class="tab-content">
+                        <h3>🥛 Péptidos Bioactivos</h3>
+                        <p>Secuencias de 2-20 aminoácidos "criptados" en proteínas precursoras, liberados por hidrólisis enzimática.</p>
+                        <div class="img-container">
+                            <img src="peptidos-bioactivos-hidrolisis.png" alt="Esquema de hidrólisis enzimática de proteínas para liberar péptidos bioactivos" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 3: Proteína precursora → Hidrólisis enzimática (Alcalasa, tripsina) → Péptidos bioactivos libres.</p>
+                        </div>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Función Biológica</th><th>Ejemplos</th><th>Mecanismo</th></tr>
+                            <tr><td><strong>Antihipertensivos</strong></td><td>β-casokininas, VPP, IPP</td><td>Inhiben la enzima convertidora de angiotensina (ECA)</td></tr>
+                            <tr><td><strong>Antimicrobianos</strong></td><td>Lactoferricina B</td><td>Disrupción de membranas bacterianas</td></tr>
+                            <tr><td><strong>Antioxidantes</strong></td><td>Péptidos de caseína y suero</td><td>Captación de radicales libres</td></tr>
+                            <tr><td><strong>Mineral-binding</strong></td><td>Caseinofosfopéptidos (CPP)</td><td>Mejoran absorción de Ca, Fe, Zn</td></tr>
+                        </table>
+                        </div>
+                    </div>
+
+                    <div id="sub-otros" class="tab-content">
+                        <h3>⚙️ L-Carnitina, Colina, CoQ10, Glucosamina</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Compuesto</th><th>Fuente Tradicional</th><th>Producción Industrial Actual</th><th>Tendencia Futura</th></tr>
+                            <tr><td><strong>L-Carnitina</strong></td><td>Carne roja</td><td>Síntesis química (>95% del mercado)</td><td>Estable (químico)</td></tr>
+                            <tr><td><strong>Colina/Lecitina</strong></td><td>Yema de huevo, hígado</td><td>Lecitina de soya/girasol (>90%)</td><td>Estable (vegetal)</td></tr>
+                            <tr><td><strong>Coenzima Q10</strong></td><td>Corazón, hígado</td><td>Fermentación microbiana (>90%)</td><td>Estable (biotecnológico)</td></tr>
+                            <tr><td><strong>Glucosamina</strong></td><td>Crustáceos (hidrólisis ácida)</td><td>Crustáceos (predominante)</td><td>Fermentación microbiana (vegana)</td></tr>
+                            <tr><td><strong>Condroitina</strong></td><td>Cartílago bovino/porcino/tiburón</td><td>Extracción de cartílago animal</td><td>Investigación (biosíntesis microbiana)</td></tr>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mapa" class="section">
+            <div class="card">
+                <h2>🗺️ Mapa Conceptual Interactivo</h2>
+                <div class="map-container">
+                    <ul class="map-tree">
+                        <li class="has-children">
+                            <div class="map-node root" onclick="toggleMap(this)">🌿 Nutracéuticos de Origen Animal</div>
+                            <ul>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Ácidos Grasos</div>
+                                    <ul><li><span class="map-leaf">Omega-3 (EPA/DHA): Pescado → Microalgas (futuro)</span></li>
+                                    <li><span class="map-leaf">CLA: Rumiantes (ácido ruménico cis-9, trans-11)</span></li></ul>
+                                </li>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Polisacáridos</div>
+                                    <ul><li><span class="map-leaf">Quitina: Exoesqueletos de crustáceos</span></li>
+                                    <li><span class="map-leaf">Quitosano: N-deacetilación con NaOH/KOH</span></li>
+                                    <li><span class="map-leaf">Glucosamina/Condroitina: Salud articular</span></li></ul>
+                                </li>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Péptidos Bioactivos</div>
+                                    <ul><li><span class="map-leaf">Antihipertensivos: VPP, IPP (inhiben ECA)</span></li>
+                                    <li><span class="map-leaf">Antimicrobianos: Lactoferricina B</span></li>
+                                    <li><span class="map-leaf">Obtención: Hidrólisis enzimática controlada</span></li></ul>
+                                </li>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Cofactores y Otros</div>
+                                    <ul><li><span class="map-leaf">L-Carnitina: Síntesis química dominante</span></li>
+                                    <li><span class="map-leaf">CoQ10: Fermentación microbiana (>90%)</span></li>
+                                    <li><span class="map-leaf">Lecitina: Soya/girasol (fuente de colina)</span></li></ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="flashcards" class="section">
+            <div class="card">
+                <h2>🃏 Flashcards de Estudio</h2>
+                <p>Haz <strong>clic en la tarjeta</strong> para voltearla y ver la respuesta.</p>
+                <div class="fc-stats">
+                    <span class="fc-stat good">✅ Buenas: <span id="fc-good">0</span></span>
+                    <span class="fc-stat bad">❌ Malas: <span id="fc-bad">0</span></span>
+                    <span class="fc-stat pending">⏳ Pendientes: <span id="fc-left">0</span></span>
+                    <span class="fc-stat total">📈 Historial: <span id="fc-hist">0 ✓ / 0 ✗</span></span>
+                </div>
+                <div class="fc-progress"><div class="fc-progress-bar" id="fc-bar"></div></div>
+                <div class="flashcard-scene" id="fc-scene">
+                    <div class="flashcard" id="fc-card" onclick="flipCard()">
+                        <div class="fc-face fc-front"><div class="fc-label">PREGUNTA</div><div id="fc-question"></div><span class="fc-hint">Clic para voltear ✨</span></div>
+                        <div class="fc-face fc-back"><div class="fc-label">RESPUESTA</div><div id="fc-answer"></div></div>
+                    </div>
+                </div>
+                <div class="fc-controls" id="fc-controls">
+                    <button class="fc-btn good" id="btn-fc-good" onclick="gradeCard(true)" disabled>✅ La sabía</button>
+                    <button class="fc-btn bad" id="btn-fc-bad" onclick="gradeCard(false)" disabled>❌ No la sabía</button>
+                </div>
+                <div id="fc-summary" class="calc-result" style="max-width:720px;margin:1rem auto;"></div>
+                <div style="text-align:center;">
+                    <button class="calc-button" onclick="resetFlashcards()">🔄 Reiniciar Flashcards</button><br>
+                    <button class="fc-link" onclick="borrarHistorial()">Borrar historial acumulado</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicaciones" class="section">
+            <div class="card">
+                <h2>🏥 Aplicaciones Profesionales</h2>
+                <div id="aplicaciones-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('aplicaciones-tabs','aplic-cardio', this)">❤️ Cardiovascular</button>
+                        <button class="tab" onclick="showTab('aplicaciones-tabs','aplic-articular', this)">🦴 Salud Articular</button>
+                    </div>
+                    <div id="aplic-cardio" class="tab-content active">
+                        <div class="problem-box">
+                            <strong>📋 Problema 1:</strong> Un paciente busca un suplemento de Omega-3 pero es vegetariano y teme por contaminantes como mercurio. ¿Qué alternativa biotecnológica le recomendarías y por qué?
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p>Se recomienda <strong>Omega-3 de microalgas</strong> (ej. Schizochytrium). Es la fuente original de EPA/DHA en la cadena alimentaria. La fermentación heterotrófica en biorreactores garantiza una producción controlada, libre de contaminantes marinos (mercurio, PCBs), sostenible y 100% vegana.</p>
+                        </details>
+                    </div>
+                    <div id="aplic-articular" class="tab-content">
+                        <div class="problem-box">
+                            <strong>📋 Problema 2:</strong> Explique la sinergia entre Glucosamina y Condroitina Sulfato en el tratamiento coadyuvante de la osteoartritis.
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p>La <strong>Glucosamina</strong> actúa como precursor en la formación de glicosaminoglicanos en el cartílago articular, promoviendo la síntesis de matriz. La <strong>Condroitina Sulfato</strong> inhibe las enzimas destructivas (metaloproteinasas), evitando la degradación del cartílago existente. Juntas, ofrecen un efecto condroprotector dual.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mnemotecnias" class="section">
+            <div class="card">
+                <h2>🧠 Mnemotecnias y Reglas Mnemotécnicas</h2>
+                
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🐟 Omega-3: "E-D-A"</div>
+                    <div class="info-box">
+                        <strong>E</strong>PA (20:5) → <strong>E</strong>limina inflamación (Cardiovascular).<br>
+                        <strong>D</strong>HA (22:6) → <strong>D</strong>esarrollo cerebral y retinal.<br>
+                        <strong>A</strong>LA (18:3) → <strong>A</strong>ntecesor (precursor vegetal, baja conversión).
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🧀 Isómeros del CLA: "R-Q"</div>
+                    <div class="tip-box">
+                        <strong>R</strong>uménico (cis-9, trans-11) → <strong>R</strong>egula inflamación (natural en rumiantes).<br>
+                        <strong>Q</strong>uema grasa (trans-10, cis-12) → <strong>Q</strong>uita adipocitos (lácteos fermentados/sintético).
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🦐 Proceso Quitina → Quitosano: "D-N-A"</div>
+                    <div class="info-box">
+                        <strong>D</strong>esproteinización (NaOH) → <strong>N</strong>desacetilación (NaOH 40-50%) → <strong>A</strong>mina formada (Quitosano).<br>
+                        <em>Nota:</em> La desmineralización (HCl) va en medio del proceso químico tradicional.
+                    </div>
+                    <p><strong>Frase:</strong> "La Quitina pierde su <strong>A</strong>cetil para ser <strong>A</strong>miga (Quitosano)"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🥛 Péptidos Bioactivos: "I-A-A-M-O-I"</div>
+                    <div class="tip-box">
+                        <strong>I</strong>nhibidores ECA (VPP, IPP) → Antihipertensivos.<br>
+                        <strong>A</strong>ntimicrobianos (Lactoferricina).<br>
+                        <strong>A</strong>ntioxidantes (Caseína).<br>
+                        <strong>M</strong>ineral-binding (CPP para Ca, Fe, Zn).<br>
+                        <strong>O</strong>pioides (β-casomorfinas).<br>
+                        <strong>I</strong>nmunomoduladores.
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">⚙️ Producción Industrial: "S-F-H"</div>
+                    <div class="pharma-box">
+                        <strong>S</strong>íntesis química dominante: L-Carnitina (>95%).<br>
+                        <strong>F</strong>ermentación microbiana dominante: CoQ10 (>90%).<br>
+                        <strong>H</strong>idrólisis enzimática dominante: Péptidos bioactivos.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="glosario" class="section">
+            <div class="card">
+                <h2>📖 Glosario Interactivo</h2>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>N-deacetilación</strong><div class="glossary-definition">Reacción química de sustitución nucleofílica en medio alcalino (NaOH/KOH 30-50%) que convierte la quitina en quitosano, eliminando grupos acetilo y formando aminas libres.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Péptidos Criptados</strong><div class="glossary-definition">Secuencias de aminoácidos inactivas dentro de una proteína precursora que solo ejercen su función biológica (ej. antihipertensiva) tras ser liberadas por hidrólisis enzimática.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Ácido Ruménico</strong><div class="glossary-definition">Isómero cis-9, trans-11 del Ácido Linoleico Conjugado (CLA), encontrado naturalmente en la grasa de rumiantes, con propiedades antiinflamatorias y cardiovasculares.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Fermentación Heterotrófica</strong><div class="glossary-definition">Proceso biotecnológico donde microorganismos (como microalgas Schizochytrium) crecen en oscuridad utilizando fuentes de carbono orgánico para producir lípidos ricos en DHA/EPA.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Caseinofosfopéptidos (CPP)</strong><div class="glossary-definition">Péptidos derivados de la caseína que se unen a minerales como calcio, hierro y zinc, evitando su precipitación en el intestino y mejorando su biodisponibilidad (Mineral-binding).</div></div>
+            </div>
+        </section>
+
+        <section id="errores" class="section">
+            <div class="card">
+                <h2>⚠️ Errores Comunes de Estudiantes</h2>
+                <div class="error-card"><div class="error-title">❌ Error 1: Creer que toda la L-carnitina es natural</div><p><strong>Error:</strong> "La L-carnitina de los suplementos se extrae de la carne roja."</p><div class="correction"><strong>✓ Corrección:</strong> >95% de la L-carnitina del mercado es de <strong>síntesis química</strong> (reducción enantioselectiva), ya que la extracción animal es obsoleta por su bajo rendimiento y alto costo.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 2: Confundir los isómeros del CLA</div><p><strong>Error:</strong> "El isómero trans-10, cis-12 es el principal en la carne de rumiantes."</p><div class="correction"><strong>✓ Corrección:</strong> El isómero natural predominante en rumiantes es el <strong>ácido ruménico (cis-9, trans-11)</strong>. El trans-10, cis-12 está en menor proporción y se asocia a la quema de grasa.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 3: Pensar que la glucosamina solo viene de crustáceos</div><p><strong>Error:</strong> "La glucosamina vegana no existe."</p><div class="correction"><strong>✓ Corrección:</strong> Existe la <strong>glucosamina microbiana</strong> obtenida por fermentación con Aspergillus niger o E. coli modificada, que es vegana, sostenible y libre de alérgenos de mariscos.</div></div>
+            </div>
+        </section>
+
+        <section id="bibliografia" class="section">
+            <div class="card">
+                <h2>📚 Fuentes Bibliográficas</h2>
+                <div class="info-box"><strong>1. "Sustancias Bioactivas y Medicamentos de Origen Animal Superior"</strong><br>• Material de clase - Farmacognosia 2026.<br>• DOI: 10.3390/foods10010037</div>
+                <div class="bio-box"><div><strong>2. "Marine Omega-3 Supplementation"</strong><br>• Abdul et al., Nutrients, 2021.<br>• Revisión sobre la transición de aceite de pescado a microalgas.</div></div>
+                <div class="tip-box"><strong>3. Recursos en Línea:</strong><br>• <strong>Animal Toxin Database:</strong> Para péptidos bioactivos.<br>• <strong>FDA Dietary Supplement Database:</strong> Regulación de nutracéuticos.</div>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <div class="card">
+                <h2>🎯 Quiz de Autoevaluación</h2>
+                <p>10 preguntas al azar de una base de 30. Cada vez que entras se sortea un nuevo ciclo.</p>
+                <p id="quiz-historial" style="margin: .5rem 0 1rem; font-weight: 600; color: var(--QOMed-light);"></p>
+                <div id="quiz-container"></div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="calc-button" onclick="reiniciarQuiz()">🔄 Reiniciar Quiz (nuevo ciclo aleatorio)</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Farmacognosia</p>
+        <p>Tema 4: Sustancias Bioactivas Nutracéuticas</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Prepárate para Innovar en Medicina"</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 - Material educativo para estudiantes</p>
+    </footer>
+
+    <script>
+        const flashcards = [
+            { q: '¿Cuál es la función principal del DHA (22:6 n-3)?', a: 'Desarrollo cerebral y retinal. Se encuentra en pescados grasos y microalgas.' },
+            { q: '¿Qué es el ácido ruménico?', a: 'Es el isómero cis-9, trans-11 del CLA, encontrado naturalmente en carne y leche de rumiantes, con efectos antiinflamatorios.' },
+            { q: '¿Cuál es el proceso químico para convertir quitina en quitosano?', a: 'N-deacetilación en medio fuertemente alcalino (NaOH o KOH al 30-50%), una sustitución nucleofílica que forma grupos amina.' },
+            { q: '¿Qué son los péptidos criptados?', a: 'Secuencias de 2-20 aminoácidos inactivas dentro de una proteína, que se liberan y activan por hidrólisis enzimática.' },
+            { q: 'Menciona 2 funciones de los péptidos bioactivos de la leche.', a: 'Antihipertensivos (inhiben ECA, ej. VPP/IPP) y Antimicrobianos (ej. Lactoferricina B).' },
+            { q: '¿Cuál es la fuente industrial dominante de L-Carnitina hoy en día?', a: 'Síntesis química (reducción enantioselectiva), representando >95% del mercado por su alto rendimiento y pureza.' },
+            { q: '¿Cómo se produce industrialmente la Coenzima Q10 actualmente?', a: 'Mediante fermentación microbiana (ej. Rhodobacter sphaeroides), representando >90% de la producción, reemplazando la extracción animal.' },
+            { q: '¿Cuál es la tendencia futura para la producción de Omega-3?', a: 'Fermentación heterotrófica de microalgas (Schizochytrium), ofreciendo una fuente vegana, sostenible y libre de mercurio.' },
+            { q: '¿Qué ventaja tiene la glucosamina de fermentación microbiana?', a: 'Es vegana, sostenible y libre de alérgenos de mariscos, a diferencia de la hidrólisis ácida tradicional de crustáceos.' },
+            { q: '¿Qué función cumplen los Caseinofosfopéptidos (CPP)?', a: 'Mejoran la absorción de minerales (Ca, Fe, Zn) al evitar su precipitación en el intestino (Mineral-binding).' },
+            { q: '¿Cuál es el isómero del CLA asociado a la quema de grasa?', a: 'El isómero trans-10, cis-12, encontrado en menor proporción en lácteos fermentados y suplementos sintéticos.' },
+            { q: '¿Por qué la extracción de L-carnitina de tejidos animales es obsoleta?', a: 'Por su bajo rendimiento, alto costo y baja eficiencia comparada con la síntesis química.' },
+            { q: '¿Qué enzimas se usan comúnmente para la hidrólisis de péptidos bioactivos?', a: 'Alcalasa, tripsina, pepsina, papaína y quimotripsina, por su especificidad y estatus GRAS.' },
+            { q: '¿Cuál es la fuente principal de lecitina comercial (>90%)?', a: 'Lecitina de soya, como subproducto del refinado de aceite de soya.' },
+            { q: '¿Qué limitación tiene el método químico tradicional de producción de quitosano?', a: 'Uso intensivo de químicos (NaOH, HCl), alto impacto ambiental y dependencia de la estacionalidad pesquera.' },
+            { q: '¿Qué es la fermentación heterotrófica en microalgas?', a: 'Cultivo de microalgas en oscuridad usando fuentes de carbono orgánico para producir lípidos ricos en EPA/DHA a escala industrial.' },
+            { q: 'Menciona 2 propiedades atribuidas a los compuestos bioactivos animales.', a: 'Antioxidantes, antiinflamatorias, antimicrobianas, anticancerígenas, antimutagénicas.' },
+            { q: '¿Cuál es el precursor de la acetilcolina y fosfolípidos de membrana?', a: 'La Colina, un nutriente esencial encontrado en yema de huevo, hígado y lecitina.' },
+            { q: '¿Qué papel juega la glucosamina en la osteoartritis?', a: 'Actúa como precursor en la formación de glicosaminoglicanos en el cartílago articular.' },
+            { q: '¿Qué papel juega la condroitina sulfato en la osteoartritis?', a: 'Evita la degradación del cartílago al inhibir enzimas destructivas.' },
+            { q: '¿Cuál es la diferencia entre quitina y quitosano?', a: 'La quitina es un polisacárido (N-acetilglucosamina); el quitosano es su derivado desacetilado, más soluble y reactivo.' },
+            { q: '¿Qué fuente emergente de quitina evita la estacionalidad pesquera?', a: 'Fuentes fúngicas (paredes celulares de hongos como Aspergillus o Mucor).' },
+            { q: '¿Qué porcentaje del requerimiento de L-carnitina es biosintetizado endógenamente?', a: 'Solo el 25%. El 75% debe provenir de fuentes exógenas (dieta o suplementos).' },
+            { q: '¿Qué ventaja tiene la lecitina de girasol sobre la de soya?', a: 'Se extrae mecánicamente sin solventes químicos, es no-OGM y hipoalergénica.' }
+        ];
+
+        let fcIndex = 0, fcFlipped = false, fcGood = 0, fcBad = 0, fcDone = false;
+        function fcUpdateStats() {
+            document.getElementById('fc-good').textContent = fcGood;
+            document.getElementById('fc-bad').textContent = fcBad;
+            document.getElementById('fc-left').textContent = Math.max(0, flashcards.length - fcIndex);
+            const tg = parseInt(localStorage.getItem('fc4TotalGood') || '0', 10);
+            const tb = parseInt(localStorage.getItem('fc4TotalBad') || '0', 10);
+            document.getElementById('fc-hist').textContent = tg + ' ✓ / ' + tb + ' ✗';
+            document.getElementById('fc-bar').style.width = (fcIndex / flashcards.length * 100) + '%';
+        }
+        function fcRenderCard() {
+            const card = document.getElementById('fc-card');
+            card.classList.remove('flipped'); fcFlipped = false;
+            document.getElementById('fc-question').textContent = flashcards[fcIndex].q;
+            document.getElementById('fc-answer').textContent = flashcards[fcIndex].a;
+            document.getElementById('btn-fc-good').disabled = true;
+            document.getElementById('btn-fc-bad').disabled = true;
+            fcUpdateStats();
+        }
+        function flipCard() {
+            if (fcDone) return;
+            const card = document.getElementById('fc-card');
+            card.classList.toggle('flipped'); fcFlipped = card.classList.contains('flipped');
+            document.getElementById('btn-fc-good').disabled = !fcFlipped;
+            document.getElementById('btn-fc-bad').disabled = !fcFlipped;
+        }
+        function gradeCard(wasGood) {
+            if (!fcFlipped || fcDone) return;
+            if (wasGood) { fcGood++; localStorage.setItem('fc4TotalGood', String(parseInt(localStorage.getItem('fc4TotalGood') || '0', 10) + 1)); }
+            else { fcBad++; localStorage.setItem('fc4TotalBad', String(parseInt(localStorage.getItem('fc4TotalBad') || '0', 10) + 1)); }
+            fcIndex++;
+            if (fcIndex < flashcards.length) fcRenderCard(); else fcFinish();
+        }
+        function fcFinish() {
+            fcDone = true;
+            document.getElementById('fc-scene').style.display = 'none';
+            document.getElementById('fc-controls').style.display = 'none';
+            const total = fcGood + fcBad; const pct = Math.round(fcGood / total * 100);
+            let msg = pct >= 80 ? '¡Excelente! Dominas los nutracéuticos.' : (pct >= 60 ? '💪 ¡Bien! Repasa las que fallaste.' : '📚 Necesitas repasar Conceptos y Mapa.');
+            const sum = document.getElementById('fc-summary');
+            sum.innerHTML = '<strong>📊 Resumen:</strong><br>✅ Buenas: ' + fcGood + ' &nbsp; ❌ Malas: ' + fcBad + '<br>Precisión: <strong>' + pct + '%</strong><br>' + msg;
+            sum.classList.add('show'); fcUpdateStats();
+        }
+        function resetFlashcards() {
+            fcIndex = 0; fcGood = 0; fcBad = 0; fcDone = false;
+            document.getElementById('fc-scene').style.display = 'block';
+            document.getElementById('fc-controls').style.display = 'flex';
+            document.getElementById('fc-summary').classList.remove('show');
+            fcRenderCard();
+        }
+        function borrarHistorial() { localStorage.removeItem('fc4TotalGood'); localStorage.removeItem('fc4TotalBad'); fcUpdateStats(); }
+
+        function showSection(sectionId, btn) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            if (sectionId === 'quiz') loadQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function showTab(groupId, tabId, btn) {
+            const group = document.getElementById(groupId);
+            group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            group.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+        function toggleMap(node) { node.parentElement.classList.toggle('open'); }
+        function toggleDefinition(element) {
+            const definition = element.querySelector('.glossary-definition');
+            definition.classList.toggle('show');
+            element.style.background = definition.classList.contains('show') ? '#fff9e6' : 'var(--white)';
+        }
+
+        const quizQuestions = [
+            { question: '¿Cuál es la función principal del DHA?', options: ['Antiinflamatorio sistémico', 'Desarrollo cerebral y retinal', 'Quema de grasa', 'Precursor de colesterol'], correct: 1, explanation: 'El DHA (22:6 n-3) es crucial para el desarrollo y mantenimiento del sistema nervioso central y la retina.' },
+            { question: '¿Qué isómero del CLA se encuentra predominantemente en rumiantes?', options: ['trans-10, cis-12', 'cis-9, trans-11 (ácido ruménico)', 'cis-9, cis-12', 'trans-9, trans-11'], correct: 1, explanation: 'El ácido ruménico (cis-9, trans-11) es el isómero natural predominante en la grasa de rumiantes, con propiedades antiinflamatorias.' },
+            { question: '¿Qué reactivo se usa para la N-deacetilación de la quitina?', options: ['HCl concentrado', 'NaOH o KOH al 30-50%', 'Etanol', 'Acetona'], correct: 1, explanation: 'La N-deacetilación requiere un medio fuertemente alcalino (NaOH o KOH al 30-50%) para convertir la quitina en quitosano.' },
+            { question: '¿Qué son los péptidos criptados?', options: ['Péptidos sintéticos de laboratorio', 'Secuencias inactivas en proteínas que se liberan por hidrólisis', 'Aminoácidos esenciales libres', 'Toxinas de veneno'], correct: 1, explanation: 'Son secuencias de aminoácidos "escondidas" en proteínas que solo ejercen su función biológica tras ser liberadas por hidrólisis enzimática.' },
+            { question: '¿Cuál es la fuente industrial dominante de L-Carnitina?', options: ['Extracción de carne roja', 'Fermentación bacteriana', 'Síntesis química', 'Extracción de leche'], correct: 2, explanation: '>95% de la L-carnitina del mercado es de síntesis química debido a su alto rendimiento, pureza >99% y costo reducido.' },
+            { question: '¿Cómo se produce la mayor parte de la Coenzima Q10 actualmente?', options: ['Extracción de corazón de mamífero', 'Fermentación microbiana', 'Síntesis química total', 'Extracción de levadura de cerveza'], correct: 1, explanation: '>90% de la CoQ10 se produce mediante fermentación microbiana (ej. Rhodobacter sphaeroides), siendo sostenible y escalable.' },
+            { question: '¿Cuál es la tendencia futura para la producción de Omega-3?', options: ['Aumento de la pesca de anchoveta', 'Fermentación heterotrófica de microalgas', 'Síntesis química a partir de petróleo', 'Extracción de mamíferos marinos'], correct: 1, explanation: 'Las microalgas (ej. Schizochytrium) permiten producir EPA/DHA de forma controlada, vegana, sostenible y libre de contaminantes marinos.' },
+            { question: '¿Qué ventaja tiene la glucosamina por fermentación microbiana?', options: ['Es más barata que la química', 'Es vegana y libre de alérgenos de mariscos', 'Tiene más sulfato', 'Se absorbe mejor en la piel'], correct: 1, explanation: 'La fermentación con hongos o bacterias modificadas produce glucosamina vegana, evitando la dependencia de crustáceos y sus alérgenos.' },
+            { question: '¿Qué función cumplen los Caseinofosfopéptidos (CPP)?', options: ['Inhiben la ECA', 'Disrupción de membranas bacterianas', 'Mejoran la absorción de Ca, Fe, Zn', 'Inducen sueño'], correct: 2, explanation: 'Los CPP son péptidos "mineral-binding" que quelan minerales, evitando su precipitación y mejorando su absorción intestinal.' },
+            { question: '¿Cuál es el método principal para obtener péptidos bioactivos de la leche?', options: ['Hidrólisis ácida', 'Hidrólisis enzimática controlada', 'Extracción con hexano', 'Destilación'], correct: 1, explanation: 'La hidrólisis enzimática (con alcalasa, tripsina, etc.) es el método predominante por su especificidad, reproducibilidad y estatus GRAS.' },
+            { question: '¿Qué fuente de lecitina domina el mercado comercial (>90%)?', options: ['Yema de huevo', 'Girasol', 'Soya', 'Krill'], correct: 2, explanation: 'La lecitina de soya es el subproducto dominante del refinado de aceite de soya, usada como emulsificante y fuente de colina.' },
+            { question: '¿Qué limitación tiene el método químico tradicional del quitosano?', options: ['Baja pureza', 'Uso intensivo de químicos e impacto ambiental', 'No se puede usar en humanos', 'Es demasiado caro'], correct: 1, explanation: 'Requiere desproteinización y desacetilación con NaOH concentrado y desmineralización con HCl, generando alto impacto ambiental.' },
+            { question: '¿Qué porcentaje del requerimiento de L-carnitina es biosintetizado endógenamente?', options: ['100%', '75%', '50%', '25%'], correct: 3, explanation: 'Solo el 25% se sintetiza endógenamente (a partir de lisina y metionina); el 75% debe provenir de la dieta o suplementos.' },
+            { question: '¿Qué es el ácido eicosapentaenoico (EPA)?', options: ['20:5 n-3, antiinflamatorio', '22:6 n-3, desarrollo cerebral', '18:3 n-3, precursor', '20:4 n-6, inflamatorio'], correct: 0, explanation: 'El EPA es un ácido graso omega-3 de 20 carbonos y 5 dobles enlaces, conocido por sus potentes efectos antiinflamatorios y cardiovasculares.' },
+            { question: '¿Qué enzima se usa comúnmente en la hidrólisis de proteínas para péptidos bioactivos?', options: ['Amilasa', 'Alcalasa', 'Lipasa', 'Catalasa'], correct: 1, explanation: 'La alcalasa (una proteasa) es una de las enzimas más utilizadas por su eficiencia en la liberación de péptidos bioactivos de caseína y suero.' },
+            { question: '¿Cuál es el isómero del CLA asociado a la reducción de adipocitos?', options: ['cis-9, trans-11', 'trans-10, cis-12', 'cis-9, cis-12', 'trans-11, trans-12'], correct: 1, explanation: 'El isómero trans-10, cis-12 se asocia con la quema de grasa y reducción de adipocitos, aunque está en menor proporción en la naturaleza.' },
+            { question: '¿De dónde se extrae tradicionalmente la condroitina sulfato?', options: ['Microalgas', 'Cartílago bovino, porcino o de tiburón', 'Cáscaras de huevo', 'Pétalos de flores'], correct: 1, explanation: 'La condroitina sulfato se extrae predominantemente del cartílago de tráquea bovina, hocico porcino o cartílago de tiburón.' },
+            { question: '¿Qué es la fermentación heterotrófica en el contexto del Omega-3?', options: ['Cultivo de algas con luz solar', 'Cultivo de microalgas en oscuridad usando carbono orgánico para producir lípidos', 'Fermentación de leche', 'Fermentación de carne'], correct: 1, explanation: 'Permite a las microalgas producir altos niveles de DHA/EPA en biorreactores sin necesidad de luz, usando azúcares como fuente de carbono.' },
+            { question: '¿Qué propiedad tienen los péptidos β-casomorfinas?', options: ['Antihipertensiva', 'Opioide (modulación del dolor)', 'Antimicrobiana', 'Quemadora de grasa'], correct: 1, explanation: 'Las β-casomorfinas son péptidos bioactivos de la leche con actividad opioide, que pueden modular el dolor y la motilidad intestinal.' },
+            { question: '¿Cuál es la ventaja de la lecitina de girasol?', options: ['Es más barata que la de soya', 'Extracción mecánica sin solventes, no-OGM y hipoalergénica', 'Tiene más colesterol', 'Es sintética'], correct: 1, explanation: 'Se obtiene por prensado mecánico sin hexano, siendo una alternativa no-OGM e hipoalergénica a la lecitina de soya.' },
+            { question: '¿Qué paso sigue a la desproteinización en la producción química de quitosano?', options: ['Desacetilación', 'Desmineralización con HCl', 'Secado', 'Fermentación'], correct: 1, explanation: 'El proceso tradicional es: Desproteinización (NaOH) → Desmineralización (HCl) → Desacetilación (NaOH concentrado).' },
+            { question: '¿Qué nutriente esencial es precursor de la acetilcolina?', options: ['Inositol', 'Colina', 'Taurina', 'Carnitina'], correct: 1, explanation: 'La colina es un nutriente esencial precursor de la acetilcolina (neurotransmisor) y de fosfolípidos de membrana.' },
+            { question: '¿Por qué la extracción de CoQ10 de tejidos animales es obsoleta?', options: ['Es demasiado pura', 'Bajo rendimiento y alto costo', 'Es ilegal', 'No tiene actividad biológica'], correct: 1, explanation: 'La extracción de corazón/hígado tiene rendimientos ínfimos y costos prohibitivos, siendo reemplazada por la fermentación microbiana.' },
+            { question: '¿Qué función biológica tienen los péptidos VPP e IPP?', options: ['Antimicrobiana', 'Inhibidores de la ECA (Antihipertensivos)', 'Antioxidante', 'Inmunomoduladora'], correct: 1, explanation: 'Los lactotripeptidos Val-Pro-Pro (VPP) e Ile-Pro-Pro (IPP) son potentes inhibidores de la enzima convertidora de angiotensina (ECA).' },
+            { question: '¿Qué es el quitosano?', options: ['Un lípido', 'Un derivado desacetilado de la quitina', 'Una proteína', 'Un ácido graso'], correct: 1, explanation: 'El quitosano es un polisacárido lineal obtenido por la desacetilación parcial de la quitina, con grupos amina libres que le dan carga positiva.' },
+            { question: '¿Cuál es la principal limitación de la glucosamina de crustáceos?', options: ['Es muy cara', 'Dependencia de estacionalidad pesquera y riesgo de alergia', 'No funciona', 'Es tóxica'], correct: 1, explanation: 'Depende de los desechos de la industria camaronera, variando por temporada y presentando riesgo para personas alérgicas a mariscos.' },
+            { question: '¿Qué microorganismos se usan para la fermentación de CoQ10?', options: ['E. coli patógena', 'Rhodobacter sphaeroides, Saccharomyces cerevisiae', 'Virus', 'Protozoos'], correct: 1, explanation: 'Bacterias como Rhodobacter sphaeroides y levaduras como S. cerevisiae son las cepas industriales dominantes para producir CoQ10.' },
+            { question: '¿Qué es la L-carnitina sintética?', options: ['Una mezcla de isómeros inactivos', 'L-carnitina producida por reducción enantioselectiva con pureza >99%', 'Carnitina extraída de plantas', 'Carnitina fermentada'], correct: 1, explanation: 'La síntesis química moderna logra L-carnitina enantioméricamente pura (>99%), equivalente en biodisponibilidad a la natural.' },
+            { question: '¿Qué papel juega la condroitina en la osteoartritis?', options: ['Estimula el dolor', 'Evita la degradación del cartílago', 'Aumenta la inflamación', 'Rompe el hueso'], correct: 1, explanation: 'La condroitina sulfato inhibe enzimas destructivas (como metaloproteinasas), protegiendo la matriz del cartílago de la degradación.' },
+            { question: '¿Cuál es la fuente emergente de quitina que evita el impacto ambiental de los crustáceos?', options: ['Petróleo', 'Paredes celulares de hongos (Aspergillus, Mucor)', 'Sintética a partir de gas', 'Madera'], correct: 1, explanation: 'La extracción de quitina de hongos mediante métodos enzimáticos es una alternativa sostenible, independiente de la pesca y con menor impacto químico.' }
+        ];
+
+        let quizSet = [], quizAnswered = 0, quizScore = 0, quizLastIds = [];
+        function barajar(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+        function overlapCount(newSet, oldSet) { const oldQs = new Set(oldSet.map(q => q.question)); return newSet.filter(q => oldQs.has(q.question)).length; }
+        function loadQuiz() {
+            let sel, intentos = 0;
+            do { sel = barajar(quizQuestions).slice(0, 10); intentos++; } while (quizLastIds.length > 0 && overlapCount(sel, quizLastIds) > 4 && intentos < 30);
+            quizLastIds = sel; quizSet = sel; quizAnswered = 0; quizScore = 0;
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '<div class="quiz-progress" id="quiz-progress"></div>';
+            quizSet.forEach((q, index) => {
+                const div = document.createElement('div'); div.className = 'quiz-container'; div.style.marginBottom = '2rem';
+                div.innerHTML = '<div class="quiz-question">' + (index + 1) + '. ' + q.question + '</div>' +
+                    '<div class="quiz-options">' + q.options.map((opt, i) => '<button class="quiz-option" onclick="checkAnswer(' + index + ', ' + i + ', this)">' + opt + '</button>').join('') + '</div>' +
+                    '<div class="quiz-feedback" id="feedback-' + index + '" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;"></div>';
+                container.appendChild(div);
+            });
+            actualizarProgresoQuiz(); mostrarHistorialQuiz();
+        }
+        function actualizarProgresoQuiz() {
+            const p = document.getElementById('quiz-progress');
+            if (p) p.innerHTML = '📊 Progreso: <strong>' + quizAnswered + '/' + quizSet.length + '</strong> · ✅ Aciertos: <strong>' + quizScore + '</strong>';
+        }
+        function mostrarHistorialQuiz() {
+            const h = document.getElementById('quiz-historial'); if (!h) return;
+            const ciclos = parseInt(localStorage.getItem('quiz4Ciclos') || '0', 10);
+            const ultimo = localStorage.getItem('quiz4Ultimo') || '—';
+            const mejor = localStorage.getItem('quiz4Mejor') || '—';
+            h.innerHTML = '🔁 Ciclos: <strong>' + ciclos + '</strong> · 🕘 Último: ' + ultimo + ' · 🏆 Mejor: ' + mejor;
+        }
+        function checkAnswer(qIdx, sIdx, btn) {
+            if (btn.disabled) return;
+            const q = quizSet[qIdx]; const fb = document.getElementById('feedback-' + qIdx);
+            const opts = btn.parentElement.querySelectorAll('.quiz-option');
+            opts.forEach(o => o.disabled = true); quizAnswered++;
+            if (sIdx === q.correct) {
+                quizScore++; btn.classList.add('correct');
+                fb.innerHTML = '<span style="color: #4caf50; font-weight: bold;">✅ ¡Correcto!</span><br>' + q.explanation;
+                fb.style.background = '#e8f5e9'; fb.style.color = '#2c3e50';
+            } else {
+                btn.classList.add('incorrect'); opts[q.correct].classList.add('correct');
+                fb.innerHTML = '<span style="color: #f44336; font-weight: bold;">❌ Incorrecto</span><br>' + q.explanation;
+                fb.style.background = '#ffebee'; fb.style.color = '#2c3e50';
+            }
+            fb.style.display = 'block'; actualizarProgresoQuiz();
+            if (quizAnswered === quizSet.length) finalizarQuiz();
+        }
+        function finalizarQuiz() {
+            const pct = Math.round((quizScore / quizSet.length) * 100);
+            let msg = pct >= 90 ? '🏅 ¡Excelencia!' : (pct >= 70 ? '💪 ¡Muy bien!' : (pct >= 50 ? '📖 Buen intento, repasa.' : '🔄 Vuelve a Conceptos.'));
+            const ciclos = parseInt(localStorage.getItem('quiz4Ciclos') || '0', 10) + 1;
+            localStorage.setItem('quiz4Ciclos', String(ciclos));
+            localStorage.setItem('quiz4Ultimo', quizScore + '/' + quizSet.length + ' (' + pct + '%)');
+            const mejor = parseInt(localStorage.getItem('quiz4MejorNum') || '0', 10);
+            if (pct > mejor) { localStorage.setItem('quiz4MejorNum', String(pct)); localStorage.setItem('quiz4Mejor', quizScore + '/' + quizSet.length + ' (' + pct + '%)'); }
+            const container = document.getElementById('quiz-container');
+            container.insertAdjacentHTML('beforeend', '<div class="calc-result show" style="margin-top:1.5rem; text-align:center;"><h3>🏁 Resultados</h3>Aciertos: <strong>' + quizScore + ' / ' + quizSet.length + '</strong> (' + pct + '%)<br>' + msg + '<br><button class="calc-button" style="margin-top:1rem;" onclick="reiniciarQuiz()">🎲 Nuevo ciclo</button></div>');
+            mostrarHistorialQuiz(); container.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function reiniciarQuiz() { loadQuiz(); document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' }); }
+        document.addEventListener('DOMContentLoaded', () => { loadQuiz(); fcRenderCard(); });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.img-container img, .molecule-img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() { window.open(this.src, '_blank'); });
+            });
+        });
+    </script>
+</body>
+</html>
