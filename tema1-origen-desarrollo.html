@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 1: Origen y Desarrollo de Medicamentos | Farmacognosia</title>
+    <style>
+        :root {
+            --QOMed-gold: #D4AF37;
+            --QOMed-dark: #1a1a2e;
+            --QOMed-blue: #16213e;
+            --QOMed-light: #0f3460;
+            --accent: #e94560;
+            --text: #2c3e50;
+            --white: #ffffff;
+            --sand: #f4e9c1;
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        ul:not(.map-tree), ol {
+            padding-left: 2.4rem;
+            margin: 0.5rem 0 1rem;
+        }
+        ul:not(.map-tree) { list-style: none; }
+        ul:not(.map-tree) li, ol li { margin: 0.45rem 0; }
+        ol { list-style: decimal; }
+
+        .quiz-progress {
+            background: var(--QOMed-blue); color: #fff; border-left: 5px solid var(--QOMed-gold);
+            padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 1.05rem;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--QOMed-dark) 0%, var(--QOMed-blue) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 6px 20px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--QOMed-gold);
+        }
+
+        .logo-container { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .logo-farmacognosia { width: 120px; height: auto; background: var(--white); border-radius: 50%; padding: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); color: var(--QOMed-gold); }
+        .subtitle { font-size: 1.2rem; opacity: 0.95; font-weight: 300; }
+        .motivational-phrase {
+            background: linear-gradient(135deg, var(--QOMed-gold), #f4d03f);
+            color: var(--QOMed-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-container { background: var(--QOMed-blue); padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px var(--shadow); }
+        .nav-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; max-width: 1400px; margin: 0 auto; }
+
+        .nav-btn {
+            background: var(--white); color: var(--QOMed-dark); border: none; padding: 0.8rem 1.5rem;
+            border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.3s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        .nav-btn:hover, .nav-btn.active { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+
+        .section { display: none; animation: fadeIn 0.5s ease; }
+        .section.active { display: block; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card {
+            background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem;
+            box-shadow: 0 8px 24px var(--shadow); border-left: 6px solid var(--QOMed-gold); transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        h2 { color: var(--QOMed-blue); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid var(--QOMed-gold); display: flex; align-items: center; gap: 0.8rem; font-size: 2rem; }
+        h3 { color: var(--QOMed-light); margin: 1.5rem 0 1rem; font-size: 1.5rem; }
+
+        .molecule-img { max-width: 100%; height: auto; border-radius: 12px; margin: 1rem 0; box-shadow: 0 4px 12px var(--shadow); }
+        .img-container { text-align: center; margin: 2rem 0; }
+
+        .calculator { background: linear-gradient(135deg, #fff9f5 0%, #fff0e8 100%); border: 3px solid var(--QOMed-gold); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .calc-title { color: var(--QOMed-blue); font-size: 1.6rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+        .calc-input-group { margin: 1rem 0; }
+        .calc-input-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--QOMed-dark); }
+        .calc-input-group input, .calc-input-group select { width: 100%; padding: 0.8rem; border: 2px solid var(--sand); border-radius: 8px; font-size: 1rem; transition: border-color 0.3s; }
+        .calc-input-group input:focus, .calc-input-group select:focus { outline: none; border-color: var(--QOMed-gold); }
+
+        .calc-button {
+            background: var(--QOMed-blue); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 30px;
+            font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 12px var(--shadow);
+        }
+        .calc-button:hover { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateY(-2px); }
+
+        .calc-result { background: var(--white); border-left: 5px solid var(--accent); padding: 1.5rem; margin-top: 1.5rem; border-radius: 8px; font-size: 1.2rem; display: none; }
+        .calc-result.show { display: block; animation: slideIn 0.5s ease; }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow); }
+        th { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); padding: 1.2rem; text-align: left; font-weight: 600; }
+        td { padding: 1rem 1.2rem; border-bottom: 1px solid #eee; transition: background 0.3s; }
+        tr:hover td { background: #f8fff0; }
+
+        .info-box { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .tip-box { background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 5px solid #ffc107; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .bio-box { background: linear-gradient(135deg, #d1ecf1 0%, #a8dadc 100%); border-left: 5px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .pharma-box { background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .problem-box { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #28a745; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+
+        details.solution { margin-top: 1rem; background: #f8f9fa; border: 2px solid var(--QOMed-light); border-radius: 10px; padding: 0.8rem 1.2rem; }
+        details.solution summary { cursor: pointer; font-weight: 700; color: var(--QOMed-light); }
+        details.solution[open] summary { margin-bottom: 0.8rem; border-bottom: 1px dashed var(--QOMed-light); padding-bottom: .4rem; }
+
+        .mnemonic-card { background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%); border: 3px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; position: relative; overflow: hidden; }
+        .mnemonic-title { color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.2rem; }
+
+        .glossary-term { background: var(--white); border: 2px solid var(--QOMed-gold); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; cursor: pointer; transition: all 0.3s; }
+        .glossary-term:hover { background: #fff9e6; transform: translateX(5px); }
+        .glossary-definition { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--QOMed-gold); }
+        .glossary-definition.show { display: block; animation: fadeIn 0.3s ease; }
+
+        .error-card { background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1rem 0; border-radius: 0 12px 12px 0; }
+        .error-title { color: #dc3545; font-weight: 700; margin-bottom: 0.5rem; }
+        .correction { background: #d4edda; border-left: 3px solid #28a745; padding: 1rem; margin-top: 1rem; border-radius: 0 8px 8px 0; }
+
+        .quiz-container { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .quiz-question { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 600; }
+        .quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .quiz-option { background: var(--white); color: var(--text); border: 3px solid transparent; padding: 1.2rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+        .quiz-option:hover:not(:disabled) { border-color: var(--QOMed-gold); transform: translateY(-3px); }
+        .quiz-option:disabled { cursor: not-allowed; opacity: 0.95; }
+        .quiz-option.correct { background: #4caf50; color: white; border-color: #2e7d32; }
+        .quiz-option.incorrect { background: #f44336; color: white; border-color: #c62828; }
+
+        .footer { background: var(--QOMed-dark); color: var(--white); text-align: center; padding: 2.5rem; margin-top: 3rem; border-top: 5px solid var(--QOMed-gold); }
+
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow); }
+        .table-responsive table { min-width: 600px; width: 100%; margin: 0; }
+
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tab { background: var(--sand); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab.active { background: var(--QOMed-gold); color: var(--QOMed-dark); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+
+        .fc-stats { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0; }
+        .fc-stat { padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; color: #fff; font-size: 0.95rem; }
+        .fc-stat.good { background: #28a745; }
+        .fc-stat.bad { background: #dc3545; }
+        .fc-stat.pending { background: #6c757d; }
+        .fc-stat.total { background: var(--QOMed-light); }
+        .fc-progress { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; max-width: 720px; margin: 0 auto 1.5rem; }
+        .fc-progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--QOMed-gold), var(--accent)); transition: width 0.4s; }
+        .flashcard-scene { perspective: 1400px; max-width: 720px; height: 320px; margin: 0 auto 1.5rem; }
+        .flashcard { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+        .flashcard.flipped { transform: rotateY(180deg); }
+        .fc-face {
+            position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+            border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; overflow: auto; box-shadow: 0 8px 24px var(--shadow); font-size: 1.15rem;
+        }
+        .fc-front { background: linear-gradient(135deg, var(--QOMed-blue), var(--QOMed-light)); color: #fff; border: 3px solid var(--QOMed-gold); }
+        .fc-back { background: linear-gradient(135deg, #fff9e6, var(--sand)); color: var(--text); border: 3px solid var(--QOMed-gold); transform: rotateY(180deg); }
+        .fc-label { font-size: 0.85rem; letter-spacing: 2px; font-weight: 800; opacity: 0.8; margin-bottom: 1rem; }
+        .fc-hint { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; font-style: italic; }
+        .fc-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        .fc-btn { border: none; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s; color: #fff; }
+        .fc-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .fc-btn.good { background: #28a745; }
+        .fc-btn.bad { background: #dc3545; }
+        .fc-btn:not(:disabled):hover { transform: translateY(-3px); }
+        .fc-link { background: none; border: none; color: #6c757d; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 1rem; }
+
+        .map-container { overflow-x: auto; padding: 1rem 0; }
+        .map-tree, .map-tree ul { list-style: none; padding-left: 0; }
+        .map-tree ul { display: none; padding-left: 1.6rem; margin-top: 0.6rem; border-left: 3px solid var(--QOMed-gold); }
+        .map-tree li.open > ul { display: block; animation: fadeIn 0.4s ease; }
+        .map-tree li { margin: 0.4rem 0; }
+        .map-node { display: inline-block; background: var(--QOMed-blue); color: #fff; padding: 0.6rem 1.1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .map-node:hover { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateX(4px); }
+        .map-node.root { background: var(--accent); font-size: 1.15rem; }
+        .map-node.branch { background: var(--QOMed-light); }
+        .map-leaf { display: inline-block; background: var(--sand); color: var(--text); padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.95rem; border: 2px solid var(--QOMed-gold); }
+        li.has-children > .map-node::before { content: '▶ '; font-size: 0.8em; }
+        li.has-children.open > .map-node::before { content: '▼ '; font-size: 0.8em; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.2rem; }
+            .logo-container { flex-direction: column; gap: 1rem; }
+            .logo-farmacognosia { width: 80px; }
+            .container { padding: 1rem; }
+            .card { padding: 1.5rem; }
+            .nav-buttons { gap: 0.5rem; }
+            .nav-btn { padding: 0.6rem 1rem; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="LogoFarmacognosia.png" alt="Logo Farmacognosia" class="logo-farmacognosia">
+            <div>
+                <h1>Farmacognosia</h1>
+                <p class="subtitle">Tema 1: Origen y Desarrollo de Medicamentos de Origen Animal</p>
+                <div class="motivational-phrase">🔬 "De la naturaleza a la farmacia" 💊</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showSection('inicio', this)">🏠 Inicio</button>
+            <button class="nav-btn" onclick="showSection('conceptos', this)">📚 Conceptos</button>
+            <button class="nav-btn" onclick="showSection('mapa', this)">🗺️ Mapa Conceptual</button>
+            <button class="nav-btn" onclick="showSection('flashcards', this)"> Flashcards</button>
+            <button class="nav-btn" onclick="showSection('aplicaciones', this)">🏥 Aplicaciones</button>
+            <button class="nav-btn" onclick="showSection('mnemotecnias', this)">🧠 Mnemotecnias</button>
+            <button class="nav-btn" onclick="showSection('glosario', this)">📖 Glosario</button>
+            <button class="nav-btn" onclick="showSection('errores', this)">⚠️ Errores Comunes</button>
+            <button class="nav-btn" onclick="showSection('bibliografia', this)">📚 Bibliografía</button>
+            <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio" class="section active">
+            <div class="card">
+                <h2>🎯 Objetivos de Aprendizaje</h2>
+                <div class="info-box">
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li>✓ Comprender el proceso completo de descubrimiento y desarrollo de fármacos</li>
+                        <li>✓ Identificar los metabolitos animales con potencial farmacéutico</li>
+                        <li>✓ Analizar los mecanismos de acción y aplicaciones terapéuticas</li>
+                        <li>✓ Evaluar las etapas de validación y optimización de candidatos farmacológicos</li>
+                    </ul>
+                </div>
+
+                <h3>🩺 Importancia para la Medicina</h3>
+                <div class="bio-box">
+                    <div>
+                        <strong>¿Por qué es fundamental este tema?</strong><br>
+                        Los compuestos de origen animal representan una fuente invaluable de medicamentos que han revolucionado el tratamiento de enfermedades:
+                        <ul style="margin-top: 1rem;">
+                            <li>• Captopril (1981): Primer IECA derivado de veneno de serpiente</li>
+                            <li>• Ziconotide: Analgésico potente de caracol marino</li>
+                            <li>• Exenatide: Tratamiento de diabetes de saliva de lagarto</li>
+                            <li>• Anticoagulantes: Hirudina de sanguijuelas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CONCEPTOS -->
+        <section id="conceptos" class="section">
+            <div class="card">
+                <h2>📚 Conceptos Fundamentales</h2>
+                <div id="conceptos-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('conceptos-tabs','sub-metabolitos', this)">🧬 Metabolitos</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-desarrollo', this)">💊 Desarrollo de Fármacos</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-fases', this)">📊 Fases Clínicas</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-compuestos', this)">️ Compuestos Bioactivos</button>
+                    </div>
+
+                    <div id="sub-metabolitos" class="tab-content active">
+                        <h3>🧬 ¿Qué son los Metabolitos?</h3>
+                        <div class="info-box">
+                            <strong>Definición:</strong> Compuestos de baja masa molecular que se forman como productos transitorios o estables del metabolismo de un organismo (construcción, degradación y eliminación).
+                        </div>
+
+                        <h3>Metabolitos Primarios vs Secundarios</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Característica</th><th>Metabolitos Primarios</th><th>Metabolitos Secundarios</th></tr>
+                            <tr><td><strong>Función</strong></td><td>Crecimiento y desarrollo</td><td>Homeostasis del organismo</td></tr>
+                            <tr><td><strong>Cantidad</strong></td><td>Grandes cantidades</td><td>Pequeñas cantidades</td></tr>
+                            <tr><td><strong>Ejemplos</strong></td><td>Aminoácidos, glucosa, ATP</td><td>Omega-3, CLA, toxinas de venenos</td></tr>
+                            <tr><td><strong>Diversidad</strong></td><td>Limitada</td><td>Amplia diversidad estructural</td></tr>
+                            <tr><td><strong>Origen</strong></td><td>Metabolismo primario</td><td>Derivados de metabolitos primarios</td></tr>
+                        </table>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="metabolitos-primarios-secundarios.png" alt="Diferencias entre metabolitos primarios y secundarios" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Clasificación de metabolitos según su función biológica</p>
+                        </div>
+
+                        <h3>Ejemplos de Metabolitos Secundarios de Origen Animal</h3>
+                        <div class="pharma-box">
+                            <ul>
+                                <li>• <strong>Ácidos grasos omega-3</strong> (EPA, DHA) - Pescados</li>
+                                <li>• <strong>Ácido linoleico conjugado (CLA)</strong> - Rumiantes</li>
+                                <li>• <strong>Péptidos bioactivos</strong> - Leche, venenos</li>
+                                <li>• <strong>L-carnitina</strong> - Carne roja</li>
+                                <li>• <strong>Coenzima Q10</strong> - Tejidos animales</li>
+                                <li>• <strong>Toxinas de venenos</strong> - Serpientes, caracoles, lagartos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="sub-desarrollo" class="tab-content">
+                        <h3> Proceso de Desarrollo de Medicamentos</h3>
+                        <div class="info-box">
+                            <strong>El desarrollo de un fármaco es un proceso largo y costoso que puede tomar 10-15 años e involucra:</strong>
+                            <ol>
+                                <li>Descubrimiento y diseño del candidato</li>
+                                <li>Estudios preclínicos (in vitro e in vivo)</li>
+                                <li>Desarrollo clínico (Fases I-IV)</li>
+                                <li>Aprobación regulatoria</li>
+                                <li>Farmacovigilancia post-comercialización</li>
+                            </ol>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="proceso-desarrollo-farmacos.png" alt="Diagrama del proceso de desarrollo de fármacos" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Etapas del desarrollo farmacológico desde el descubrimiento hasta la farmacovigilancia</p>
+                        </div>
+
+                        <h3>Hito Histórico Fundamental</h3>
+                        <div class="bio-box">
+                            <div>
+                                <strong>1981 - Captopril:</strong> Primer medicamento derivado de toxina animal aprobado para uso humano.<br>
+                                <strong>Fuente:</strong> Veneno de <em>Bothrops jararaca</em> (serpiente brasileña)<br>
+                                <strong>Impacto:</strong> Marcó el inicio de una nueva era en el descubrimiento de fármacos basados en venenos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sub-fases" class="tab-content">
+                        <h3>📊 Fases del Desarrollo Farmacológico</h3>
+                        
+                        <h3>Fase I - Seguridad</h3>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Población:</strong> 20-100 personas (voluntarios sanos)</li>
+                                <li><strong>Tasa de éxito:</strong> 70% pasa a siguiente fase</li>
+                                <li><strong>Objetivos:</strong>
+                                    <ul>
+                                        <li>• Establecer seguridad y rango de dosis</li>
+                                        <li>• Estudiar farmacocinética (absorción, distribución, metabolismo, excreción)</li>
+                                        <li>• Determinar efectos laterales</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3>Fase II - Eficacia</h3>
+                        <div class="tip-box">
+                            <ul>
+                                <li><strong>Población:</strong> 100-500 personas (pacientes con la enfermedad)</li>
+                                <li><strong>Tasa de éxito:</strong> 35% pasa a siguiente fase</li>
+                                <li><strong>Objetivos:</strong>
+                                    <ul>
+                                        <li>• Determinar eficacia del futuro fármaco</li>
+                                        <li>• Establecer nivel de dosis terapéutica</li>
+                                        <li>• Definir frecuencia de dosificación</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3>Fase III - Confirmación</h3>
+                        <div class="pharma-box">
+                            <ul>
+                                <li><strong>Población:</strong> 500-3000 personas</li>
+                                <li><strong>Tasa de éxito:</strong> 25-30% pasa a aprobación</li>
+                                <li><strong>Objetivos:</strong>
+                                    <ul>
+                                        <li>• Confirmar eficacia en población grande</li>
+                                        <li>• Vigilar efectos secundarios a largo plazo</li>
+                                        <li>• Comparar con otros tratamientos existentes</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3>Fase IV - Farmacovigilancia</h3>
+                        <div class="bio-box">
+                            <ul>
+                                <li><strong>Población:</strong> >1000 personas (post-aprobación)</li>
+                                <li><strong>Objetivos:</strong>
+                                    <ul>
+                                        <li>• Proveer datos adicionales post-aprobación</li>
+                                        <li>• Monitorear riesgos y beneficios a largo plazo</li>
+                                        <li>• Optimizar el uso del medicamento</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="img-container">
+                            <img src="fases-clinicas-porcentaje-exito.png" alt="Tasas de éxito en fases clínicas" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Porcentaje de éxito en cada fase del desarrollo clínico</p>
+                        </div>
+                    </div>
+
+                    <div id="sub-compuestos" class="tab-content">
+                        <h3>⚗️ Compuestos Bioactivos de Origen Animal</h3>
+                        <div class="info-box">
+                            <strong>Definición:</strong> Metabolitos extraídos capaces de modular procesos metabólicos con efectos beneficiosos para la salud.
+                        </div>
+
+                        <h3>Propiedades Atribuidas</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Propiedad</th><th>Descripción</th><th>Ejemplo</th></tr>
+                            <tr><td><strong>Antioxidantes</strong></td><td>Neutralizan radicales libres</td><td>Coenzima Q10</td></tr>
+                            <tr><td><strong>Antiinflamatorias</strong></td><td>Reducen inflamación</td><td>Omega-3 (EPA/DHA)</td></tr>
+                            <tr><td><strong>Antimicrobianas</strong></td><td>Combaten microorganismos</td><td>Péptidos de veneno</td></tr>
+                            <tr><td><strong>Anticancerígenas</strong></td><td>Inhiben crecimiento tumoral</td><td>CLA</td></tr>
+                            <tr><td><strong>Antimutagénicas</strong></td><td>Previenen mutaciones</td><td>Péptidos bioactivos</td></tr>
+                        </table>
+                        </div>
+
+                        <h3>Importancia Industrial</h3>
+                        <div class="pharma-box">
+                            <div>
+                                <strong>Valor de mercado (USD, miles de millones):</strong>
+                                <ul>
+                                    <li>• <strong>Industria Farmacéutica:</strong> $54.4 - $216.9 mil millones</li>
+                                    <li>• <strong>Industria Alimentaria:</strong> $626 - $636 mil millones</li>
+                                    <li>• <strong>Industria Cosmética:</strong> $3.3 - $4.66 mil millones</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN MAPA CONCEPTUAL -->
+        <section id="mapa" class="section">
+            <div class="card">
+                <h2>🗺️ Mapa Conceptual Interactivo</h2>
+                <p style="margin-bottom: 1rem;">Haz <strong>clic en cada nodo</strong> para desplegar u ocultar sus ramas.</p>
+                <div class="map-container">
+                    <ul class="map-tree">
+                        <li class="has-children">
+                            <div class="map-node root" onclick="toggleMap(this)"> Desarrollo de Medicamentos de Origen Animal</div>
+                            <ul>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🧬 Metabolitos</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Primarios: Crecimiento (aminoácidos, glucosa)</span></li>
+                                        <li><span class="map-leaf">Secundarios: Homeostasis (omega-3, CLA, toxinas)</span></li>
+                                        <li><span class="map-leaf">Baja masa molecular</span></li>
+                                        <li><span class="map-leaf">Modulan procesos metabólicos</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)"> Fases Clínicas</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Fase I: Seguridad (20-100 personas, 70% éxito)</span></li>
+                                        <li><span class="map-leaf">Fase II: Eficacia (100-500 personas, 35% éxito)</span></li>
+                                        <li><span class="map-leaf">Fase III: Confirmación (500-3000 personas, 25-30% éxito)</span></li>
+                                        <li><span class="map-leaf">Fase IV: Farmacovigilancia (>1000 personas)</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">⚗️ Compuestos Bioactivos</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Antioxidantes (CoQ10)</span></li>
+                                        <li><span class="map-leaf">Antiinflamatorios (Omega-3)</span></li>
+                                        <li><span class="map-leaf">Antimicrobianos (Péptidos de veneno)</span></li>
+                                        <li><span class="map-leaf">Anticancerígenos (CLA)</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🏆 Hitos Históricos</div>
+                                    <ul>
+                                        <li><span class="map-leaf">1981: Captopril (Bothrops jararaca)</span></li>
+                                        <li><span class="map-leaf">Primer IECA de origen animal</span></li>
+                                        <li><span class="map-leaf">Revolucionó tratamiento de hipertensión</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN FLASHCARDS -->
+        <section id="flashcards" class="section">
+            <div class="card">
+                <h2>🃏 Flashcards de Estudio</h2>
+                <p>Haz <strong>clic en la tarjeta</strong> para voltearla y ver la respuesta. Luego califícate con honestidad.</p>
+
+                <div class="fc-stats">
+                    <span class="fc-stat good">✅ Buenas: <span id="fc-good">0</span></span>
+                    <span class="fc-stat bad">❌ Malas: <span id="fc-bad">0</span></span>
+                    <span class="fc-stat pending">⏳ Pendientes: <span id="fc-left">0</span></span>
+                    <span class="fc-stat total">📈 Historial: <span id="fc-hist">0 ✓ / 0 ✗</span></span>
+                </div>
+                <div class="fc-progress"><div class="fc-progress-bar" id="fc-bar"></div></div>
+
+                <div class="flashcard-scene" id="fc-scene">
+                    <div class="flashcard" id="fc-card" onclick="flipCard()">
+                        <div class="fc-face fc-front">
+                            <div class="fc-label">PREGUNTA</div>
+                            <div id="fc-question"></div>
+                            <span class="fc-hint">Clic para voltear ✨</span>
+                        </div>
+                        <div class="fc-face fc-back">
+                            <div class="fc-label">RESPUESTA</div>
+                            <div id="fc-answer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fc-controls" id="fc-controls">
+                    <button class="fc-btn good" id="btn-fc-good" onclick="gradeCard(true)" disabled>✅ La sabía</button>
+                    <button class="fc-btn bad" id="btn-fc-bad" onclick="gradeCard(false)" disabled>❌ No la sabía</button>
+                </div>
+
+                <div id="fc-summary" class="calc-result" style="max-width:720px;margin:1rem auto;"></div>
+                <div style="text-align:center;">
+                    <button class="calc-button" onclick="resetFlashcards()">🔄 Reiniciar Flashcards</button><br>
+                    <button class="fc-link" onclick="borrarHistorial()">Borrar historial acumulado</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN APLICACIONES -->
+        <section id="aplicaciones" class="section">
+            <div class="card">
+                <h2>🏥 Aplicaciones Profesionales</h2>
+                <p>Uso de la información de clase para resolver problemas en medicina y farmacología:</p>
+                <div id="aplicaciones-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('aplicaciones-tabs','aplic-medicina', this)">🩺 Medicina</button>
+                        <button class="tab" onclick="showTab('aplicaciones-tabs','aplic-farma', this)">💊 Farmacología</button>
+                    </div>
+
+                    <div id="aplic-medicina" class="tab-content active">
+                        <div class="bio-box"><strong>Enfoque clínico:</strong> Los metabolitos secundarios de origen animal han revolucionado el tratamiento de enfermedades cardiovasculares, diabetes y dolor crónico.</div>
+
+                        <div class="problem-box">
+                            <strong>📋 Problema 1 — Captopril en insuficiencia cardíaca:</strong> Un paciente de 65 años con hipertensión e insuficiencia cardíaca es tratado con captopril. Explica:<br>
+                            a) ¿Cuál es el origen animal del captopril?<br>
+                            b) ¿Por qué fue un hito histórico en 1981?<br>
+                            c) ¿Cuál es su mecanismo de acción?
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución paso a paso</summary>
+                            <p><strong>a)</strong> El captopril se derivó del péptido potenciador de bradiquinina (BPP) encontrado en el veneno de <em>Bothrops jararaca</em>, una serpiente brasileña.</p>
+                            <p><strong>b)</strong> Fue el <strong>primer medicamento derivado de toxina animal</strong> aprobado para uso humano, marcando el inicio de una nueva era en el descubrimiento de fármacos basados en venenos.</p>
+                            <p><strong>c)</strong> El captopril es un <strong>inhibidor de la enzima convertidora de angiotensina (IECA)</strong>. Bloquea la conversión de angiotensina I (inerte) a angiotensina II (potente vasoconstrictor), produciendo vasodilatación y reduciendo la presión arterial.</p>
+                        </details>
+
+                        <div class="problem-box">
+                            <strong>📋 Problema 2 — Desarrollo de fármacos:</strong> Un nuevo compuesto de veneno de caracol marino muestra potencial analgésico. Describe las fases clínicas que debe superar antes de su aprobación.</p>
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución paso a paso</summary>
+                            <p><strong>Fase I:</strong> 20-100 voluntarios sanos. Evaluar seguridad, farmacocinética y efectos adversos. Tasa de éxito: 70%.</p>
+                            <p><strong>Fase II:</strong> 100-500 pacientes con dolor. Determinar eficacia, dosis terapéutica y frecuencia. Tasa de éxito: 35%.</p>
+                            <p><strong>Fase III:</strong> 500-3000 pacientes. Confirmar eficacia, efectos a largo plazo y comparar con otros analgésicos. Tasa de éxito: 25-30%.</p>
+                            <p><strong>Fase IV:</strong> Farmacovigilancia post-aprobación con >1000 personas para monitorear riesgos y beneficios a largo plazo.</p>
+                        </details>
+                    </div>
+
+                    <div id="aplic-farma" class="tab-content">
+                        <div class="pharma-box"><strong>Relación Estructura-Actividad:</strong> Los péptidos de venenos animales tienen estructuras únicas que les permiten interactuar con receptores específicos con alta afinidad y selectividad.</div>
+
+                        <div class="problem-box">
+                            <strong>📋 Problema 1 — Omega-3 como nutracéutico:</strong> Los ácidos grasos omega-3 (EPA y DHA) se comercializan como suplementos. Explica:<br>
+                            a) ¿Son metabolitos primarios o secundarios?<br>
+                            b) ¿Qué propiedades bioactivas poseen?<br>
+                            c) ¿Cuál es su fuente animal principal?
+                        </div>
+                        <details class="solution">
+                            <summary> Ver solución paso a paso</summary>
+                            <p><strong>a)</strong> Los omega-3 son <strong>metabolitos secundarios</strong>: se producen en pequeñas cantidades y tienen funciones de homeostasis (antiinflamación, protección cardiovascular).</p>
+                            <p><strong>b)</strong> Propiedades bioactivas:
+                                <ul>
+                                    <li>• <strong>Antiinflamatorias:</strong> Reducen producción de citoquinas proinflamatorias</li>
+                                    <li>• <strong>Cardiovasculares:</strong> Disminuyen triglicéridos, previenen arritmias</li>
+                                    <li>• <strong>Neuroprotectoras:</strong> DHA esencial para desarrollo cerebral y retinal</li>
+                                </ul>
+                            </p>
+                            <p><strong>c)</strong> Fuentes principales: <strong>pescados grasos</strong> (salmón, atún, sardina), krill y microalgas marinas.</p>
+                        </details>
+
+                        <div class="problem-box">
+                            <strong> Problema 2 — Ziconotide (Prialt®):</strong> Este analgésico derivado de <em>Conus magus</em> se usa en dolor crónico severo. Investiga y explica su mecanismo de acción único.</p>
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución paso a paso</summary>
+                            <p><strong>Mecanismo:</strong> La ziconotide es una ω-conotoxina sintética que <strong>bloquea selectivamente los canales de calcio tipo N (Cav2.2)</strong> en neuronas del asta dorsal medular.</p>
+                            <p><strong>Ventajas:</strong>
+                                <ul>
+                                    <li>• Analgesia potente sin tolerancia ni dependencia</li>
+                                    <li>• Alternativa a opioides en dolor refractario</li>
+                                    <li>• Mínima afinidad por otros canales iónicos</li>
+                                </ul>
+                            </p>
+                            <p><strong>Limitación:</strong> Requiere administración intratecal por bomba implantable (no atraviesa barrera hematoencefálica por vía oral).</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN MNEMOTECNIAS -->
+        <section id="mnemotecnias" class="section">
+            <div class="card">
+                <h2>🧠 Mnemotecnias y Reglas Mnemotécnicas</h2>
+                <p style="margin-bottom: 1.5rem;">Técnicas para recordar nombres de fármacos, fuentes animales y mecanismos de acción:</p>
+                
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🎯 Fármacos Aprobados - "CEZEBEX"</div>
+                    <div class="info-box">
+                        <strong>C</strong>aptopril - Bothrops jararaca (serpiente)<br>
+                        <strong>E</strong>nalapril - Bothrops jararaca (serpiente)<br>
+                        <strong>Z</strong>iconotide - Conus magus (caracol marino)<br>
+                        <strong>E</strong>xenatide - Heloderma suspectum (lagarto)<br>
+                        <strong>B</strong>ivalirudin - Hirudo medicinalis (sanguijuela)<br>
+                        <strong>E</strong>ptifibatide - Sistrurus miliarius (serpiente)<br>
+                        <strong>X</strong> (Tirofi)ban - Echis carinatus (serpiente)
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🐍 Serpientes y sus Fármacos - "BEE"</div>
+                    <div class="tip-box">
+                        <strong>B</strong>othrops jararaca → <strong>Captopril, Enalapril</strong> (IECA)<br>
+                        <strong>E</strong>chis carinatus → <strong>Tirofiban</strong> (antiplaquetario)<br>
+                        <strong>E</strong>ptifibatide → <strong>Sistrurus miliarius</strong> (antiplaquetario)
+                    </div>
+                    <p><strong>Frase:</strong> "La <strong>BEE</strong> (abeja) pica pero las serpientes curan"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">📊 Fases Clínicas - "SECF"</div>
+                    <div class="info-box">
+                        <strong>S</strong>eguridad (Fase I) - 20-100 personas - 70% éxito<br>
+                        <strong>E</strong>ficacia (Fase II) - 100-500 personas - 35% éxito<br>
+                        <strong>C</strong>onfirmación (Fase III) - 500-3000 personas - 25-30% éxito<br>
+                        <strong>F</strong>armacovigilancia (Fase IV) - >1000 personas
+                    </div>
+                    <p><strong>Frase:</strong> "<strong>S</strong>iempre <strong>E</strong>s <strong>C</strong>onveniente <strong>F</strong>iscalizar"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title"> Metabolitos Primarios vs Secundarios</div>
+                    <div class="tip-box">
+                        <strong>Primarios = PRIMERO</strong> (crecimiento):<br>
+                        "PRImarios son PRImordiales para vivir"<br>
+                        • Grandes cantidades<br>
+                        • Aminoácidos, glucosa, ATP<br><br>
+                        
+                        <strong>Secundarios = SECundarios</strong> (homeostasis):<br>
+                        "SECundarios son esPECiales"<br>
+                        • Pequeñas cantidades<br>
+                        • Omega-3, CLA, toxinas
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🐚 Animales Marinos Terapéuticos - "CC"</div>
+                    <div class="info-box">
+                        <strong>C</strong>onus magus → <strong>Ziconotide</strong> (dolor)<br>
+                        <strong>C</strong>rustáceos → <strong>Glucosamina</strong> (articulaciones)<br>
+                        <strong>C</strong>alamares/Peces → <strong>Omega-3</strong> (cardiovascular)
+                    </div>
+                    <p><strong>Frase:</strong> "El <strong>CC</strong> (código civil) protege a los animales que curan"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title"> Propiedades Bioactivas - "AAAAA"</div>
+                    <div class="tip-box">
+                        <strong>A</strong>ntioxidantes (CoQ10)<br>
+                        <strong>A</strong>ntiinflamatorios (Omega-3)<br>
+                        <strong>A</strong>ntimicrobianos (Péptidos de veneno)<br>
+                        <strong>A</strong>nticancerígenos (CLA)<br>
+                        <strong>A</strong>ntimutagénicos (Péptidos bioactivos)
+                    </div>
+                    <p><strong>Frase:</strong> "Las <strong>5 A</strong> de los superpoderes naturales"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🦎 Exenatide - Lagarto GLP-1</div>
+                    <div class="info-box">
+                        <strong>H</strong>eloderma suspectum → <strong>E</strong>xenatide<br>
+                        <strong>E</strong>xendina-4 → <strong>G</strong>LP-1 (incretina)<br>
+                        <strong>L</strong>agarto → <strong>D</strong>iabetes tipo 2
+                    </div>
+                    <p><strong>Frase:</strong> "<strong>HELD</strong> (sostenido) en el tiempo por resistencia a DPP-4"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🩸 Anticoagulantes de Sanguijuela</div>
+                    <div class="tip-box">
+                        <strong>H</strong>irudo medicinalis → <strong>H</strong>irudina<br>
+                        <strong>B</strong>ivalirudin (reversible)<br>
+                        <strong>D</strong>esirudin (irreversible)
+                    </div>
+                    <p><strong>Frase:</strong> "La <strong>H</strong>irudina <strong>B</strong>aja la <strong>D</strong>ureza (coagulación)"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🎵 Canción de los Metabolitos</div>
+                    <p style="font-style: italic; line-height: 2;">
+                        <strong>"Primarios crecen, secundarios protegen"</strong><br>
+                        <strong>"Omega-3 del pez, CLA de la vaca"</strong><br>
+                        <strong>"Veneno que cura, toxina que salva"</strong><br>
+                        <strong>"De la naturaleza, la farmacia se alaba"</strong>
+                    </p>
+                </div>
+
+                <div class="tip-box" style="margin-top: 2rem;">
+                    <strong>💡 Consejo de Estudio:</strong><br>
+                    Para recordar las fuentes animales de cada fármaco, crea una historia mental visual:
+                    <ul>
+                        <li>Imagina una <strong>serpiente</strong> (Bothrops) con un <strong>cap</strong> (captopril) en la cabeza</li>
+                        <li>Un <strong>caracol</strong> (Conus) con una <strong>Z</strong> en su concha (ziconotide)</li>
+                        <li>Un <strong>lagarto</strong> (Heloderma) inyectándose <strong>insulina</strong> (exenatide)</li>
+                    </ul>
+                    ¡Mientras más absurda la imagen, más fácil de recordar!
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN GLOSARIO -->
+        <section id="glosario" class="section">
+            <div class="card">
+                <h2>📖 Glosario Interactivo</h2>
+                <p style="margin-bottom: 1.5rem;">Haz clic en cada término para ver su definición:</p>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Metabolito Primario</strong>
+                    <div class="glossary-definition">Compuesto esencial para el crecimiento, desarrollo y reproducción del organismo. Se produce en grandes cantidades. Ejemplos: aminoácidos, glucosa, ATP, nucleótidos.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Metabolito Secundario</strong>
+                    <div class="glossary-definition">Compuesto derivado de metabolitos primarios que participa en la homeostasis y defensa del organismo. Se produce en pequeñas cantidades y presenta amplia diversidad estructural. Ejemplos: omega-3, CLA, toxinas de venenos.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Compuesto Bioactivo</strong>
+                    <div class="glossary-definition">Metabolito extraído capaz de modular procesos metabólicos con efectos beneficiosos para la salud. Propiedades: antioxidantes, antiinflamatorias, antimicrobianas, anticancerígenas.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Fase I Clínica</strong>
+                    <div class="glossary-definition">Primera etapa de pruebas en humanos (20-100 voluntarios sanos). Objetivo: establecer seguridad, farmacocinética y rango de dosis. Tasa de éxito: 70%.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Fase II Clínica</strong>
+                    <div class="glossary-definition">Segunda etapa (100-500 pacientes). Objetivo: determinar eficacia, dosis terapéutica y frecuencia de dosificación. Tasa de éxito: 35%.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Fase III Clínica</strong>
+                    <div class="glossary-definition">Tercera etapa (500-3000 pacientes). Objetivo: confirmar eficacia, vigilar efectos a largo plazo y comparar con otros tratamientos. Tasa de éxito: 25-30%.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Fase IV - Farmacovigilancia</strong>
+                    <div class="glossary-definition">Monitoreo post-aprobación (>1000 personas). Objetivo: proveer datos adicionales sobre riesgos, beneficios y optimización del uso del medicamento.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Captopril</strong>
+                    <div class="glossary-definition">Primer IECA (inhibidor de la enzima convertidora de angiotensina) derivado de toxina animal aprobado en 1981. Origen: veneno de Bothrops jararaca. Indicación: hipertensión e insuficiencia cardíaca.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Ziconotide</strong>
+                    <div class="glossary-definition">Analgésico potente derivado de ω-conotoxina MVIIA de Conus magus (caracol marino). Mecanismo: bloqueo de canales de calcio tipo N. Aprobado en 2004 para dolor crónico severo.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Exenatide</strong>
+                    <div class="glossary-definition">Análogo de GLP-1 derivado de exendina-4 de Heloderma suspectum (lagarto). Resistente a DPP-4. Aprobado en 2005 para diabetes tipo 2. Nombres comerciales: Byetta®, Bydureon®.</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>Hirudina</strong>
+                    <div class="glossary-definition">Anticoagulante natural de Hirudo medicinalis (sanguijuela). Inhibidor directo de trombina. Derivados: bivalirudin (reversible) y desirudin (irreversible).</div>
+                </div>
+                
+                <div class="glossary-term" onclick="toggleDefinition(this)">
+                    <strong>IECA</strong>
+                    <div class="glossary-definition">Inhibidor de la Enzima Convertidora de Angiotensina. Clase de fármacos antihipertensivos que bloquean la conversión de angiotensina I a angiotensina II. Ejemplos: captopril, enalapril.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ERRORES COMUNES -->
+        <section id="errores" class="section">
+            <div class="card">
+                <h2>⚠️ Errores Comunes de Estudiantes</h2>
+                
+                <div class="error-card">
+                    <div class="error-title">❌ Error 1: Confundir metabolitos primarios con secundarios</div>
+                    <p><strong>Error:</strong> "El omega-3 es un metabolito primario porque es importante"</p>
+                    <div class="correction">
+                        <strong>✓ Corrección:</strong> Los metabolitos primarios son esenciales para crecimiento (aminoácidos, glucosa). Los secundarios, aunque importantes, se producen en pequeñas cantidades para homeostasis (omega-3, toxinas). La importancia no define la categoría, sino la función y cantidad.
+                    </div>
+                </div>
+                
+                <div class="error-card">
+                    <div class="error-title">❌ Error 2: Pensar que todas las fases clínicas tienen el mismo número de pacientes</div>
+                    <p><strong>Error:</strong> "Fase I y Fase III tienen poblaciones similares"</p>
+                    <div class="correction">
+                        <strong>✓ Corrección:</strong> Fase I: 20-100 personas (voluntarios sanos). Fase III: 500-3000 personas (pacientes). La población aumenta exponencialmente conforme se avanza en las fases.
+                    </div>
+                </div>
+                
+                <div class="error-card">
+                    <div class="error-title">❌ Error 3: Creer que el captopril se extrae directamente del veneno</div>
+                    <p><strong>Error:</strong> "El captopril es el veneno purificado de Bothrops jararaca"</p>
+                    <div class="correction">
+                        <strong>✓ Corrección:</strong> El captopril es un <strong>diseño racional</strong> basado en el péptido BPP del veneno. Se miniaturizó la molécula natural y se añadió un grupo succinilo para administración oral. Es sintético, no extracción directa.
+                    </div>
+                </div>
+                
+                <div class="error-card">
+                    <div class="error-title"> Error 4: Olvidar que la Fase IV es post-aprobación</div>
+                    <p><strong>Error:</strong> "La Fase IV es antes de la aprobación del fármaco"</p>
+                    <div class="correction">
+                        <strong>✓ Corrección:</strong> La Fase IV (farmacovigilancia) ocurre <strong>después</strong> de la aprobación regulatoria. Monitorea efectos a largo plazo en población grande (>1000 personas) en condiciones reales de uso.
+                    </div>
+                </div>
+                
+                <div class="error-card">
+                    <div class="error-title">❌ Error 5: Confundir las tasas de éxito entre fases</div>
+                    <p><strong>Error:</strong> "La Fase II tiene mayor tasa de éxito que la Fase I"</p>
+                    <div class="correction">
+                        <strong>✓ Corrección:</strong> Las tasas disminuyen progresivamente:
+                        <ul>
+                            <li>Fase I: 70% éxito</li>
+                            <li>Fase II: 35% éxito</li>
+                            <li>Fase III: 25-30% éxito</li>
+                        </ul>
+                        Cada fase es más selectiva y exigente.
+                    </div>
+                </div>
+                
+                <div class="error-card">
+                    <div class="error-title">❌ Error 6: Pensar que todos los fármacos de origen animal son péptidos</div>
+                    <p><strong>Error:</strong> "Todos los compuestos de origen animal son péptidos o proteínas"</p>
+                    <div class="correction">
+                        <strong>✓ Corrección:</strong> Existen diversas clases químicas:
+                        <ul>
+                            <li>• <strong>Péptidos:</strong> Ziconotide, exenatide, hirudina</li>
+                            <li>• <strong>Ácidos grasos:</strong> Omega-3 (EPA/DHA), CLA</li>
+                            <li>• <strong>Moléculas pequeñas:</strong> Captopril (IECA sintético)</li>
+                            <li>• <strong>Polisacáridos:</strong> Glucosamina, condroitina</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="error-card">
+                    <div class="error-title">❌ Error 7: No recordar las fuentes animales específicas</div>
+                    <p><strong>Error:</strong> "El exenatide viene de una serpiente"</p>
+                    <div class="correction">
+                        <strong>✓ Corrección:</strong> Cada fármaco tiene una fuente animal específica:
+                        <ul>
+                            <li>• Captopril → Bothrops jararaca (serpiente brasileña)</li>
+                            <li>• Ziconotide → Conus magus (caracol marino)</li>
+                            <li>• Exenatide → Heloderma suspectum (lagarto monstruo de Gila)</li>
+                            <li>• Hirudina → Hirudo medicinalis (sanguijuela)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tip-box" style="margin-top: 2rem;">
+                    <strong>💡 Consejo de Estudio:</strong><br>
+                    Para evitar estos errores:
+                    <ol>
+                        <li>Crea tablas comparativas de fases clínicas (población, éxito, objetivos)</li>
+                        <li>Asocia cada fármaco con su animal fuente usando imágenes mentales</li>
+                        <li>Diferencia claramente entre extracción directa vs diseño racional</li>
+                        <li>Practica con flashcards las definiciones de metabolitos primarios vs secundarios</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN BIBLIOGRAFÍA -->
+        <section id="bibliografia" class="section">
+            <div class="card">
+                <h2>📚 Fuentes Bibliográficas</h2>
+                
+                <h3>Libros de Texto Principales</h3>
+                <div class="info-box">
+                    <strong>1. "From Animal Poisons and Venoms to Medicines: Achievements, Challenges and Perspectives in Drug Discovery"</strong><br>
+                    • <strong>Capítulo 1:</strong> Introducción histórica (páginas 1-25)<br>
+                    • <strong>Capítulo 2:</strong> Metabolitos de origen animal (páginas 26-60)<br>
+                    • <strong>Sección específica:</strong> Captopril y desarrollo de IECA (páginas 45-52)<br>
+                    • Frontiers in Pharmacology, 2020
+                </div>
+                
+                <div class="info-box">
+                    <strong>2. "Sustancias Bioactivas y Medicamentos de Origen Animal Superior"</strong><br>
+                    • <strong>Capítulo 1:</strong> Origen y desarrollo de medicamentos (páginas 1-40)<br>
+                    • <strong>Capítulo 2:</strong> Metabolitos primarios y secundarios (páginas 41-75)<br>
+                    • <strong>Sección específica:</strong> Fases del desarrollo farmacológico (páginas 80-95)<br>
+                    • Material de clase - Farmacognosia 2026
+                </div>
+                
+                <h3>Artículos Científicos</h3>
+                <div class="bio-box">
+                    <div>
+                        <strong>3. "The Development of Captopril"</strong><br>
+                        • Ondetti, M.A. et al.<br>
+                        • <strong>Journal:</strong> Hypertension<br>
+                        • <strong>Año:</strong> 1981<br>
+                        • <strong>DOI:</strong> 10.1161/01.HYP.3.1.90<br>
+                        • Artículo fundamental sobre el primer IECA
+                    </div>
+                </div>
+                
+                <div class="pharma-box">
+                    <div>
+                        <strong>4. "Ziconotide: A Review of its Pharmacology and Use in the Treatment of Pain"</strong><br>
+                        • Schmid, R.L. et al.<br>
+                        • <strong>Journal:</strong> Neuropsychiatric Disease and Treatment<br>
+                        • <strong>Año:</strong> 2006<br>
+                        • <strong>Volumen 2:</strong> Páginas 69-78<br>
+                        • Revisión completa del analgésico de Conus magus
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <strong>5. Recursos en Línea:</strong><br>
+                    • <strong>FDA Green Book:</strong> https://www.fda.gov/animal-veterinary/products/approved-animal-drug-products-green-book<br>
+                    • <strong>DrugCentral:</strong> https://drugcentral.org (base de datos de fármacos aprobados)<br>
+                    • <strong>PubMed:</strong> https://pubmed.ncbi.nlm.nih.gov (búsqueda: "animal-derived drugs")<br>
+                    • <strong>DOI del artículo de revisión:</strong> 10.3389/fddsv.2023.1201419
+                </div>
+                
+                <h3>Referencias Específicas del Curso</h3>
+                <div class="info-box">
+                    <strong>6. "Origen y Desarrollo de Medicamentos de Origen Animal Superior"</strong><br>
+                    • Material de clase - Diapositivas 1-45<br>
+                    • DOI: 10.1016/B978-0-323-95989-6.00015-2<br>
+                    • DOI: 10.3390/foods10010037<br>
+                    • DOI: 10.3389/fchem.2024.1465459
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN QUIZ -->
+        <section id="quiz" class="section">
+            <div class="card">
+                <h2>🎯 Quiz de Autoevaluación</h2>
+                <p>Pon a prueba tus conocimientos: en cada ciclo se muestran <strong>10 preguntas al azar</strong> de una base de 30. Cada vez que entras a esta pestaña se sortea un nuevo ciclo.</p>
+                <p id="quiz-historial" style="margin: .5rem 0 1rem; font-weight: 600; color: var(--QOMed-light);"></p>
+                <div id="quiz-container"></div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="calc-button" onclick="reiniciarQuiz()"> Reiniciar Quiz (nuevo ciclo aleatorio)</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Farmacognosia</p>
+        <p>Tema 1: Origen y Desarrollo de Medicamentos de Origen Animal</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Prepárate para Innovar en Medicina"</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 - Material educativo para estudiantes</p>
+    </footer>
+
+    <script>
+        // ================= BASES DE DATOS =================
+        const flashcards = [
+            { q: '¿Qué son los metabolitos primarios?', a: 'Compuestos esenciales para crecimiento y desarrollo. Se producen en grandes cantidades. Ejemplos: aminoácidos, glucosa, ATP, nucleótidos.' },
+            { q: '¿Qué son los metabolitos secundarios?', a: 'Compuestos derivados de metabolitos primarios que participan en homeostasis. Se producen en pequeñas cantidades. Ejemplos: omega-3, CLA, toxinas de venenos.' },
+            { q: '¿Cuál fue el hito histórico de 1981 en farmacología?', a: 'Aprobación del captopril, primer medicamento derivado de toxina animal (Bothrops jararaca) para uso humano. Marcó el inicio de fármacos basados en venenos.' },
+            { q: 'Población y tasa de éxito de la Fase I clínica:', a: '20-100 personas (voluntarios sanos). Tasa de éxito: 70%. Objetivo: establecer seguridad y farmacocinética.' },
+            { q: 'Población y tasa de éxito de la Fase II clínica:', a: '100-500 personas (pacientes). Tasa de éxito: 35%. Objetivo: determinar eficacia y dosis terapéutica.' },
+            { q: 'Población y tasa de éxito de la Fase III clínica:', a: '500-3000 personas. Tasa de éxito: 25-30%. Objetivo: confirmar eficacia y comparar con otros tratamientos.' },
+            { q: '¿Qué es la Fase IV o farmacovigilancia?', a: 'Monitoreo post-aprobación con >1000 personas. Objetivo: proveer datos adicionales sobre riesgos, beneficios y uso óptimo del fármaco.' },
+            { q: 'Fuente animal del captopril:', a: 'Bothrops jararaca (serpiente brasileña). Derivado del péptido potenciador de bradiquinina (BPP) del veneno.' },
+            { q: 'Mecanismo de acción del captopril:', a: 'Inhibidor de la enzima convertidora de angiotensina (IECA). Bloquea conversión de angiotensina I a angiotensina II → vasodilatación.' },
+            { q: 'Fuente animal de la ziconotide:', a: 'Conus magus (caracol marino del Océano Pacífico). Derivado de ω-conotoxina MVIIA.' },
+            { q: 'Mecanismo de acción de la ziconotide:', a: 'Bloqueo selectivo de canales de calcio tipo N (Cav2.2) en neuronas del asta dorsal medular. Analgesia potente sin dependencia.' },
+            { q: 'Fuente animal del exenatide:', a: 'Heloderma suspectum (lagarto monstruo de Gila). Derivado de exendina-4, péptido de 39 aminoácidos de la saliva.' },
+            { q: '¿Por qué el exenatide es resistente a DPP-4?', a: 'Sustitución de alanina por glicina en posición 8. Vida media ~2.4 h vs minutos del GLP-1 endógeno.' },
+            { q: 'Fuente animal de la hirudina:', a: 'Hirudo medicinalis (sanguijuela medicinal). Inhibidor directo de trombina.' },
+            { q: 'Propiedades de los compuestos bioactivos:', a: 'Antioxidantes, antiinflamatorias, antimicrobianas, anticancerígenas, antimutagénicas. Modulan procesos metabólicos.' },
+            { q: 'Diferencia principal entre metabolitos primarios y secundarios:', a: 'Primarios: crecimiento (grandes cantidades). Secundarios: homeostasis (pequeñas cantidades, amplia diversidad estructural).' },
+            { q: '¿Qué es un compuesto bioactivo?', a: 'Metabolito extraído capaz de modular procesos metabólicos con efectos beneficiosos para la salud. Origen: animal, vegetal o microbiano.' },
+            { q: 'Tiempo promedio de desarrollo de un fármaco:', a: '10-15 años desde el descubrimiento hasta la aprobación. Incluye estudios preclínicos y fases clínicas I-IV.' },
+            { q: 'Indicación clínica del captopril:', a: 'Hipertensión arterial e insuficiencia cardíaca. Aprobado por FDA en 1981. Nombre comercial: Capoten®.' },
+            { q: 'Indicación clínica de la ziconotide:', a: 'Dolor crónico severo (vía intratecal). Aprobado en 2004. Nombre comercial: Prialt®. Alternativa a opioides.' },
+            { q: 'Indicación clínica del exenatide:', a: 'Diabetes tipo 2. Agonista de receptor de incretina (GLP-1). Nombres: Byetta® (2005), Bydureon® (2011).' },
+            { q: '¿Qué es un IECA?', a: 'Inhibidor de la Enzima Convertidora de Angiotensina. Bloquea formación de angiotensina II (vasoconstrictor). Ejemplos: captopril, enalapril.' },
+            { q: 'Ventaja de la ziconotide sobre opioides:', a: 'Analgesia potente sin tolerancia ni dependencia. Mínima afinidad por otros canales iónicos. Sin interacción con receptores opioides.' },
+            { q: 'Valor de mercado de la industria farmacéutica de compuestos animales:', a: '$54.4 - $216.9 mil millones USD. Incluye fármacos, nutracéuticos y cosméticos de origen animal.' }
+        ];
+
+        let fcIndex = 0, fcFlipped = false, fcGood = 0, fcBad = 0, fcDone = false;
+
+        function fcUpdateStats() {
+            document.getElementById('fc-good').textContent = fcGood;
+            document.getElementById('fc-bad').textContent = fcBad;
+            document.getElementById('fc-left').textContent = Math.max(0, flashcards.length - fcIndex);
+            const tg = parseInt(localStorage.getItem('fcTotalGood') || '0', 10);
+            const tb = parseInt(localStorage.getItem('fcTotalBad') || '0', 10);
+            document.getElementById('fc-hist').textContent = tg + ' ✓ / ' + tb + ' ✗';
+            document.getElementById('fc-bar').style.width = (fcIndex / flashcards.length * 100) + '%';
+        }
+
+        function fcRenderCard() {
+            const card = document.getElementById('fc-card');
+            card.classList.remove('flipped');
+            fcFlipped = false;
+            document.getElementById('fc-question').textContent = flashcards[fcIndex].q;
+            document.getElementById('fc-answer').textContent = flashcards[fcIndex].a;
+            document.getElementById('btn-fc-good').disabled = true;
+            document.getElementById('btn-fc-bad').disabled = true;
+            fcUpdateStats();
+        }
+
+        function flipCard() {
+            if (fcDone) return;
+            const card = document.getElementById('fc-card');
+            card.classList.toggle('flipped');
+            fcFlipped = card.classList.contains('flipped');
+            document.getElementById('btn-fc-good').disabled = !fcFlipped;
+            document.getElementById('btn-fc-bad').disabled = !fcFlipped;
+        }
+
+        function gradeCard(wasGood) {
+            if (!fcFlipped || fcDone) return;
+            if (wasGood) {
+                fcGood++;
+                localStorage.setItem('fcTotalGood', String(parseInt(localStorage.getItem('fcTotalGood') || '0', 10) + 1));
+            } else {
+                fcBad++;
+                localStorage.setItem('fcTotalBad', String(parseInt(localStorage.getItem('fcTotalBad') || '0', 10) + 1));
+            }
+            fcIndex++;
+            if (fcIndex < flashcards.length) {
+                fcRenderCard();
+            } else {
+                fcFinish();
+            }
+        }
+
+        function fcFinish() {
+            fcDone = true;
+            document.getElementById('fc-scene').style.display = 'none';
+            document.getElementById('fc-controls').style.display = 'none';
+            const total = fcGood + fcBad;
+            const pct = Math.round(fcGood / total * 100);
+            let msg = pct >= 80 ? '¡Excelente! Dominas el tema.' : (pct >= 60 ? '💪 ¡Bien! Repasa las que fallaste.' : '📚 Necesitas repasar: vuelve a Conceptos y al Mapa.');
+            const sum = document.getElementById('fc-summary');
+            sum.innerHTML = '<strong>📊 Resumen de la sesión:</strong><br>✅ Buenas: ' + fcGood + ' &nbsp; ❌ Malas: ' + fcBad + '<br>Precisión: <strong>' + pct + '%</strong><br>' + msg;
+            sum.classList.add('show');
+            fcUpdateStats();
+        }
+
+        function resetFlashcards() {
+            fcIndex = 0; fcGood = 0; fcBad = 0; fcDone = false;
+            document.getElementById('fc-scene').style.display = 'block';
+            document.getElementById('fc-controls').style.display = 'flex';
+            document.getElementById('fc-summary').classList.remove('show');
+            fcRenderCard();
+        }
+
+        function borrarHistorial() {
+            localStorage.removeItem('fcTotalGood');
+            localStorage.removeItem('fcTotalBad');
+            fcUpdateStats();
+        }
+
+        // ================= NAVEGACIÓN =================
+        function showSection(sectionId, btn) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            if (sectionId === 'quiz') loadQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showTab(groupId, tabId, btn) {
+            const group = document.getElementById(groupId);
+            group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            group.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+
+        function toggleMap(node) { node.parentElement.classList.toggle('open'); }
+
+        function toggleDefinition(element) {
+            const definition = element.querySelector('.glossary-definition');
+            definition.classList.toggle('show');
+            element.style.background = definition.classList.contains('show') ? '#fff9e6' : 'var(--white)';
+        }
+
+        // ================= QUIZ (30 preguntas · ciclos de 10) =================
+        const quizQuestions = [
+            { question: '¿Qué son los metabolitos primarios?', options: ['Compuestos de homeostasis en pequeñas cantidades', 'Compuestos esenciales para crecimiento en grandes cantidades', 'Toxinas de venenos animales', 'Fármacos aprobados'], correct: 1, explanation: 'Los metabolitos primarios son esenciales para crecimiento y desarrollo. Se producen en grandes cantidades: aminoácidos, glucosa, ATP.' },
+            { question: '¿Qué son los metabolitos secundarios?', options: ['Compuestos para crecimiento', 'ATP y nucleótidos', 'Compuestos de homeostasis en pequeñas cantidades', 'Glucosa y carbohidratos'], correct: 2, explanation: 'Metabolitos secundarios participan en homeostasis. Se producen en pequeñas cantidades: omega-3, CLA, toxinas de venenos.' },
+            { question: '¿En qué año se aprobó el captopril?', options: ['1975', '1981', '1990', '2004'], correct: 1, explanation: 'El captopril fue aprobado en 1981, siendo el primer medicamento derivado de toxina animal para uso humano.' },
+            { question: 'Fuente animal del captopril:', options: ['Conus magus', 'Heloderma suspectum', 'Bothrops jararaca', 'Hirudo medicinalis'], correct: 2, explanation: 'El captopril se derivó del veneno de Bothrops jararaca (serpiente brasileña), específicamente del péptido BPP.' },
+            { question: 'Población de la Fase I clínica:', options: ['500-3000 personas', '100-500 personas', '20-100 personas', '>1000 personas'], correct: 2, explanation: 'Fase I: 20-100 voluntarios sanos. Objetivo: establecer seguridad y farmacocinética. Tasa de éxito: 70%.' },
+            { question: 'Tasa de éxito de la Fase II clínica:', options: ['70%', '35%', '25-30%', '90%'], correct: 1, explanation: 'Fase II tiene 35% de éxito. Involucra 100-500 pacientes para determinar eficacia y dosis terapéutica.' },
+            { question: '¿Qué fase tiene 500-3000 personas?', options: ['Fase I', 'Fase II', 'Fase III', 'Fase IV'], correct: 2, explanation: 'Fase III: 500-3000 personas. Confirma eficacia, vigila efectos a largo plazo y compara con otros tratamientos.' },
+            { question: 'La Fase IV es:', options: ['Antes de la aprobación', 'Post-aprobación (farmacovigilancia)', 'Solo en voluntarios sanos', 'De 20-100 personas'], correct: 1, explanation: 'Fase IV es farmacovigilancia post-aprobación con >1000 personas para monitorear riesgos y beneficios a largo plazo.' },
+            { question: 'Mecanismo de acción del captopril:', options: ['Bloqueo de canales de calcio', 'Inhibición de ACE (IECA)', 'Agonista de GLP-1', 'Inhibición de trombina'], correct: 1, explanation: 'El captopril es un IECA que inhibe la enzima convertidora de angiotensina, bloqueando formación de angiotensina II.' },
+            { question: 'Fuente de la ziconotide:', options: ['Bothrops jararaca', 'Heloderma suspectum', 'Conus magus', 'Hirudo medicinalis'], correct: 2, explanation: 'Ziconotide se deriva de Conus magus (caracol marino). Es una ω-conotoxina que bloquea canales de calcio tipo N.' },
+            { question: 'Indicación de la ziconotide:', options: ['Hipertensión', 'Diabetes tipo 2', 'Dolor crónico severo', 'Anticoagulación'], correct: 2, explanation: 'Ziconotide (Prialt®) se usa en dolor crónico severo vía intratecal. Aprobada en 2004 como alternativa a opioides.' },
+            { question: 'Fuente del exenatide:', options: ['Conus magus', 'Bothrops jararaca', 'Heloderma suspectum', 'Sistrurus miliarius'], correct: 2, explanation: 'Exenatide viene de Heloderma suspectum (lagarto monstruo de Gila). Derivado de exendina-4 de la saliva.' },
+            { question: 'Mecanismo del exenatide:', options: ['IECA', 'Agonista de GLP-1', 'Bloqueo de canales de calcio', 'Inhibidor de trombina'], correct: 1, explanation: 'Exenatide es un agonista de receptor de incretina (GLP-1). Estimula insulina glucosa-dependiente en diabetes tipo 2.' },
+            { question: '¿Por qué el exenatide es resistente a DPP-4?', options: ['Por su tamaño molecular', 'Sustitución de Ala por Gly en posición 8', 'Por ser de origen animal', 'Por su vía de administración'], correct: 1, explanation: 'La sustitución de alanina por glicina en posición 8 previene degradación por DPP-4. Vida media ~2.4 h vs minutos del GLP-1.' },
+            { question: 'Fuente de la hirudina:', options: ['Conus magus', 'Hirudo medicinalis', 'Bothrops jararaca', 'Heloderma suspectum'], correct: 1, explanation: 'Hirudina viene de Hirudo medicinalis (sanguijuela). Es un inhibidor directo de trombina.' },
+            { question: 'Propiedad NO atribuida a compuestos bioactivos:', options: ['Antioxidante', 'Antiinflamatoria', 'Radiactiva', 'Antimicrobiana'], correct: 2, explanation: 'Los compuestos bioactivos tienen propiedades: antioxidantes, antiinflamatorias, antimicrobianas, anticancerígenas, antimutagénicas.' },
+            { question: 'Diferencia principal primarios vs secundarios:', options: ['Color', 'Cantidad y función', 'Sabor', 'Origen geográfico'], correct: 1, explanation: 'Primarios: grandes cantidades, crecimiento. Secundarios: pequeñas cantidades, homeostasis. Diversidad estructural amplia en secundarios.' },
+            { question: 'Tiempo promedio de desarrollo de fármaco:', options: ['1-2 años', '5-7 años', '10-15 años', '20-25 años'], correct: 2, explanation: 'El desarrollo de un fármaco toma 10-15 años desde descubrimiento hasta aprobación, incluyendo estudios preclínicos y fases I-IV.' },
+            { question: 'Nombre comercial del captopril:', options: ['Prialt®', 'Byetta®', 'Capoten®', 'Angiomax®'], correct: 2, explanation: 'Captopril se comercializa como Capoten®. Aprobado en 1981 para hipertensión e insuficiencia cardíaca.' },
+            { question: 'Nombre comercial de la ziconotide:', options: ['Capoten®', 'Byetta®', 'Prialt®', 'Integrilin®'], correct: 2, explanation: 'Ziconotide se comercializa como Prialt®. Aprobado en 2004 para dolor crónico severo.' },
+            { question: '¿Qué es un IECA?', options: ['Inhibidor de trombina', 'Inhibidor de la Enzima Convertidora de Angiotensina', 'Inhibidor de DPP-4', 'Inhibidor de COX'], correct: 1, explanation: 'IECA = Inhibidor de la Enzima Convertidora de Angiotensina. Bloquea conversión de angiotensina I a II. Ejemplos: captopril, enalapril.' },
+            { question: 'Ventaja de ziconotide sobre opioides:', options: ['Más barata', 'Sin tolerancia ni dependencia', 'Vía oral', 'Más rápida'], correct: 1, explanation: 'Ziconotide proporciona analgesia potente sin tolerancia ni dependencia, a diferencia de los opioides.' },
+            { question: 'Valor de mercado industria farmacéutica animal:', options: ['$1-5 mil millones', '$54.4-216.9 mil millones', '$1 billón', '$10 mil millones'], correct: 1, explanation: 'La industria farmacéutica de compuestos animales vale $54.4-216.9 mil millones USD, incluyendo nutracéuticos y cosméticos.' },
+            { question: 'Fase con mayor tasa de éxito:', options: ['Fase I', 'Fase II', 'Fase III', 'Fase IV'], correct: 0, explanation: 'Fase I tiene 70% de éxito (la más alta). Fase II: 35%, Fase III: 25-30%. Las tasas disminuyen progresivamente.' },
+            { question: 'Objetivo principal de la Fase I:', options: ['Confirmar eficacia', 'Establecer seguridad y farmacocinética', 'Comparar con otros fármacos', 'Farmacovigilancia'], correct: 1, explanation: 'Fase I establece seguridad, farmacocinética (ADME) y rango de dosis en 20-100 voluntarios sanos.' },
+            { question: 'El captopril es:', options: ['Extracción directa del veneno', 'Diseño racional basado en BPP', 'Péptido natural sin modificar', 'Toxina purificada'], correct: 1, explanation: 'El captopril es un diseño racional: se miniaturizó el péptido BPP natural y se añadió grupo succinilo para administración oral.' },
+            { question: 'Vía de administración de ziconotide:', options: ['Oral', 'Intravenosa', 'Intratecal', 'Tópica'], correct: 2, explanation: 'Ziconotide requiere administración intratecal por bomba implantable. No atraviesa barrera hematoencefálica por vía oral.' },
+            { question: 'Año de aprobación del exenatide:', options: ['1981', '2004', '2005', '2016'], correct: 2, explanation: 'Exenatide (Byetta®) fue aprobado en 2005 para diabetes tipo 2. Bydureon® (liberación prolongada) en 2011.' },
+            { question: 'Ambos captopril y enalapril vienen de:', options: ['Conus magus', 'Heloderma suspectum', 'Bothrops jararaca', 'Hirudo medicinalis'], correct: 2, explanation: 'Ambos IECA se derivan de Bothrops jararaca. Captopril (1981) y enalapril (1985) revolucionaron el tratamiento de hipertensión.' },
+            { question: 'Indicación del exenatide:', options: ['Hipertensión', 'Dolor crónico', 'Diabetes tipo 2', 'Anticoagulación'], correct: 2, explanation: 'Exenatide se usa en diabetes tipo 2. Es un agonista de GLP-1 que estimula insulina glucosa-dependiente y reduce peso corporal.' }
+        ];
+
+        let quizSet = [];
+        let quizAnswered = 0;
+        let quizScore = 0;
+        let quizLastIds = [];
+
+        function barajar(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        function overlapCount(newSet, oldSet) {
+            const oldQs = new Set(oldSet.map(q => q.question));
+            return newSet.filter(q => oldQs.has(q.question)).length;
+        }
+
+        function loadQuiz() {
+            let sel, intentos = 0;
+            do {
+                sel = barajar(quizQuestions).slice(0, 10);
+                intentos++;
+            } while (quizLastIds.length > 0 && overlapCount(sel, quizLastIds) > 4 && intentos < 30);
+            
+            quizLastIds = sel;
+            quizSet = sel;
+            quizAnswered = 0;
+            quizScore = 0;
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '<div class="quiz-progress" id="quiz-progress"></div>';
+            
+            quizSet.forEach((q, index) => {
+                const div = document.createElement('div');
+                div.className = 'quiz-container';
+                div.style.marginBottom = '2rem';
+                div.innerHTML = '<div class="quiz-question">' + (index + 1) + '. ' + q.question + '</div>' +
+                    '<div class="quiz-options">' + q.options.map((opt, i) =>
+                        '<button class="quiz-option" onclick="checkAnswer(' + index + ', ' + i + ', this)">' + opt + '</button>').join('') + '</div>' +
+                    '<div class="quiz-feedback" id="feedback-' + index + '" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;"></div>';
+                container.appendChild(div);
+            });
+            
+            actualizarProgresoQuiz();
+            mostrarHistorialQuiz();
+        }
+
+        function actualizarProgresoQuiz() {
+            const p = document.getElementById('quiz-progress');
+            if (p) p.innerHTML = '📊 Progreso del ciclo: <strong>' + quizAnswered + '/' + quizSet.length +
+                '</strong> respondidas · ✅ Aciertos: <strong>' + quizScore + '</strong>';
+        }
+
+        function mostrarHistorialQuiz() {
+            const h = document.getElementById('quiz-historial');
+            if (!h) return;
+            const ciclos = parseInt(localStorage.getItem('quizCiclos') || '0', 10);
+            const ultimo = localStorage.getItem('quizUltimo') || '—';
+            const mejor = localStorage.getItem('quizMejor') || '—';
+            const totalCorrectas = parseInt(localStorage.getItem('quizTotalCorrectas') || '0', 10);
+            const totalPregs = parseInt(localStorage.getItem('quizTotalPregs') || '0', 10);
+            const promedio = totalPregs > 0 ? Math.round((totalCorrectas / totalPregs) * 100) : 0;
+            h.innerHTML = '🔁 Ciclos completados: <strong>' + ciclos + '</strong> ·  Último: ' + ultimo +
+                ' · 🏆 Mejor: ' + mejor + ' · 📈 Promedio histórico: <strong>' + promedio + '%</strong>';
+        }
+
+        function checkAnswer(qIdx, sIdx, btn) {
+            if (btn.disabled) return;
+            const q = quizSet[qIdx];
+            const fb = document.getElementById('feedback-' + qIdx);
+            const opts = btn.parentElement.querySelectorAll('.quiz-option');
+            opts.forEach(o => o.disabled = true);
+            quizAnswered++;
+            
+            if (sIdx === q.correct) {
+                quizScore++;
+                btn.classList.add('correct');
+                fb.innerHTML = '<span style="color: #4caf50; font-weight: bold;">✅ ¡Correcto!</span><br>' + q.explanation;
+                fb.style.background = '#e8f5e9';
+                fb.style.color = '#2c3e50';
+            } else {
+                btn.classList.add('incorrect');
+                opts[q.correct].classList.add('correct');
+                fb.innerHTML = '<span style="color: #f44336; font-weight: bold;">❌ Incorrecto</span><br>' + q.explanation;
+                fb.style.background = '#ffebee';
+                fb.style.color = '#2c3e50';
+            }
+            fb.style.display = 'block';
+            actualizarProgresoQuiz();
+            if (quizAnswered === quizSet.length) finalizarQuiz();
+        }
+
+        function finalizarQuiz() {
+            const pct = Math.round((quizScore / quizSet.length) * 100);
+            let msg;
+            if (pct >= 90) msg = '🏅 ¡Nivel excelencia! Dominas el tema.';
+            else if (pct >= 70) msg = '💪 ¡Muy bien! Estás listo para el examen.';
+            else if (pct >= 50) msg = ' Buen intento: repasa Conceptos y el Mapa.';
+            else msg = ' Vuelve a las Flashcards y al Mapa; luego intenta un nuevo ciclo.';
+            
+            const ciclos = parseInt(localStorage.getItem('quizCiclos') || '0', 10) + 1;
+            const totalCorrectas = parseInt(localStorage.getItem('quizTotalCorrectas') || '0', 10) + quizScore;
+            const totalPregs = parseInt(localStorage.getItem('quizTotalPregs') || '0', 10) + quizSet.length;
+            const mejor = parseInt(localStorage.getItem('quizMejorNum') || '0', 10);
+            
+            localStorage.setItem('quizCiclos', String(ciclos));
+            localStorage.setItem('quizTotalCorrectas', String(totalCorrectas));
+            localStorage.setItem('quizTotalPregs', String(totalPregs));
+            localStorage.setItem('quizUltimo', quizScore + '/' + quizSet.length + ' (' + pct + '%)');
+            
+            if (pct > mejor) {
+                localStorage.setItem('quizMejorNum', String(pct));
+                localStorage.setItem('quizMejor', quizScore + '/' + quizSet.length + ' (' + pct + '%)');
+            }
+            
+            const container = document.getElementById('quiz-container');
+            container.insertAdjacentHTML('beforeend',
+                '<div class="calc-result show" style="margin-top:1.5rem; text-align:center;">' +
+                '<h3 style="margin-bottom:.5rem;">🏁 Resultados del ciclo</h3>' +
+                'Aciertos: <strong>' + quizScore + ' / ' + quizSet.length + '</strong> · Porcentaje: <strong>' + pct + '%</strong><br>' + msg +
+                '<br><button class="calc-button" style="margin-top:1rem;" onclick="reiniciarQuiz()"> Nuevo ciclo con otras 10 preguntas</button></div>');
+            mostrarHistorialQuiz();
+            container.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function reiniciarQuiz() {
+            loadQuiz();
+            document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ================= INICIALIZACIÓN =================
+        document.addEventListener('DOMContentLoaded', () => {
+            loadQuiz();
+            fcRenderCard();
+        });
+
+        // Ampliar imágenes al hacer clic
+        document.addEventListener('DOMContentLoaded', function() {
+            const imagenes = document.querySelectorAll('.img-container img, .molecule-img');
+            imagenes.forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function(e) {
+                    window.open(this.src, '_blank');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
