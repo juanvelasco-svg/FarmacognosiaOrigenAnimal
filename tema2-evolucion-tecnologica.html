@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 2: Evolución Tecnológica | Farmacognosia</title>
+    <style>
+        :root { --QOMed-gold: #D4AF37; --QOMed-dark: #1a1a2e; --QOMed-blue: #16213e; --QOMed-light: #0f3460; --accent: #e94560; --text: #2c3e50; --white: #ffffff; --sand: #f4e9c1; --shadow: rgba(0, 0, 0, 0.15); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ul:not(.map-tree), ol { padding-left: 2.4rem; margin: 0.5rem 0 1rem; }
+        ul:not(.map-tree) { list-style: none; }
+        ul:not(.map-tree) li, ol li { margin: 0.45rem 0; }
+        ol { list-style: decimal; }
+        .quiz-progress { background: var(--QOMed-blue); color: #fff; border-left: 5px solid var(--QOMed-gold); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        header { background: linear-gradient(135deg, var(--QOMed-dark) 0%, var(--QOMed-blue) 100%); color: var(--white); padding: 2rem; text-align: center; box-shadow: 0 6px 20px var(--shadow); border-bottom: 5px solid var(--QOMed-gold); }
+        .logo-container { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .logo-farmacognosia { width: 120px; height: auto; background: var(--white); border-radius: 50%; padding: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); color: var(--QOMed-gold); }
+        .subtitle { font-size: 1.2rem; opacity: 0.95; font-weight: 300; }
+        .motivational-phrase { background: linear-gradient(135deg, var(--QOMed-gold), #f4d03f); color: var(--QOMed-dark); padding: 0.5rem 1.5rem; border-radius: 25px; display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.95rem; }
+        .nav-container { background: var(--QOMed-blue); padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px var(--shadow); }
+        .nav-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; max-width: 1400px; margin: 0 auto; }
+        .nav-btn { background: var(--white); color: var(--QOMed-dark); border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+        .nav-btn:hover, .nav-btn.active { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .section { display: none; animation: fadeIn 0.5s ease; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 24px var(--shadow); border-left: 6px solid var(--QOMed-gold); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        h2 { color: var(--QOMed-blue); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid var(--QOMed-gold); display: flex; align-items: center; gap: 0.8rem; font-size: 2rem; }
+        h3 { color: var(--QOMed-light); margin: 1.5rem 0 1rem; font-size: 1.5rem; }
+        .molecule-img { max-width: 100%; height: auto; border-radius: 12px; margin: 1rem 0; box-shadow: 0 4px 12px var(--shadow); }
+        .img-container { text-align: center; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow); }
+        th { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); padding: 1.2rem; text-align: left; font-weight: 600; }
+        td { padding: 1rem 1.2rem; border-bottom: 1px solid #eee; transition: background 0.3s; }
+        tr:hover td { background: #f8fff0; }
+        .info-box { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .tip-box { background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 5px solid #ffc107; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .bio-box { background: linear-gradient(135deg, #d1ecf1 0%, #a8dadc 100%); border-left: 5px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .pharma-box { background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .problem-box { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #28a745; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        details.solution { margin-top: 1rem; background: #f8f9fa; border: 2px solid var(--QOMed-light); border-radius: 10px; padding: 0.8rem 1.2rem; }
+        details.solution summary { cursor: pointer; font-weight: 700; color: var(--QOMed-light); }
+        details.solution[open] summary { margin-bottom: 0.8rem; border-bottom: 1px dashed var(--QOMed-light); padding-bottom: .4rem; }
+        .mnemonic-card { background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%); border: 3px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; position: relative; overflow: hidden; }
+        .mnemonic-title { color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .glossary-term { background: var(--white); border: 2px solid var(--QOMed-gold); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; cursor: pointer; transition: all 0.3s; }
+        .glossary-term:hover { background: #fff9e6; transform: translateX(5px); }
+        .glossary-definition { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--QOMed-gold); }
+        .glossary-definition.show { display: block; animation: fadeIn 0.3s ease; }
+        .error-card { background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1rem 0; border-radius: 0 12px 12px 0; }
+        .error-title { color: #dc3545; font-weight: 700; margin-bottom: 0.5rem; }
+        .correction { background: #d4edda; border-left: 3px solid #28a745; padding: 1rem; margin-top: 1rem; border-radius: 0 8px 8px 0; }
+        .quiz-container { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .quiz-question { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 600; }
+        .quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .quiz-option { background: var(--white); color: var(--text); border: 3px solid transparent; padding: 1.2rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+        .quiz-option:hover:not(:disabled) { border-color: var(--QOMed-gold); transform: translateY(-3px); }
+        .quiz-option:disabled { cursor: not-allowed; opacity: 0.95; }
+        .quiz-option.correct { background: #4caf50; color: white; border-color: #2e7d32; }
+        .quiz-option.incorrect { background: #f44336; color: white; border-color: #c62828; }
+        .footer { background: var(--QOMed-dark); color: var(--white); text-align: center; padding: 2.5rem; margin-top: 3rem; border-top: 5px solid var(--QOMed-gold); }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow); }
+        .table-responsive table { min-width: 600px; width: 100%; margin: 0; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tab { background: var(--sand); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab.active { background: var(--QOMed-gold); color: var(--QOMed-dark); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .fc-stats { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0; }
+        .fc-stat { padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; color: #fff; font-size: 0.95rem; }
+        .fc-stat.good { background: #28a745; } .fc-stat.bad { background: #dc3545; } .fc-stat.pending { background: #6c757d; } .fc-stat.total { background: var(--QOMed-light); }
+        .fc-progress { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; max-width: 720px; margin: 0 auto 1.5rem; }
+        .fc-progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--QOMed-gold), var(--accent)); transition: width 0.4s; }
+        .flashcard-scene { perspective: 1400px; max-width: 720px; height: 320px; margin: 0 auto 1.5rem; }
+        .flashcard { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+        .flashcard.flipped { transform: rotateY(180deg); }
+        .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: auto; box-shadow: 0 8px 24px var(--shadow); font-size: 1.15rem; }
+        .fc-front { background: linear-gradient(135deg, var(--QOMed-blue), var(--QOMed-light)); color: #fff; border: 3px solid var(--QOMed-gold); }
+        .fc-back { background: linear-gradient(135deg, #fff9e6, var(--sand)); color: var(--text); border: 3px solid var(--QOMed-gold); transform: rotateY(180deg); }
+        .fc-label { font-size: 0.85rem; letter-spacing: 2px; font-weight: 800; opacity: 0.8; margin-bottom: 1rem; }
+        .fc-hint { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; font-style: italic; }
+        .fc-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        .fc-btn { border: none; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s; color: #fff; }
+        .fc-btn:disabled { opacity: 0.4; cursor: not-allowed; } .fc-btn.good { background: #28a745; } .fc-btn.bad { background: #dc3545; }
+        .fc-btn:not(:disabled):hover { transform: translateY(-3px); }
+        .fc-link { background: none; border: none; color: #6c757d; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 1rem; }
+        .map-container { overflow-x: auto; padding: 1rem 0; }
+        .map-tree, .map-tree ul { list-style: none; padding-left: 0; }
+        .map-tree ul { display: none; padding-left: 1.6rem; margin-top: 0.6rem; border-left: 3px solid var(--QOMed-gold); }
+        .map-tree li.open > ul { display: block; animation: fadeIn 0.4s ease; }
+        .map-tree li { margin: 0.4rem 0; }
+        .map-node { display: inline-block; background: var(--QOMed-blue); color: #fff; padding: 0.6rem 1.1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .map-node:hover { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateX(4px); }
+        .map-node.root { background: var(--accent); font-size: 1.15rem; }
+        .map-node.branch { background: var(--QOMed-light); }
+        .map-leaf { display: inline-block; background: var(--sand); color: var(--text); padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.95rem; border: 2px solid var(--QOMed-gold); }
+        li.has-children > .map-node::before { content: '▶ '; font-size: 0.8em; }
+        li.has-children.open > .map-node::before { content: '▼ '; font-size: 0.8em; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } .logo-container { flex-direction: column; gap: 1rem; } .logo-farmacognosia { width: 80px; } .container { padding: 1rem; } .nav-buttons { gap: 0.5rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="LogoFarmacognosia.png" alt="Logo Farmacognosia" class="logo-farmacognosia">
+            <div>
+                <h1>Farmacognosia</h1>
+                <p class="subtitle">Tema 2: Evolución Tecnológica en el Desarrollo</p>
+                <div class="motivational-phrase">🚀 "De la extracción artesanal a la inteligencia artificial"</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showSection('inicio', this)">🏠 Inicio</button>
+            <button class="nav-btn" onclick="showSection('conceptos', this)">📚 Conceptos</button>
+            <button class="nav-btn" onclick="showSection('mapa', this)">🗺️ Mapa Conceptual</button>
+            <button class="nav-btn" onclick="showSection('flashcards', this)">🃏 Flashcards</button>
+            <button class="nav-btn" onclick="showSection('aplicaciones', this)">🏥 Aplicaciones</button>
+            <button class="nav-btn" onclick="showSection('mnemotecnias', this)">🧠 Mnemotecnias</button>
+            <button class="nav-btn" onclick="showSection('glosario', this)">📖 Glosario</button>
+            <button class="nav-btn" onclick="showSection('errores', this)">⚠️ Errores Comunes</button>
+            <button class="nav-btn" onclick="showSection('bibliografia', this)">📚 Bibliografía</button>
+            <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="inicio" class="section active">
+            <div class="card">
+                <h2>🎯 Objetivos de Aprendizaje</h2>
+                <div class="info-box">
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li>✓ Identificar los nuevos enfoques de desarrollo de alimentos y medicamentos.</li>
+                        <li>✓ Comparar objetivamente las técnicas de desarrollo a lo largo del tiempo.</li>
+                        <li>✓ Comprender el rol de la biotecnología, nanotecnología e IA en la farmacognosia moderna.</li>
+                        <li>✓ Visualizar el mercado en crecimiento y las habilidades matemáticas requeridas por cada era.</li>
+                    </ul>
+                </div>
+                <h3>🩺 Importancia para la Medicina</h3>
+                <div class="bio-box">
+                    <div>
+                        <strong>¿Por qué evoluciona la tecnología farmacéutica?</strong><br>
+                        La extracción tradicional de compuestos animales (como la heparina porcina) tiene rendimientos menores al 0.1% y alto impacto ambiental. La evolución hacia la biotecnología, nanotecnología e IA permite:
+                        <ul style="margin-top: 1rem;">
+                            <li>• Mayor especificidad y pureza (>95% enantioselectividad).</li>
+                            <li>• Reducción del tiempo de desarrollo de 10-15 años a 3-7 años (proyección IA).</li>
+                            <li>• Sostenibilidad: evitar la extracción masiva de animales (ej. exenatida recombinante).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conceptos" class="section">
+            <div class="card">
+                <h2>📚 Conceptos Fundamentales</h2>
+                <div id="conceptos-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('conceptos-tabs','sub-tradicional', this)">🏺 Enfoque Tradicional</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-biotecnologia', this)">🧬 Biotecnología Moderna</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-emergentes', this)">🚀 Tecnologías Emergentes</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-comparativa', this)">📊 Tabla Comparativa</button>
+                    </div>
+
+                    <div id="sub-tradicional" class="tab-content active">
+                        <h3>🏺 Extracción Fisicoquímica Tradicional</h3>
+                        <div class="info-box">
+                            <strong>Metodología:</strong> Extracción con solventes orgánicos, cromatografía de columna y cristalización.<br>
+                            <strong>Ventajas:</strong> Reproducibilidad y escalabilidad industrial probada.<br>
+                            <strong>Limitaciones:</strong> Bajo rendimiento (0.01-0.1%), pérdida de actividad biológica por calor/pH, alto consumo de materia prima y solventes tóxicos.
+                        </div>
+                        <div class="img-container">
+                            <img src="extraccion-tradicional-vs-biotecnologia.png" alt="Comparación entre extracción tradicional y biotecnológica" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 1: Flujo de extracción tradicional (izquierda) vs. producción recombinante (derecha).</p>
+                        </div>
+                        <div class="pharma-box">
+                            <strong>Ejemplo clásico:</strong> Heparina porcina. Se extrae de la mucosa intestinal del cerdo mediante precipitación selectiva. Requiere miles de animales para obtener gramos del principio activo, con riesgo de contaminación viral.
+                        </div>
+                    </div>
+
+                    <div id="sub-biotecnologia" class="tab-content">
+                        <h3>🧬 Biotecnología Moderna (Actualidad)</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Tecnología</th><th>Aplicación en compuestos animales</th><th>Ventaja clave</th></tr>
+                            <tr><td><strong>Expresión recombinante</strong></td><td>Producción de péptidos de veneno (ej. exenatida) en bacterias/levaduras.</td><td>Evita extracción masiva de animales.</td></tr>
+                            <tr><td><strong>Ingeniería de enzimas</strong></td><td>Hidrólisis enzimática controlada de subproductos cárnicos/pescado.</td><td>Alta especificidad, condiciones suaves, menos residuos.</td></tr>
+                            <tr><td><strong>Ómicas aplicadas</strong></td><td>Transcriptómica de glándulas venenosas + peptidómica de alta resolución.</td><td>Identifica miles de secuencias candidatas en tiempo reducido.</td></tr>
+                            <tr><td><strong>Fermentación dirigida</strong></td><td>Producción de quitosano, colágeno hidrolizado, péptidos lácteos.</td><td>Sostenibilidad y control de calidad estandarizado.</td></tr>
+                        </table>
+                        </div>
+                    </div>
+
+                    <div id="sub-emergentes" class="tab-content">
+                        <h3>🚀 Tecnologías Emergentes (Futuro Próximo)</h3>
+                        
+                        <h3>1. Nanotecnología Aplicada</h3>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Sistemas de liberación controlada:</strong> Liposomas, micelas y ciclodextrinas almacenan péptidos animales y los liberan en sitios específicos, mejorando biodisponibilidad.</li>
+                                <li><strong>Nanopartículas dirigidas:</strong> Transporte de toxinas terapéuticas (ej. péptidos de caracol cónico) directamente a tejidos diana, minimizando toxicidad sistémica.</li>
+                                <li><strong>Parches nanofibrados:</strong> Ciclodextrinas modificadas con polímeros que responden a pH/temperatura corporal para liberación inteligente.</li>
+                            </ul>
+                        </div>
+                        <div class="img-container">
+                            <img src="nanotecnologia-farmacos.png" alt="Nanopartículas y liposomas liberando fármacos" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 2: Esquema de liposomas y nanopartículas dirigidas a receptores celulares.</p>
+                        </div>
+
+                        <h3>2. Inteligencia Artificial y Modelos In Silico</h3>
+                        <div class="tip-box">
+                            <ul>
+                                <li><strong>Algoritmos de IA:</strong> Predicen actividad biológica de péptidos a partir de su secuencia aminoacídica, reduciendo ensayos experimentales.</li>
+                                <li><strong>Ensayos in silico:</strong> Simulación computacional de interacciones fármaco-receptor (acoplamiento molecular) antes de pruebas in vivo, acelerando el cribado inicial.</li>
+                            </ul>
+                        </div>
+                        <div class="img-container">
+                            <img src="ia-descubrimiento-farmacos.png" alt="Flujo de trabajo de IA en descubrimiento de fármacos" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 3: Pipeline de IA: Secuencia → Predicción 3D → Docking molecular → Validación in vitro.</p>
+                        </div>
+
+                        <h3>3. Enzimas Especializadas y Microencapsulación</h3>
+                        <div class="bio-box">
+                            <ul>
+                                <li><strong>Biocatálisis:</strong> Enzimas diseñadas para síntesis quirales con >95% de enantioselectividad. Biocatalizadores inmovilizados para producción continua.</li>
+                                <li><strong>Microencapsulación:</strong> Enmascaramiento de sabores amargos en péptidos bioactivos y sistemas auto-nanoemulsionables para mejorar absorción oral.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="sub-comparativa" class="tab-content">
+                        <h3>📊 Tabla Comparativa para Evaluación Diagnóstica</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Criterio</th><th>Extracción Tradicional</th><th>Biotecnología</th><th>Nanotecnología / IA</th></tr>
+                            <tr><td><strong>Rendimiento</strong></td><td>Bajo (0.01-0.1%)</td><td>Medio-Alto (1-10%)</td><td>Alto (>10% teórico)</td></tr>
+                            <tr><td><strong>Especificidad</strong></td><td>Baja (mezclas complejas)</td><td>Media (enzimas dirigidas)</td><td>Alta (diseño computacional)</td></tr>
+                            <tr><td><strong>Sostenibilidad</strong></td><td>Baja (alto uso de solventes)</td><td>Media (bioprocesos)</td><td>Alta (síntesis verde)</td></tr>
+                            <tr><td><strong>Tiempo de desarrollo</strong></td><td>10-15 años</td><td>7-10 años</td><td>3-7 años (proyección)</td></tr>
+                            <tr><td><strong>Habilidad matemática</strong></td><td>Básica (estequiometría)</td><td>Intermedia (cinética enzimática)</td><td>Avanzada (modelado QSAR, machine learning)</td></tr>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mapa" class="section">
+            <div class="card">
+                <h2>🗺️ Mapa Conceptual Interactivo</h2>
+                <p style="margin-bottom: 1rem;">Haz <strong>clic en cada nodo</strong> para desplegar u ocultar sus ramas.</p>
+                <div class="map-container">
+                    <ul class="map-tree">
+                        <li class="has-children">
+                            <div class="map-node root" onclick="toggleMap(this)">🚀 Evolución Tecnológica en Fármacos</div>
+                            <ul>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🏺 Enfoque Tradicional</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Extracción con solventes y cromatografía</span></li>
+                                        <li><span class="map-leaf">Rendimiento bajo (0.01-0.1%)</span></li>
+                                        <li><span class="map-leaf">Ejemplo: Heparina porcina</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🧬 Biotecnología Moderna</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Expresión recombinante (evita extraer animales)</span></li>
+                                        <li><span class="map-leaf">Ingeniería de enzimas (hidrólisis controlada)</span></li>
+                                        <li><span class="map-leaf">Ómicas: Transcriptómica y peptidómica de venenos</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🔬 Tecnologías Emergentes</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Nanotecnología: Liposomas, liberación controlada</span></li>
+                                        <li><span class="map-leaf">IA e in silico: Predicción de actividad y docking</span></li>
+                                        <li><span class="map-leaf">Microencapsulación: Enmascaramiento de sabor</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="flashcards" class="section">
+            <div class="card">
+                <h2>🃏 Flashcards de Estudio</h2>
+                <p>Haz <strong>clic en la tarjeta</strong> para voltearla y ver la respuesta.</p>
+                <div class="fc-stats">
+                    <span class="fc-stat good">✅ Buenas: <span id="fc-good">0</span></span>
+                    <span class="fc-stat bad">❌ Malas: <span id="fc-bad">0</span></span>
+                    <span class="fc-stat pending">⏳ Pendientes: <span id="fc-left">0</span></span>
+                    <span class="fc-stat total">📈 Historial: <span id="fc-hist">0 ✓ / 0 ✗</span></span>
+                </div>
+                <div class="fc-progress"><div class="fc-progress-bar" id="fc-bar"></div></div>
+                <div class="flashcard-scene" id="fc-scene">
+                    <div class="flashcard" id="fc-card" onclick="flipCard()">
+                        <div class="fc-face fc-front"><div class="fc-label">PREGUNTA</div><div id="fc-question"></div><span class="fc-hint">Clic para voltear ✨</span></div>
+                        <div class="fc-face fc-back"><div class="fc-label">RESPUESTA</div><div id="fc-answer"></div></div>
+                    </div>
+                </div>
+                <div class="fc-controls" id="fc-controls">
+                    <button class="fc-btn good" id="btn-fc-good" onclick="gradeCard(true)" disabled>✅ La sabía</button>
+                    <button class="fc-btn bad" id="btn-fc-bad" onclick="gradeCard(false)" disabled>❌ No la sabía</button>
+                </div>
+                <div id="fc-summary" class="calc-result" style="max-width:720px;margin:1rem auto;"></div>
+                <div style="text-align:center;">
+                    <button class="calc-button" onclick="resetFlashcards()">🔄 Reiniciar Flashcards</button><br>
+                    <button class="fc-link" onclick="borrarHistorial()">Borrar historial acumulado</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicaciones" class="section">
+            <div class="card">
+                <h2>🏥 Aplicaciones Profesionales</h2>
+                <div id="aplicaciones-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('aplicaciones-tabs','aplic-biotec', this)">🧬 Biotecnología</button>
+                        <button class="tab" onclick="showTab('aplicaciones-tabs','aplic-nano', this)">🔬 Nanotecnología</button>
+                    </div>
+                    <div id="aplic-biotec" class="tab-content active">
+                        <div class="problem-box">
+                            <strong>📋 Problema 1:</strong> Una empresa quiere producir exenatida a gran escala. ¿Por qué la expresión recombinante es superior a la extracción directa de la saliva del lagarto Heloderma suspectum?
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p>La extracción directa requiere sacrificar o "ordeñar" miles de lagartos, con rendimiento mínimoy riesgo de variabilidad por dieta/edad. La expresión recombinante en E. coli o levaduras permite producción ilimitada, estandarizada, sin riesgo de contaminación viral y con menor costo a escala industrial.</p>
+                        </details>
+                    </div>
+                    <div id="aplic-nano" class="tab-content">
+                        <div class="problem-box">
+                            <strong>📋 Problema 2:</strong> Un péptido bioactivo de leche tiene sabor amargo y se degrada en el estómago. ¿Qué tecnología emergente soluciona ambos problemas?
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p>La <strong>microencapsulación</strong> enmascara el sabor amargo. Además, los <strong>sistemas auto-nanoemulsionables</strong> o liposomas protegen al péptido del pH ácido gástrico y las enzimas proteolíticas, mejorando su absorción oral y biodisponibilidad.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mnemotecnias" class="section">
+            <div class="card">
+                <h2>🧠 Mnemotecnias y Reglas Mnemotécnicas</h2>
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🚀 Evolución Tecnológica: "T-B-N-I"</div>
+                    <div class="info-box">
+                        <strong>T</strong>radicional: Solventes, bajo rendimiento (0.1%), 10-15 años.<br>
+                        <strong>B</strong>iotecnología: Enzimas, recombinante, ómicas, 7-10 años.<br>
+                        <strong>N</strong>anotecnología: Liposomas, liberación controlada, dirigida.<br>
+                        <strong>I</strong>nteligencia Artificial: In silico, QSAR, machine learning, 3-7 años.
+                    </div>
+                    <p><strong>Frase:</strong> "El <strong>T</strong>ío <strong>B</strong>eto <strong>N</strong>avega con <strong>I</strong>nteligencia"</p>
+                </div>
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🧬 Ventajas de la Biotecnología: "E-O-F"</div>
+                    <div class="tip-box">
+                        <strong>E</strong>xpresión recombinante (evita extraer animales).<br>
+                        <strong>Ó</strong>micas aplicadas (transcriptómica/peptidómica rápida).<br>
+                        <strong>F</strong>ermentación dirigida (sostenible y controlada).
+                    </div>
+                </div>
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🔬 Nanotecnología: "L-N-P"</div>
+                    <div class="info-box">
+                        <strong>L</strong>iposomas y micelas (liberación controlada).<br>
+                        <strong>N</strong>anopartículas dirigidas (minimizan toxicidad sistémica).<br>
+                        <strong>P</strong>arches nanofibrados (liberación inteligente por pH/temperatura).
+                    </div>
+                </div>
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">📊 Habilidades Matemáticas por Era</div>
+                    <div class="pharma-box">
+                        <strong>Tradicional:</strong> Básica (Estequiometría).<br>
+                        <strong>Biotecnología:</strong> Intermedia (Cinética enzimática).<br>
+                        <strong>IA/Nano:</strong> Avanzada (Modelado QSAR, Machine Learning, estadística multivariante).
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="glosario" class="section">
+            <div class="card">
+                <h2>📖 Glosario Interactivo</h2>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Expresión Recombinante</strong><div class="glossary-definition">Técnica biotecnológica que inserta el gen de un péptido animal (ej. exenatida) en bacterias o levaduras para que estas produzcan la proteína a gran escala, evitando la extracción del animal.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Ómicas Aplicadas</strong><div class="glossary-definition">Uso de transcriptómica (estudio del ARN) y peptidómica (estudio de péptidos) de glándulas venenosas para identificar miles de secuencias candidatas a fármacos en tiempo reducido.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Modelado In Silico</strong><div class="glossary-definition">Simulación computacional de interacciones fármaco-receptor (docking molecular) antes de realizar pruebas in vivo, acelerando el cribado inicial de candidatos.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Biocatálisis Inmovilizada</strong><div class="glossary-definition">Uso de enzimas diseñadas fijadas a un soporte sólido para la producción continua de péptidos bioactivos a partir de subproductos animales, con >95% de enantioselectividad.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Sistemas Auto-nanoemulsionables</strong><div class="glossary-definition">Formulaciones que forman nanoemulsiones al contacto con fluidos gastrointestinales, mejorando la absorción oral de péptidos hidrofílicos que normalmente se degradarían.</div></div>
+            </div>
+        </section>
+
+        <section id="errores" class="section">
+            <div class="card">
+                <h2>⚠️ Errores Comunes de Estudiantes</h2>
+                <div class="error-card"><div class="error-title">❌ Error 1: Creer que la IA reemplaza los ensayos in vivo</div><p><strong>Error:</strong> "La inteligencia artificial elimina la necesidad de pruebas en animales o humanos."</p><div class="correction"><strong>✓ Corrección:</strong> La IA y los modelos in silico <strong>aceleran el cribado inicial</strong> y reducen el número de candidatos, pero las fases clínicas (in vivo) siguen siendo obligatorias por regulación de seguridad.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 2: Confundir rendimiento de extracción tradicional</div><p><strong>Error:</strong> "La extracción tradicional tiene un rendimiento del 10-20%."</p><div class="correction"><strong>✓ Corrección:</strong> El rendimiento de la extracción tradicional es muy bajo, típicamente <strong>0.01% a 0.1%</strong>, lo que la hace insostenible para péptidos raros.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 3: Pensar que la nanotecnología solo es para cáncer</div><p><strong>Error:</strong> "Los liposomas solo se usan en quimioterapia."</p><div class="correction"><strong>✓ Corrección:</strong> En farmacognosia, la nanotecnología se usa para <strong>proteger péptidos bioactivos</strong> de la degradación gástrica, enmascarar sabores amargos y dirigir toxinas terapéuticas (ej. conotoxinas) a tejidos diana.</div></div>
+            </div>
+        </section>
+
+        <section id="bibliografia" class="section">
+            <div class="card">
+                <h2>📚 Fuentes Bibliográficas</h2>
+                <div class="info-box"><strong>1. "From Animal Poisons and Venoms to Medicines"</strong><br>• Frontiers in Pharmacology, 2020. PMID: 32848750.<br>• Capítulos sobre desafíos de producción y sostenibilidad.</div>
+                <div class="bio-box"><div><strong>2. "Drug Discovery" – Coursera/UC San Diego</strong><br>• Módulos abiertos sobre IA en farmacología y modelado QSAR.<br>• Recurso gratuito recomendado para habilidades avanzadas.</div></div>
+                <div class="tip-box"><strong>3. Herramientas Gratuitas:</strong><br>• <strong>Animal Toxin Database:</strong> Búsqueda por organismo, actividad y secuencia.<br>• <strong>SwissDock:</strong> Simulador de acoplamiento molecular gratuito (in silico).<br>• <strong>PeptideBuilder:</strong> Herramienta de código abierto para diseño de péptidos.</div>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <div class="card">
+                <h2>🎯 Quiz de Autoevaluación</h2>
+                <p>10 preguntas al azar de una base de 30. Cada vez que entras se sortea un nuevo ciclo.</p>
+                <p id="quiz-historial" style="margin: .5rem 0 1rem; font-weight: 600; color: var(--QOMed-light);"></p>
+                <div id="quiz-container"></div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="calc-button" onclick="reiniciarQuiz()">🔄 Reiniciar Quiz (nuevo ciclo aleatorio)</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Farmacognosia</p>
+        <p>Tema 2: Evolución Tecnológica en el Desarrollo</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Prepárate para Innovar en Medicina"</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 - Material educativo para estudiantes</p>
+    </footer>
+
+    <script>
+        // ================= FLASHCARDS (24) =================
+        const flashcards = [
+            { q: '¿Cuál es el rendimiento típico de la extracción tradicional?', a: 'Muy bajo: 0.01% a 0.1%. Requiere mucha materia prima y solventes.' },
+            { q: 'Menciona 3 limitaciones de la extracción fisicoquímica tradicional.', a: '1) Bajo rendimiento, 2) Pérdida de actividad biológica por calor/pH, 3) Alto impacto ambiental por solventes.' },
+            { q: '¿Qué es la expresión recombinante en el contexto de fármacos animales?', a: 'Insertar el gen del péptido animal (ej. exenatida) en bacterias/levaduras para producirlo a gran escala sin extraer del animal.' },
+            { q: '¿Qué son las "ómicas aplicadas" en el descubrimiento de fármacos?', a: 'Uso de transcriptómica y peptidómica de glándulas venenosas para identificar miles de secuencias candidatas rápidamente.' },
+            { q: '¿Cuál es la ventaja clave de la ingeniería de enzimas?', a: 'Alta especificidad, condiciones suaves de reacción y menor generación de residuos tóxicos.' },
+            { q: '¿Cómo ayuda la nanotecnología a los péptidos bioactivos?', a: 'Mediante liposomas y micelas que protegen el péptido de la degradación, enmascaran sabores y permiten liberación controlada.' },
+            { q: '¿Qué son las nanopartículas dirigidas?', a: 'Sistemas que transportan toxinas terapéuticas directamente a tejidos diana, minimizando la toxicidad sistémica.' },
+            { q: '¿Qué función tiene la IA en el descubrimiento de fármacos?', a: 'Predecir actividad biológica a partir de la secuencia aminoacídica y realizar docking molecular in silico antes de ensayos in vivo.' },
+            { q: '¿Qué habilidad matemática requiere la era de la IA/Nanotecnología?', a: 'Avanzada: modelado QSAR, machine learning y estadística multivariante.' },
+            { q: '¿Qué habilidad matemática requiere la biotecnología?', a: 'Intermedia: cinética enzimática y balance de masa en biorreactores.' },
+            { q: '¿Cuánto tiempo toma el desarrollo de fármacos con IA (proyección)?', a: '3 a 7 años, comparado con 10-15 años del método tradicional.' },
+            { q: '¿Qué es la biocatálisis inmovilizada?', a: 'Enzimas fijadas a un soporte sólido para producción continua de péptidos con >95% de enantioselectividad.' },
+            { q: '¿Qué problema resuelve la microencapsulación en nutracéuticos?', a: 'Enmascara sabores amargos de péptidos bioactivos y protege contra el pH gástrico.' },
+            { q: '¿Qué son los sistemas auto-nanoemulsionables?', a: 'Formulaciones que forman nanoemulsiones al contacto con fluidos GI, mejorando la absorción oral de péptidos hidrofílicos.' },
+            { q: 'Ejemplo clásico de extracción tradicional mencionado en clase:', a: 'Heparina porcina: extracción de mucosa intestinal con precipitación selectiva.' },
+            { q: '¿Por qué la fermentación dirigida es más sostenible?', a: 'Porque usa microorganismos en biorreactores controlados, evitando la dependencia de la estacionalidad pesquera o sacrificio animal.' },
+            { q: '¿Qué estudia la peptidómica de alta resolución?', a: 'El conjunto completo de péptidos expresados por un organismo (ej. veneno de serpiente), identificando candidatos terapéuticos.' },
+            { q: '¿Qué ventaja tiene la exenatida recombinante sobre la natural?', a: 'Producción ilimitada, estandarizada, sin riesgo de contaminación viral y menor costo a escala industrial.' },
+            { q: '¿Qué son los parches nanofibrados?', a: 'Ciclodextrinas modificadas con polímeros que responden a pH/temperatura corporal para liberación inteligente de fármacos.' },
+            { q: '¿Cuál es el rendimiento de la biotecnología?', a: 'Medio a alto (1% a 10%), significativamente superior al 0.1% tradicional.' },
+            { q: '¿Qué es el modelado in silico?', a: 'Simulación computacional de interacciones fármaco-receptor (docking) para filtrar candidatos antes de síntesis y pruebas biológicas.' },
+            { q: '¿La IA elimina la necesidad de ensayos clínicos?', a: 'No. La IA acelera el cribado inicial, pero las fases clínicas (in vivo) siguen siendo obligatorias por regulación de seguridad.' },
+            { q: '¿Qué es la enantioselectividad en biocatálisis?', a: 'La capacidad de una enzima diseñada para producir preferentemente un solo isómero óptico (>95%), crucial para la seguridad del fármaco.' },
+            { q: 'Menciona 3 herramientas gratuitas recomendadas en clase.', a: '1) Animal Toxin Database, 2) SwissDock (acoplamiento molecular), 3) PeptideBuilder (diseño de péptidos).' }
+        ];
+
+        let fcIndex = 0, fcFlipped = false, fcGood = 0, fcBad = 0, fcDone = false;
+        function fcUpdateStats() {
+            document.getElementById('fc-good').textContent = fcGood;
+            document.getElementById('fc-bad').textContent = fcBad;
+            document.getElementById('fc-left').textContent = Math.max(0, flashcards.length - fcIndex);
+            const tg = parseInt(localStorage.getItem('fc2TotalGood') || '0', 10);
+            const tb = parseInt(localStorage.getItem('fc2TotalBad') || '0', 10);
+            document.getElementById('fc-hist').textContent = tg + ' ✓ / ' + tb + ' ✗';
+            document.getElementById('fc-bar').style.width = (fcIndex / flashcards.length * 100) + '%';
+        }
+        function fcRenderCard() {
+            const card = document.getElementById('fc-card');
+            card.classList.remove('flipped'); fcFlipped = false;
+            document.getElementById('fc-question').textContent = flashcards[fcIndex].q;
+            document.getElementById('fc-answer').textContent = flashcards[fcIndex].a;
+            document.getElementById('btn-fc-good').disabled = true;
+            document.getElementById('btn-fc-bad').disabled = true;
+            fcUpdateStats();
+        }
+        function flipCard() {
+            if (fcDone) return;
+            const card = document.getElementById('fc-card');
+            card.classList.toggle('flipped'); fcFlipped = card.classList.contains('flipped');
+            document.getElementById('btn-fc-good').disabled = !fcFlipped;
+            document.getElementById('btn-fc-bad').disabled = !fcFlipped;
+        }
+        function gradeCard(wasGood) {
+            if (!fcFlipped || fcDone) return;
+            if (wasGood) { fcGood++; localStorage.setItem('fc2TotalGood', String(parseInt(localStorage.getItem('fc2TotalGood') || '0', 10) + 1)); }
+            else { fcBad++; localStorage.setItem('fc2TotalBad', String(parseInt(localStorage.getItem('fc2TotalBad') || '0', 10) + 1)); }
+            fcIndex++;
+            if (fcIndex < flashcards.length) fcRenderCard(); else fcFinish();
+        }
+        function fcFinish() {
+            fcDone = true;
+            document.getElementById('fc-scene').style.display = 'none';
+            document.getElementById('fc-controls').style.display = 'none';
+            const total = fcGood + fcBad; const pct = Math.round(fcGood / total * 100);
+            let msg = pct >= 80 ? '¡Excelente! Dominas la evolución tecnológica.' : (pct >= 60 ? '💪 ¡Bien! Repasa las que fallaste.' : '📚 Necesitas repasar Conceptos y Mapa.');
+            const sum = document.getElementById('fc-summary');
+            sum.innerHTML = '<strong>📊 Resumen:</strong><br>✅ Buenas: ' + fcGood + ' &nbsp; ❌ Malas: ' + fcBad + '<br>Precisión: <strong>' + pct + '%</strong><br>' + msg;
+            sum.classList.add('show'); fcUpdateStats();
+        }
+        function resetFlashcards() {
+            fcIndex = 0; fcGood = 0; fcBad = 0; fcDone = false;
+            document.getElementById('fc-scene').style.display = 'block';
+            document.getElementById('fc-controls').style.display = 'flex';
+            document.getElementById('fc-summary').classList.remove('show');
+            fcRenderCard();
+        }
+        function borrarHistorial() { localStorage.removeItem('fc2TotalGood'); localStorage.removeItem('fc2TotalBad'); fcUpdateStats(); }
+
+        // ================= NAVEGACIÓN =================
+        function showSection(sectionId, btn) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            if (sectionId === 'quiz') loadQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function showTab(groupId, tabId, btn) {
+            const group = document.getElementById(groupId);
+            group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            group.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+        function toggleMap(node) { node.parentElement.classList.toggle('open'); }
+        function toggleDefinition(element) {
+            const definition = element.querySelector('.glossary-definition');
+            definition.classList.toggle('show');
+            element.style.background = definition.classList.contains('show') ? '#fff9e6' : 'var(--white)';
+        }
+
+        // ================= QUIZ (30 preguntas) =================
+        const quizQuestions = [
+            { question: '¿Cuál es el rendimiento típico de la extracción tradicional?', options: ['10-20%', '1-5%', '0.01-0.1%', '50%'], correct: 2, explanation: 'La extracción tradicional tiene un rendimiento muy bajo, típicamente entre 0.01% y 0.1%, requiriendo grandes cantidades de materia prima.' },
+            { question: '¿Qué tecnología evita la extracción masiva de animales para producir péptidos como la exenatida?', options: ['Cromatografía', 'Expresión recombinante', 'Cristalización', 'Precipitación selectiva'], correct: 1, explanation: 'La expresión recombinante inserta el gen en bacterias/levaduras para producir el péptido a gran escala sin extraerlo del animal.' },
+            { question: '¿Qué son las "ómicas aplicadas" en el descubrimiento de fármacos?', options: ['Uso de solventes orgánicos', 'Transcriptómica y peptidómica de glándulas venenosas', 'Fermentación de levaduras', 'Síntesis química'], correct: 1, explanation: 'Las ómicas aplicadas (transcriptómica, peptidómica) permiten identificar miles de secuencias candidatas en glándulas venenosas en tiempo reducido.' },
+            { question: '¿Cuál es la ventaja clave de la ingeniería de enzimas?', options: ['Bajo costo de solventes', 'Alta especificidad y condiciones suaves', 'Mayor toxicidad', 'Requiere más materia prima'], correct: 1, explanation: 'La ingeniería de enzimas permite hidrólisis controlada con alta especificidad, condiciones suaves y menor generación de residuos.' },
+            { question: '¿Cómo ayuda la nanotecnología a los péptidos bioactivos?', options: ['Aumenta su sabor amargo', 'Protege de degradación y permite liberación controlada', 'Elimina su actividad biológica', 'Aumenta su peso molecular'], correct: 1, explanation: 'Liposomas, micelas y nanopartículas protegen al péptido de la degradación gástrica y permiten liberación controlada en tejidos diana.' },
+            { question: '¿Qué función cumple la IA en el descubrimiento de fármacos?', options: ['Reemplaza todas las fases clínicas', 'Predice actividad biológica y realiza docking in silico', 'Extrae compuestos de animales', 'Cristaliza proteínas'], correct: 1, explanation: 'La IA predice actividad a partir de la secuencia y realiza simulaciones de acoplamiento molecular (in silico) antes de ensayos in vivo.' },
+            { question: '¿Qué habilidad matemática requiere la era de la IA y Nanotecnología?', options: ['Básica (estequiometría)', 'Intermedia (cinética)', 'Avanzada (modelado QSAR, machine learning)', 'Ninguna'], correct: 2, explanation: 'Requiere habilidades avanzadas en modelado QSAR, machine learning y estadística multivariante.' },
+            { question: '¿Cuánto tiempo toma el desarrollo de fármacos con IA (proyección)?', options: ['10-15 años', '7-10 años', '3-7 años', '1-2 años'], correct: 2, explanation: 'Se proyecta que la IA reduzca el tiempo de desarrollo a 3-7 años, comparado con 10-15 años del método tradicional.' },
+            { question: '¿Qué es la biocatálisis inmovilizada?', options: ['Enzimas libres en solventes', 'Enzimas fijadas a soporte sólido para producción continua', 'Extracción con calor', 'Fermentación sin control'], correct: 1, explanation: 'Son enzimas fijadas a un soporte sólido que permiten producción continua con >95% de enantioselectividad.' },
+            { question: '¿Qué problema resuelve la microencapsulación en nutracéuticos?', options: ['Aumenta el sabor amargo', 'Enmascara sabores y protege contra pH gástrico', 'Elimina la biodisponibilidad', 'Acelera la degradación'], correct: 1, explanation: 'La microencapsulación enmascara sabores amargos y protege al péptido de la degradación en el estómago.' },
+            { question: 'Ejemplo clásico de extracción tradicional mencionado en clase:', options: ['Exenatida recombinante', 'Heparina porcina', 'Ziconotida sintética', 'Péptidos por IA'], correct: 1, explanation: 'La heparina porcina, extraída de mucosa intestinal mediante precipitación selectiva, es el ejemplo clásico de extracción tradicional.' },
+            { question: '¿Por qué la fermentación dirigida es más sostenible?', options: ['Usa más solventes', 'Evita dependencia de estacionalidad pesquera o sacrificio animal', 'Requiere más animales', 'Es más lenta'], correct: 1, explanation: 'Usa microorganismos en biorreactores controlados, siendo sostenible y evitando la extracción directa de animales.' },
+            { question: '¿Qué estudia la peptidómica de alta resolución?', options: ['El ADN nuclear', 'El conjunto completo de péptidos expresados por un organismo', 'Los lípidos de membrana', 'Los carbohidratos'], correct: 1, explanation: 'Estudia el conjunto completo de péptidos (ej. en veneno de serpiente) para identificar candidatos terapéuticos.' },
+            { question: '¿Qué ventaja tiene la exenatida recombinante sobre la natural?', options: ['Es más tóxica', 'Producción ilimitada, estandarizada y sin riesgo viral', 'Tiene menor afinidad por el receptor', 'Es más cara de producir a gran escala'], correct: 1, explanation: 'La producción recombinante es ilimitada, estandarizada, evita el sacrificio animal y elimina riesgos de contaminación viral.' },
+            { question: '¿Qué son los parches nanofibrados?', options: ['Vendajes de algodón', 'Ciclodextrinas con polímeros que responden a pH/temperatura', 'Parches de nicotina tradicionales', 'After sun'], correct: 1, explanation: 'Son sistemas de ciclodextrinas modificadas con polímeros inteligentes que liberan el fármaco según el pH o temperatura corporal.' },
+            { question: '¿Cuál es el rendimiento de la biotecnología?', options: ['0.01-0.1%', 'Medio a alto (1-10%)', '100%', 'Negativo'], correct: 1, explanation: 'La biotecnología logra rendimientos medios a altos (1-10%), muy superiores al 0.1% tradicional.' },
+            { question: '¿Qué es el modelado in silico?', options: ['Pruebas en ratones', 'Simulación computacional de interacciones fármaco-receptor', 'Extracción con solventes', 'Cromatografía de gases'], correct: 1, explanation: 'Es la simulación computacional (docking molecular) para filtrar candidatos antes de la síntesis y pruebas biológicas.' },
+            { question: '¿La IA elimina la necesidad de ensayos clínicos?', options: ['Sí, completamente', 'No, las fases clínicas siguen siendo obligatorias', 'Solo elimina la Fase I', 'Solo elimina la Fase IV'], correct: 1, explanation: 'La IA acelera el cribado inicial, pero las fases clínicas in vivo siguen siendo obligatorias por regulación de seguridad.' },
+            { question: '¿Qué es la enantioselectividad en biocatálisis?', options: ['Producir mezclas racémicas', 'Producir preferentemente un solo isómero óptico (>95%)', 'No tener especificidad', 'Degradar el fármaco'], correct: 1, explanation: 'Es la capacidad de una enzima diseñada para producir preferentemente un solo isómero óptico, crucial para la seguridad y eficacia.' },
+            { question: 'Herramienta gratuita para acoplamiento molecular mencionada:', options: ['Photoshop', 'SwissDock', 'Excel', 'Word'], correct: 1, explanation: 'SwissDock es un simulador de acoplamiento molecular (docking) gratuito recomendado para modelos in silico.' },
+            { question: '¿Qué son los sistemas auto-nanoemulsionables?', options: ['Aceites esenciales', 'Formulaciones que forman nanoemulsiones al contacto con fluidos GI', 'Polvos para inhalación', 'Gotas para los ojos'], correct: 1, explanation: 'Mejoran la absorción oral de péptidos hidrofílicos al formar nanoemulsiones espontáneamente en el tracto gastrointestinal.' },
+            { question: '¿Cuál es la principal limitación de la extracción tradicional?', options: ['Alto rendimiento', 'Pérdida de actividad biológica y alto impacto ambiental', 'Demasiada especificidad', 'Uso de IA'], correct: 1, explanation: 'Sufre de bajo rendimiento, pérdida de actividad por calor/pH y alto consumo de materia prima y solventes tóxicos.' },
+            { question: '¿Qué tecnología permite identificar miles de secuencias candidatas en tiempo reducido?', options: ['Cromatografía en papel', 'Ómicas aplicadas (transcriptómica/peptidómica)', 'Destilación', 'Cristalización'], correct: 1, explanation: 'Las ómicas aplicadas analizan el ARN y los péptidos de glándulas venenosas masivamente, acelerando el descubrimiento.' },
+            { question: '¿Qué ventaja tiene la nanotecnología en la administración de toxinas terapéuticas?', options: ['Aumenta la toxicidad sistémica', 'Dirige el fármaco al tejido diana, minimizando toxicidad sistémica', 'Lo hace más amargo', 'Lo degrada más rápido'], correct: 1, explanation: 'Las nanopartículas dirigidas transportan el fármaco específicamente al tejido diana, reduciendo efectos adversos en otros órganos.' },
+            { question: '¿Qué habilidad matemática requiere la extracción tradicional?', options: ['Avanzada (machine learning)', 'Intermedia (cinética)', 'Básica (estequiometría)', 'Cálculo diferencial'], correct: 2, explanation: 'La extracción tradicional principalmente requiere habilidades básicas de estequiometría y balance de masa simple.' },
+            { question: '¿Qué es la fermentación dirigida?', options: ['Dejar pudrir la materia prima', 'Producción controlada de compuestos como quitosano o colágeno usando microorganismos', 'Extracción con hexano', 'Síntesis a alta presión'], correct: 1, explanation: 'Es el uso de microorganismos específicos en biorreactores para producir compuestos de manera sostenible y controlada.' },
+            { question: '¿Por qué la exenatida natural es difícil de producir a escala?', options: ['Porque el lagarto es muy grande', 'Requiere "ordeñar" miles de lagartos con rendimiento mínimo y variabilidad', 'Porque es un gas', 'Porque se degrada en el aire'], correct: 1, explanation: 'La extracción directa de Heloderma suspectum es insostenible: bajo rendimiento, variabilidad por dieta/edad y riesgo ético/ecológico.' },
+            { question: '¿Qué base de datos gratuita se recomienda para toxinas?', options: ['Facebook', 'Animal Toxin Database', 'Instagram', 'Wikipedia'], correct: 1, explanation: 'Animal Toxin Database permite buscar por organismo, actividad biológica y secuencia de péptidos.' },
+            { question: '¿Qué es la hidrólisis enzimática controlada?', options: ['Romper moléculas con ácido fuerte', 'Usar enzimas específicas para liberar péptidos bioactivos de subproductos en condiciones suaves', 'Calentar a 500°C', 'Congelar la muestra'], correct: 1, explanation: 'Es una técnica biotecnológica que usa enzimas (ej. alcalasa) para liberar péptidos específicos de subproductos cárnicos sin dañarlos.' },
+            { question: '¿Cuál es el tiempo de desarrollo tradicional de un fármaco?', options: ['1-2 años', '3-5 años', '10-15 años', '20-30 años'], correct: 2, explanation: 'El enfoque tradicional de descubrimiento y desarrollo farmacológico toma entre 10 y 15 años.' }
+        ];
+
+        let quizSet = [], quizAnswered = 0, quizScore = 0, quizLastIds = [];
+        function barajar(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+        function overlapCount(newSet, oldSet) { const oldQs = new Set(oldSet.map(q => q.question)); return newSet.filter(q => oldQs.has(q.question)).length; }
+        function loadQuiz() {
+            let sel, intentos = 0;
+            do { sel = barajar(quizQuestions).slice(0, 10); intentos++; } while (quizLastIds.length > 0 && overlapCount(sel, quizLastIds) > 4 && intentos < 30);
+            quizLastIds = sel; quizSet = sel; quizAnswered = 0; quizScore = 0;
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '<div class="quiz-progress" id="quiz-progress"></div>';
+            quizSet.forEach((q, index) => {
+                const div = document.createElement('div'); div.className = 'quiz-container'; div.style.marginBottom = '2rem';
+                div.innerHTML = '<div class="quiz-question">' + (index + 1) + '. ' + q.question + '</div>' +
+                    '<div class="quiz-options">' + q.options.map((opt, i) => '<button class="quiz-option" onclick="checkAnswer(' + index + ', ' + i + ', this)">' + opt + '</button>').join('') + '</div>' +
+                    '<div class="quiz-feedback" id="feedback-' + index + '" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;"></div>';
+                container.appendChild(div);
+            });
+            actualizarProgresoQuiz(); mostrarHistorialQuiz();
+        }
+        function actualizarProgresoQuiz() {
+            const p = document.getElementById('quiz-progress');
+            if (p) p.innerHTML = '📊 Progreso: <strong>' + quizAnswered + '/' + quizSet.length + '</strong> · ✅ Aciertos: <strong>' + quizScore + '</strong>';
+        }
+        function mostrarHistorialQuiz() {
+            const h = document.getElementById('quiz-historial'); if (!h) return;
+            const ciclos = parseInt(localStorage.getItem('quiz2Ciclos') || '0', 10);
+            const ultimo = localStorage.getItem('quiz2Ultimo') || '—';
+            const mejor = localStorage.getItem('quiz2Mejor') || '—';
+            h.innerHTML = '🔁 Ciclos: <strong>' + ciclos + '</strong> · 🕘 Último: ' + ultimo + ' · 🏆 Mejor: ' + mejor;
+        }
+        function checkAnswer(qIdx, sIdx, btn) {
+            if (btn.disabled) return;
+            const q = quizSet[qIdx]; const fb = document.getElementById('feedback-' + qIdx);
+            const opts = btn.parentElement.querySelectorAll('.quiz-option');
+            opts.forEach(o => o.disabled = true); quizAnswered++;
+            if (sIdx === q.correct) {
+                quizScore++; btn.classList.add('correct');
+                fb.innerHTML = '<span style="color: #4caf50; font-weight: bold;">✅ ¡Correcto!</span><br>' + q.explanation;
+                fb.style.background = '#e8f5e9'; fb.style.color = '#2c3e50';
+            } else {
+                btn.classList.add('incorrect'); opts[q.correct].classList.add('correct');
+                fb.innerHTML = '<span style="color: #f44336; font-weight: bold;">❌ Incorrecto</span><br>' + q.explanation;
+                fb.style.background = '#ffebee'; fb.style.color = '#2c3e50';
+            }
+            fb.style.display = 'block'; actualizarProgresoQuiz();
+            if (quizAnswered === quizSet.length) finalizarQuiz();
+        }
+        function finalizarQuiz() {
+            const pct = Math.round((quizScore / quizSet.length) * 100);
+            let msg = pct >= 90 ? '🏅 ¡Excelencia!' : (pct >= 70 ? '💪 ¡Muy bien!' : (pct >= 50 ? '📖 Buen intento, repasa.' : '🔄 Vuelve a Conceptos.'));
+            const ciclos = parseInt(localStorage.getItem('quiz2Ciclos') || '0', 10) + 1;
+            localStorage.setItem('quiz2Ciclos', String(ciclos));
+            localStorage.setItem('quiz2Ultimo', quizScore + '/' + quizSet.length + ' (' + pct + '%)');
+            const mejor = parseInt(localStorage.getItem('quiz2MejorNum') || '0', 10);
+            if (pct > mejor) { localStorage.setItem('quiz2MejorNum', String(pct)); localStorage.setItem('quiz2Mejor', quizScore + '/' + quizSet.length + ' (' + pct + '%)'); }
+            const container = document.getElementById('quiz-container');
+            container.insertAdjacentHTML('beforeend', '<div class="calc-result show" style="margin-top:1.5rem; text-align:center;"><h3>🏁 Resultados</h3>Aciertos: <strong>' + quizScore + ' / ' + quizSet.length + '</strong> (' + pct + '%)<br>' + msg + '<br><button class="calc-button" style="margin-top:1rem;" onclick="reiniciarQuiz()">🎲 Nuevo ciclo</button></div>');
+            mostrarHistorialQuiz(); container.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function reiniciarQuiz() { loadQuiz(); document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' }); }
+        document.addEventListener('DOMContentLoaded', () => { loadQuiz(); fcRenderCard(); });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.img-container img, .molecule-img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() { window.open(this.src, '_blank'); });
+            });
+        });
+    </script>
+</body>
+</html>
