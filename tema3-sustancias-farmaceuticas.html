@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3: Sustancias Bioactivas Farmacéuticas | Farmacognosia</title>
+    <style>
+        :root { --QOMed-gold: #D4AF37; --QOMed-dark: #1a1a2e; --QOMed-blue: #16213e; --QOMed-light: #0f3460; --accent: #e94560; --text: #2c3e50; --white: #ffffff; --sand: #f4e9c1; --shadow: rgba(0, 0, 0, 0.15); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ul:not(.map-tree), ol { padding-left: 2.4rem; margin: 0.5rem 0 1rem; }
+        ul:not(.map-tree) { list-style: none; }
+        ul:not(.map-tree) li, ol li { margin: 0.45rem 0; }
+        ol { list-style: decimal; }
+        .quiz-progress { background: var(--QOMed-blue); color: #fff; border-left: 5px solid var(--QOMed-gold); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        header { background: linear-gradient(135deg, var(--QOMed-dark) 0%, var(--QOMed-blue) 100%); color: var(--white); padding: 2rem; text-align: center; box-shadow: 0 6px 20px var(--shadow); border-bottom: 5px solid var(--QOMed-gold); }
+        .logo-container { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .logo-farmacognosia { width: 120px; height: auto; background: var(--white); border-radius: 50%; padding: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); color: var(--QOMed-gold); }
+        .subtitle { font-size: 1.2rem; opacity: 0.95; font-weight: 300; }
+        .motivational-phrase { background: linear-gradient(135deg, var(--QOMed-gold), #f4d03f); color: var(--QOMed-dark); padding: 0.5rem 1.5rem; border-radius: 25px; display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.95rem; }
+        .nav-container { background: var(--QOMed-blue); padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px var(--shadow); }
+        .nav-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; max-width: 1400px; margin: 0 auto; }
+        .nav-btn { background: var(--white); color: var(--QOMed-dark); border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+        .nav-btn:hover, .nav-btn.active { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .section { display: none; animation: fadeIn 0.5s ease; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 24px var(--shadow); border-left: 6px solid var(--QOMed-gold); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        h2 { color: var(--QOMed-blue); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid var(--QOMed-gold); display: flex; align-items: center; gap: 0.8rem; font-size: 2rem; }
+        h3 { color: var(--QOMed-light); margin: 1.5rem 0 1rem; font-size: 1.5rem; }
+        .molecule-img { max-width: 100%; height: auto; border-radius: 12px; margin: 1rem 0; box-shadow: 0 4px 12px var(--shadow); }
+        .img-container { text-align: center; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow); }
+        th { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); padding: 1.2rem; text-align: left; font-weight: 600; }
+        td { padding: 1rem 1.2rem; border-bottom: 1px solid #eee; transition: background 0.3s; }
+        tr:hover td { background: #f8fff0; }
+        .info-box { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .tip-box { background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 5px solid #ffc107; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .bio-box { background: linear-gradient(135deg, #d1ecf1 0%, #a8dadc 100%); border-left: 5px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .pharma-box { background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .problem-box { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #28a745; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        details.solution { margin-top: 1rem; background: #f8f9fa; border: 2px solid var(--QOMed-light); border-radius: 10px; padding: 0.8rem 1.2rem; }
+        details.solution summary { cursor: pointer; font-weight: 700; color: var(--QOMed-light); }
+        details.solution[open] summary { margin-bottom: 0.8rem; border-bottom: 1px dashed var(--QOMed-light); padding-bottom: .4rem; }
+        .mnemonic-card { background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%); border: 3px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; position: relative; overflow: hidden; }
+        .mnemonic-title { color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .glossary-term { background: var(--white); border: 2px solid var(--QOMed-gold); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; cursor: pointer; transition: all 0.3s; }
+        .glossary-term:hover { background: #fff9e6; transform: translateX(5px); }
+        .glossary-definition { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--QOMed-gold); }
+        .glossary-definition.show { display: block; animation: fadeIn 0.3s ease; }
+        .error-card { background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1rem 0; border-radius: 0 12px 12px 0; }
+        .error-title { color: #dc3545; font-weight: 700; margin-bottom: 0.5rem; }
+        .correction { background: #d4edda; border-left: 3px solid #28a745; padding: 1rem; margin-top: 1rem; border-radius: 0 8px 8px 0; }
+        .quiz-container { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .quiz-question { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 600; }
+        .quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .quiz-option { background: var(--white); color: var(--text); border: 3px solid transparent; padding: 1.2rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+        .quiz-option:hover:not(:disabled) { border-color: var(--QOMed-gold); transform: translateY(-3px); }
+        .quiz-option:disabled { cursor: not-allowed; opacity: 0.95; }
+        .quiz-option.correct { background: #4caf50; color: white; border-color: #2e7d32; }
+        .quiz-option.incorrect { background: #f44336; color: white; border-color: #c62828; }
+        .footer { background: var(--QOMed-dark); color: var(--white); text-align: center; padding: 2.5rem; margin-top: 3rem; border-top: 5px solid var(--QOMed-gold); }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow); }
+        .table-responsive table { min-width: 600px; width: 100%; margin: 0; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tab { background: var(--sand); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab.active { background: var(--QOMed-gold); color: var(--QOMed-dark); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .fc-stats { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0; }
+        .fc-stat { padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; color: #fff; font-size: 0.95rem; }
+        .fc-stat.good { background: #28a745; } .fc-stat.bad { background: #dc3545; } .fc-stat.pending { background: #6c757d; } .fc-stat.total { background: var(--QOMed-light); }
+        .fc-progress { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; max-width: 720px; margin: 0 auto 1.5rem; }
+        .fc-progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--QOMed-gold), var(--accent)); transition: width 0.4s; }
+        .flashcard-scene { perspective: 1400px; max-width: 720px; height: 320px; margin: 0 auto 1.5rem; }
+        .flashcard { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+        .flashcard.flipped { transform: rotateY(180deg); }
+        .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: auto; box-shadow: 0 8px 24px var(--shadow); font-size: 1.15rem; }
+        .fc-front { background: linear-gradient(135deg, var(--QOMed-blue), var(--QOMed-light)); color: #fff; border: 3px solid var(--QOMed-gold); }
+        .fc-back { background: linear-gradient(135deg, #fff9e6, var(--sand)); color: var(--text); border: 3px solid var(--QOMed-gold); transform: rotateY(180deg); }
+        .fc-label { font-size: 0.85rem; letter-spacing: 2px; font-weight: 800; opacity: 0.8; margin-bottom: 1rem; }
+        .fc-hint { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; font-style: italic; }
+        .fc-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        .fc-btn { border: none; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s; color: #fff; }
+        .fc-btn:disabled { opacity: 0.4; cursor: not-allowed; } .fc-btn.good { background: #28a745; } .fc-btn.bad { background: #dc3545; }
+        .fc-btn:not(:disabled):hover { transform: translateY(-3px); }
+        .fc-link { background: none; border: none; color: #6c757d; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 1rem; }
+        .map-container { overflow-x: auto; padding: 1rem 0; }
+        .map-tree, .map-tree ul { list-style: none; padding-left: 0; }
+        .map-tree ul { display: none; padding-left: 1.6rem; margin-top: 0.6rem; border-left: 3px solid var(--QOMed-gold); }
+        .map-tree li.open > ul { display: block; animation: fadeIn 0.4s ease; }
+        .map-tree li { margin: 0.4rem 0; }
+        .map-node { display: inline-block; background: var(--QOMed-blue); color: #fff; padding: 0.6rem 1.1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .map-node:hover { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateX(4px); }
+        .map-node.root { background: var(--accent); font-size: 1.15rem; }
+        .map-node.branch { background: var(--QOMed-light); }
+        .map-leaf { display: inline-block; background: var(--sand); color: var(--text); padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.95rem; border: 2px solid var(--QOMed-gold); }
+        li.has-children > .map-node::before { content: '▶ '; font-size: 0.8em; }
+        li.has-children.open > .map-node::before { content: '▼ '; font-size: 0.8em; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } .logo-container { flex-direction: column; gap: 1rem; } .logo-farmacognosia { width: 80px; } .container { padding: 1rem; } .nav-buttons { gap: 0.5rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="LogoFarmacognosia.png" alt="Logo Farmacognosia" class="logo-farmacognosia">
+            <div>
+                <h1>Farmacognosia</h1>
+                <p class="subtitle">Tema 3: Sustancias Bioactivas Farmacéuticas</p>
+                <div class="motivational-phrase">💊 "De la naturaleza a la farmacia: moléculas que salvan vidas"</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showSection('inicio', this)">🏠 Inicio</button>
+            <button class="nav-btn" onclick="showSection('conceptos', this)">📚 Conceptos</button>
+            <button class="nav-btn" onclick="showSection('mapa', this)">🗺️ Mapa Conceptual</button>
+            <button class="nav-btn" onclick="showSection('flashcards', this)">🃏 Flashcards</button>
+            <button class="nav-btn" onclick="showSection('aplicaciones', this)">🏥 Aplicaciones</button>
+            <button class="nav-btn" onclick="showSection('mnemotecnias', this)">🧠 Mnemotecnias</button>
+            <button class="nav-btn" onclick="showSection('glosario', this)">📖 Glosario</button>
+            <button class="nav-btn" onclick="showSection('errores', this)">⚠️ Errores Comunes</button>
+            <button class="nav-btn" onclick="showSection('bibliografia', this)">📚 Bibliografía</button>
+            <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="inicio" class="section active">
+            <div class="card">
+                <h2>🎯 Objetivos de Aprendizaje</h2>
+                <div class="info-box">
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li>✓ Clasificar las principales fuentes animales de compuestos bioactivos farmacéuticamente relevantes.</li>
+                        <li>✓ Identificar medicamentos aprobados de origen animal y sus mecanismos de acción.</li>
+                        <li>✓ Analizar las actividades biológicas atribuidas a péptidos y proteínas de venenos y secreciones.</li>
+                        <li>✓ Evaluar las perspectivas futuras en el desarrollo de terapéuticos derivados de animales superiores.</li>
+                    </ul>
+                </div>
+                <h3>🩺 Hito Fundamental</h3>
+                <div class="bio-box">
+                    <div>
+                        <strong>1981: Captopril (Capoten®)</strong><br>
+                        Primer medicamento derivado de toxina animal aprobado para uso humano. Marcó el inicio de una nueva era en el descubrimiento de fármacos basados en venenos, revolucionando el tratamiento de la hipertensión.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conceptos" class="section">
+            <div class="card">
+                <h2>📚 Conceptos Fundamentales</h2>
+                <div id="conceptos-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('conceptos-tabs','sub-fuentes', this)">🐍 Fuentes Biológicas</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-catalogo', this)">💊 Catálogo Aprobado</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-mecanismos', this)">⚙️ Mecanismos Detallados</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-futuro', this)">🔮 Perspectivas Futuras</button>
+                    </div>
+
+                    <div id="sub-fuentes" class="tab-content active">
+                        <h3>🐍 Clasificación por Fuente Biológica</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Categoría</th><th>Ejemplos de Especies</th><th>Tipo de Compuesto Principal</th></tr>
+                            <tr><td><strong>Serpientes</strong></td><td>Bothrops jararaca, Sistrurus miliarius</td><td>Péptidos, enzimas proteolíticas, inhibidores de proteasas</td></tr>
+                            <tr><td><strong>Lagartos venenosos</strong></td><td>Heloderma suspectum (Monstruo de Gila)</td><td>Péptidos similares a incretinas (exendinas)</td></tr>
+                            <tr><td><strong>Gasterópodos marinos</strong></td><td>Conus magus, Conus geographus</td><td>Conotoxinas (péptidos neuroactivos)</td></tr>
+                            <tr><td><strong>Sanguijuelas</strong></td><td>Hirudo medicinalis</td><td>Hirudinas, inhibidores de trombina</td></tr>
+                            <tr><td><strong>Anfibios</strong></td><td>Bombina variegata, Phyllomedusa spp</td><td>Péptidos antimicrobianos, alcaloides</td></tr>
+                            <tr><td><strong>Mamíferos</strong></td><td>Murciélagos, musarañas</td><td>Péptidos analgésicos, factores de crecimiento</td></tr>
+                        </table>
+                        </div>
+                    </div>
+
+                    <div id="sub-catalogo" class="tab-content">
+                        <h3>💊 Catálogo de Medicamentos Aprobados por FDA</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Fármaco</th><th>Fuente Animal</th><th>Clase</th><th>Mecanismo de Acción</th><th>Indicación</th><th>Aprobación</th></tr>
+                            <tr><td><strong>Captopril</strong> (Capoten®)</td><td>Bothrops jararaca</td><td>IECA sintético</td><td>Inhibe enzima convertidora de angiotensina</td><td>Hipertensión, IC</td><td>1981</td></tr>
+                            <tr><td><strong>Enalapril</strong> (Vasotec®)</td><td>Bothrops jararaca</td><td>IECA sintético (prodroga)</td><td>Inhibición de ACE tras activación hepática</td><td>Hipertensión, IC</td><td>1985</td></tr>
+                            <tr><td><strong>Tirofiban</strong> (Aggrastat®)</td><td>Echis carinatus</td><td>Antagonista GPIIb/IIIa</td><td>Bloquea unión de fibrinógeno a plaquetas</td><td>Síndrome coronario agudo</td><td>1998</td></tr>
+                            <tr><td><strong>Eptifibatide</strong> (Integrilin®)</td><td>Sistrurus miliarius</td><td>Péptido cíclico antiplaquetario</td><td>Inhibe agregación plaquetaria vía KGD</td><td>Intervención coronaria</td><td>1998</td></tr>
+                            <tr><td><strong>Bivalirudin</strong> (Angiomax®)</td><td>Hirudo medicinalis</td><td>Inhibidor reversible de trombina</td><td>Unión directa y reversible a trombina</td><td>Anticoagulación en angioplastia</td><td>2000</td></tr>
+                            <tr><td><strong>Ziconotide</strong> (Prialt®)</td><td>Conus magus</td><td>ω-conotoxina sintética</td><td>Bloqueo de canales de Ca²⁺ tipo N</td><td>Dolor crónico severo</td><td>2004</td></tr>
+                            <tr><td><strong>Exenatide</strong> (Byetta®)</td><td>Heloderma suspectum</td><td>Análogo de GLP-1</td><td>Agonista de receptor de incretina</td><td>Diabetes tipo 2</td><td>2005</td></tr>
+                        </table>
+                        </div>
+                    </div>
+
+                    <div id="sub-mecanismos" class="tab-content">
+                        <h3>⚙️ Casos Destacados: Mecanismos Detallados</h3>
+                        
+                        <h3>1. Captopril: El Paradigma del Diseño Racional</h3>
+                        <div class="img-container">
+                            <img src="estructura-captopril-ace.png" alt="Estructura química del Captopril uniéndose al sitio activo de la ECA" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 1: Interacción del grupo tiol del captopril con el zinc de la ECA, impidiendo la conversión de angiotensina I a II.</p>
+                        </div>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Origen:</strong> Péptido potenciador de bradiquinina (BPP) del veneno de <em>Bothrops jararaca</em>.</li>
+                                <li><strong>Innovación:</strong> Miniaturización del péptido natural + adición de grupo succinilo (tiol) para administración oral.</li>
+                                <li><strong>Impacto:</strong> Revolucionó el tratamiento de la hipertensión; modelo para el desarrollo de todos los IECA posteriores.</li>
+                            </ul>
+                        </div>
+
+                        <h3>2. Ziconotide: Neurofarmacología Marina</h3>
+                        <div class="img-container">
+                            <img src="ziconotide-canal-calcio.png" alt="Ziconotide bloqueando canales de calcio tipo N en el asta dorsal medular" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 2: La ω-conotoxina MVIIA bloquea selectivamente los canales Cav2.2, impidiendo la liberación de neurotransmisores del dolor.</p>
+                        </div>
+                        <div class="pharma-box">
+                            <ul>
+                                <li><strong>Origen:</strong> ω-conotoxina MVIIA de <em>Conus magus</em> (caracol marino del Pacífico).</li>
+                                <li><strong>Mecanismo:</strong> Bloqueo selectivo de canales de calcio voltaje-dependientes tipo N (Cav2.2) en neuronas del asta dorsal medular.</li>
+                                <li><strong>Ventaja clínica:</strong> Analgesia potente sin tolerancia ni dependencia (alternativa a opioides).</li>
+                                <li><strong>Limitación:</strong> Requiere administración intratecal por bomba implantable (no atraviesa barrera hematoencefálica por vía oral).</li>
+                            </ul>
+                        </div>
+
+                        <h3>3. Exenatide: De la Saliva del Lagarto a la Farmacia</h3>
+                        <div class="img-container">
+                            <img src="exenatide-dpp4.png" alt="Comparación estructural de GLP-1 y Exenatide mostrando la sustitución de glicina en posición 8" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 3: La sustitución de Alanina por Glicina en la posición 8 del exenatide previene el corte por la enzima DPP-4.</p>
+                        </div>
+                        <div class="bio-box">
+                            <ul>
+                                <li><strong>Origen:</strong> Exendina-4, péptido de 39 aminoácidos en la saliva de <em>Heloderma suspectum</em> (Monstruo de Gila).</li>
+                                <li><strong>Propiedad clave:</strong> Resistencia a degradación por DPP-4 (vida media ~2.4 h vs. minutos del GLP-1 endógeno).</li>
+                                <li><strong>Efectos:</strong> Estimulación de insulina glucosa-dependiente, supresión de glucagón, reducción de peso corporal.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="sub-futuro" class="tab-content">
+                        <h3>🔮 Medicamentos en Desarrollo y Perspectivas Futuras</h3>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Compuesto</th><th>Fuente</th><th>Estado</th><th>Indicación Potencial</th><th>Innovación</th></tr>
+                            <tr><td><strong>Péptidos de araña</strong> (Phoneutria)</td><td>Arácnidos</td><td>Fase I/II</td><td>Dolor neuropático, ACV</td><td>Bloqueo de canales ASIC1a, neuroprotección</td></tr>
+                            <tr><td><strong>Nuevas conotoxinas</strong> (κ, μ, δ)</td><td>Conus spp.</td><td>Preclínico</td><td>Epilepsia, adicción, migraña</td><td>Selectividad por subtipos de receptores</td></tr>
+                            <tr><td><strong>SVMPs modificados</strong></td><td>Bothrops, Crotalus</td><td>Preclínico</td><td>Metástasis tumoral, angiogénesis</td><td>Inhibición de MMPs endógenas</td></tr>
+                            <tr><td><strong>Análogos de exendina</strong> nueva generación</td><td>Heloderma spp.</td><td>Fase II</td><td>NASH, Alzheimer, Parkinson</td><td>Penetración de barrera hematoencefálica</td></tr>
+                        </table>
+                        </div>
+                        <div class="tip-box" style="margin-top: 1.5rem;">
+                            <strong>Desafíos Críticos:</strong> Farmacocinética de péptidos (vida media corta), variabilidad del veneno por geografía/dieta, toxicidad selectiva (ventana terapéutica estrecha), ética en recolección y requisitos regulatorios específicos para productos biológicos complejos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mapa" class="section">
+            <div class="card">
+                <h2>🗺️ Mapa Conceptual Interactivo</h2>
+                <p style="margin-bottom: 1rem;">Haz <strong>clic en cada nodo</strong> para desplegar u ocultar sus ramas.</p>
+                <div class="map-container">
+                    <ul class="map-tree">
+                        <li class="has-children">
+                            <div class="map-node root" onclick="toggleMap(this)">💊 Fármacos de Origen Animal</div>
+                            <ul>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🐍 Serpientes (Bothrops)</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Captopril (1981) → IECA, hipertensión</span></li>
+                                        <li><span class="map-leaf">Enalapril (1985) → Prodroga IECA</span></li>
+                                        <li><span class="map-leaf">Eptifibatide → Antiagregante plaquetario</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🐚 Gasterópodos (Conus)</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Ziconotide (2004) → Bloqueador Ca²⁺ tipo N</span></li>
+                                        <li><span class="map-leaf">Indicación: Dolor crónico severo (intratecal)</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🦎 Lagartos (Heloderma)</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Exenatide (2005) → Agonista GLP-1</span></li>
+                                        <li><span class="map-leaf">Resistente a DPP-4 (Glicina en pos. 8)</span></li>
+                                        <li><span class="map-leaf">Indicación: Diabetes tipo 2</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children">
+                                    <div class="map-node branch" onclick="toggleMap(this)">🪱 Sanguijuelas (Hirudo)</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Bivalirudin / Desirudin → Inhibidores de trombina</span></li>
+                                        <li><span class="map-leaf">Indicación: Anticoagulación en angioplastia</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="flashcards" class="section">
+            <div class="card">
+                <h2>🃏 Flashcards de Estudio</h2>
+                <p>Haz <strong>clic en la tarjeta</strong> para voltearla y ver la respuesta.</p>
+                <div class="fc-stats">
+                    <span class="fc-stat good">✅ Buenas: <span id="fc-good">0</span></span>
+                    <span class="fc-stat bad">❌ Malas: <span id="fc-bad">0</span></span>
+                    <span class="fc-stat pending">⏳ Pendientes: <span id="fc-left">0</span></span>
+                    <span class="fc-stat total">📈 Historial: <span id="fc-hist">0 ✓ / 0 ✗</span></span>
+                </div>
+                <div class="fc-progress"><div class="fc-progress-bar" id="fc-bar"></div></div>
+                <div class="flashcard-scene" id="fc-scene">
+                    <div class="flashcard" id="fc-card" onclick="flipCard()">
+                        <div class="fc-face fc-front"><div class="fc-label">PREGUNTA</div><div id="fc-question"></div><span class="fc-hint">Clic para voltear ✨</span></div>
+                        <div class="fc-face fc-back"><div class="fc-label">RESPUESTA</div><div id="fc-answer"></div></div>
+                    </div>
+                </div>
+                <div class="fc-controls" id="fc-controls">
+                    <button class="fc-btn good" id="btn-fc-good" onclick="gradeCard(true)" disabled>✅ La sabía</button>
+                    <button class="fc-btn bad" id="btn-fc-bad" onclick="gradeCard(false)" disabled>❌ No la sabía</button>
+                </div>
+                <div id="fc-summary" class="calc-result" style="max-width:720px;margin:1rem auto;"></div>
+                <div style="text-align:center;">
+                    <button class="calc-button" onclick="resetFlashcards()">🔄 Reiniciar Flashcards</button><br>
+                    <button class="fc-link" onclick="borrarHistorial()">Borrar historial acumulado</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicaciones" class="section">
+            <div class="card">
+                <h2>🏥 Aplicaciones Profesionales</h2>
+                <div id="aplicaciones-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('aplicaciones-tabs','aplic-cardio', this)">❤️ Cardiovascular</button>
+                        <button class="tab" onclick="showTab('aplicaciones-tabs','aplic-neuro', this)">🧠 Neurología</button>
+                    </div>
+                    <div id="aplic-cardio" class="tab-content active">
+                        <div class="problem-box">
+                            <strong>📋 Problema 1:</strong> Un paciente con síndrome coronario agudo recibe Tirofiban. Explique su origen y mecanismo antiplaquetario.
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p>El <strong>Tirofiban</strong> se derivó de la serpiente <em>Echis carinatus</em>. Es un antagonista sintético del receptor GPIIb/IIIa plaquetario. Bloquea la unión del fibrinógeno a las plaquetas, inhibiendo la agregación plaquetaria y previniendo la formación de trombos en el síndrome coronario agudo.</p>
+                        </details>
+                    </div>
+                    <div id="aplic-neuro" class="tab-content">
+                        <div class="problem-box">
+                            <strong>📋 Problema 2:</strong> ¿Por qué la Ziconotida es una alternativa valiosa a los opioides en dolor crónico severo, y cuál es su principal limitación clínica?
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p><strong>Valor:</strong> Proporciona analgesia potente bloqueando canales de calcio tipo N (Cav2.2) sin causar tolerancia, dependencia o depresión respiratoria (a diferencia de los opioides).<br>
+                            <strong>Limitación:</strong> Es un péptido hidrofílico que no atraviesa la barrera hematoencefálica por vía oral, requiriendo administración intratecal mediante bomba implantable.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mnemotecnias" class="section">
+            <div class="card">
+                <h2>🧠 Mnemotecnias y Reglas Mnemotécnicas</h2>
+                <p style="margin-bottom: 1.5rem;">Técnicas detalladas para recordar nombres, fuentes y mecanismos (frecuentes en exámenes):</p>
+                
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🐍 Fuentes Animales: "C-Z, H-E, B-C, H-B"</div>
+                    <div class="info-box">
+                        <strong>C</strong>onus magus → <strong>Z</strong>iconotide (dolor)<br>
+                        <strong>H</strong>eloderma (Lagarto) → <strong>E</strong>xenatide (diabetes)<br>
+                        <strong>B</strong>othrops (Serpiente) → <strong>C</strong>aptopril / <strong>E</strong>nalapril (hipertensión)<br>
+                        <strong>H</strong>irudo (Sanguijuela) → <strong>B</strong>ivalirudin / <strong>D</strong>esirudin (anticoagulante)
+                    </div>
+                    <p><strong>Frase:</strong> "<strong>C</strong>omo <strong>Z</strongapatos, <strong>H</strong>eloderma <strong>E</strong>xena, <strong>B</strong>othrops <strong>C</strong>ura, <strong>H</strong>irudo <strong>B</strong>aja la sangre"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🩸 Anticoagulantes de Sanguijuela: "H-B-D"</div>
+                    <div class="tip-box">
+                        <strong>H</strong>irudo medicinalis → <strong>H</strong>irudina (natural)<br>
+                        <strong>B</strong>ivalirudin (reversible, angioplastia)<br>
+                        <strong>D</strong>esirudin (irreversible, profilaxis TVP)
+                    </div>
+                    <p><strong>Frase:</strong> "La <strong>H</strong>irudina <strong>B</strong>aja la <strong>D</strong>ureza (coagulación)"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🦎 Exenatide y la Resistencia a DPP-4</div>
+                    <div class="info-box">
+                        El GLP-1 natural tiene <strong>A</strong>lanina en posición 8 → es cortado por DPP-4.<br>
+                        El Exenatide tiene <strong>G</strong>licina en posición 8 → resiste a DPP-4.
+                    </div>
+                    <p><strong>Frase:</strong> "La <strong>G</strong>licina <strong>G</strong>uarda al <strong>P</strong>éptido (DPP-4)"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">⚙️ Mecanismos de Acción: "I-B-A"</div>
+                    <div class="tip-box">
+                        <strong>I</strong>ECA (Captopril/Enalapril) → <strong>I</strong>nhiben Enzima Convertidora de Angiotensina.<br>
+                        <strong>B</strong>loqueo de Ca²⁺ (Ziconotide) → <strong>B</strong>loquea canales tipo N (dolor).<br>
+                        <strong>A</strong>gonista GLP-1 (Exenatide) → <strong>A</strong>umenta insulina glucosa-dependiente.
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">📅 Años de Aprobación Clave</div>
+                    <div class="pharma-box">
+                        <strong>1981:</strong> Captopril (El pionero, IECA)<br>
+                        <strong>1998:</strong> Tirofiban / Eptifibatide (Antiplaquetarios)<br>
+                        <strong>2004:</strong> Ziconotide (Dolor, Conus)<br>
+                        <strong>2005:</strong> Exenatide (Diabetes, Heloderma)
+                    </div>
+                    <p><strong>Frase:</strong> "En el <strong>81</strong> nació el <strong>Cap</strong>itán (Captopril), en el <strong>04</strong> el <strong>Z</strongorro (Ziconotide) y en el <strong>05</strong> el <strong>E</strong>xplorador (Exenatide)."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="glosario" class="section">
+            <div class="card">
+                <h2>📖 Glosario Interactivo</h2>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>IECA</strong><div class="glossary-definition">Inhibidor de la Enzima Convertidora de Angiotensina. Bloquea la conversión de angiotensina I a angiotensina II (vasoconstrictor). Ejemplos: captopril, enalapril.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>ω-conotoxina</strong><div class="glossary-definition">Péptido neurotóxico aislado de caracoles marinos del género Conus. La MVIIA (ziconotide) bloquea selectivamente los canales de calcio tipo N (Cav2.2).</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Exendina-4</strong><div class="glossary-definition">Péptido de 39 aminoácidos encontrado en la saliva del lagarto Heloderma suspectum. Es la base del fármaco exenatide, resistente a la enzima DPP-4.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Hirudina</strong><div class="glossary-definition">Inhibidor directo y potente de la trombina, aislado de la glándula salival de la sanguijuela Hirudo medicinalis.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>DPP-4</strong><div class="glossary-definition">Dipeptidil peptidasa-4. Enzima que degrada rápidamente el GLP-1 endógeno. El exenatide resiste esta degradación gracias a una sustitución de glicina en posición 8.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Disintegrinas</strong><div class="glossary-definition">Péptidos presentes en venenos de serpientes (ej. Echis, Sistrurus) que contienen el motivo RGD o KGD, inhibiendo la agregación plaquetaria al bloquear receptores de integrinas.</div></div>
+            </div>
+        </section>
+
+        <section id="errores" class="section">
+            <div class="card">
+                <h2>⚠️ Errores Comunes de Estudiantes</h2>
+                <div class="error-card"><div class="error-title">❌ Error 1: Confundir la fuente del Captopril</div><p><strong>Error:</strong> "El captopril se extrae del caracol Conus magus."</p><div class="correction"><strong>✓ Corrección:</strong> El captopril se derivó del veneno de la serpiente <strong>Bothrops jararaca</strong>. Conus magus es la fuente de la ziconotida.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 2: Pensar que el Exenatide es GLP-1 natural</div><p><strong>Error:</strong> "El exenatide es idéntico al GLP-1 humano."</p><div class="correction"><strong>✓ Corrección:</strong> El exenatide es un análogo (exendina-4) con un 53% de homología. Su ventaja clave es la <strong>sustitución de glicina en posición 8</strong>, que lo hace resistente a la degradación por DPP-4.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 3: Creer que la Ziconotida se administra por vía oral</div><p><strong>Error:</strong> "La ziconotida se toma en pastillas para el dolor."</p><div class="correction"><strong>✓ Corrección:</strong> Es un péptido hidrofílico que no atraviesa la barrera hematoencefálica. Requiere <strong>administración intratecal</strong> (bomba implantable en la médula espinal).</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 4: Confundir Bivalirudin con Desirudin</div><p><strong>Error:</strong> "Ambos son inhibidores irreversibles de trombina."</p><div class="correction"><strong>✓ Corrección:</strong> <strong>Bivalirudin</strong> es un inhibidor <strong>reversible</strong> (usado en angioplastia). <strong>Desirudin</strong> es <strong>irreversible</strong> (usado en profilaxis de TVP post-cirugía).</div></div>
+            </div>
+        </section>
+
+        <section id="bibliografia" class="section">
+            <div class="card">
+                <h2>📚 Fuentes Bibliográficas</h2>
+                <div class="info-box"><strong>1. "From Animal Poisons and Venoms to Medicines"</strong><br>• Bordon et al., Frontiers in Pharmacology, 2020.<br>• PMID: 32848750. Revisión exhaustiva de hitos y desafíos.</div>
+                <div class="bio-box"><div><strong>2. "The Development of Captopril"</strong><br>• Ondetti, M.A. et al., Hypertension, 1981.<br>• Artículo fundamental sobre el diseño racional a partir del BPP de Bothrops jararaca.</div></div>
+                <div class="pharma-box"><div><strong>3. "Ziconotide: A Review of its Pharmacology"</strong><br>• Schmid, R.L. et al., Neuropsychiatric Disease and Treatment, 2006.<br>• Revisión completa del mecanismo de bloqueo de canales de calcio tipo N.</div></div>
+                <div class="tip-box"><strong>4. Recursos en Línea:</strong><br>• <strong>DrugCentral:</strong> https://drugcentral.org (Base de datos de fármacos aprobados).<br>• <strong>FDA Green Book:</strong> https://www.fda.gov/animal-veterinary/products/approved-animal-drug-products-green-book</div>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <div class="card">
+                <h2>🎯 Quiz de Autoevaluación</h2>
+                <p>10 preguntas al azar de una base de 30. Cada vez que entras se sortea un nuevo ciclo.</p>
+                <p id="quiz-historial" style="margin: .5rem 0 1rem; font-weight: 600; color: var(--QOMed-light);"></p>
+                <div id="quiz-container"></div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="calc-button" onclick="reiniciarQuiz()">🔄 Reiniciar Quiz (nuevo ciclo aleatorio)</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Farmacognosia</p>
+        <p>Tema 3: Sustancias Bioactivas Farmacéuticas</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Prepárate para Innovar en Medicina"</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 - Material educativo para estudiantes</p>
+    </footer>
+
+    <script>
+        // ================= FLASHCARDS (24) =================
+        const flashcards = [
+            { q: '¿Cuál fue el hito fundamental de 1981 en farmacología de origen animal?', a: 'Aprobación del Captopril, primer medicamento derivado de toxina animal (Bothrops jararaca) para uso humano.' },
+            { q: 'Fuente animal del Captopril y Enalapril:', a: 'Bothrops jararaca (serpiente brasileña). Derivados del péptido potenciador de bradiquinina (BPP).' },
+            { q: 'Mecanismo de acción del Captopril:', a: 'Inhibidor de la Enzima Convertidora de Angiotensina (IECA). Bloquea la conversión de angiotensina I a angiotensina II.' },
+            { q: 'Fuente animal de la Ziconotida (Prialt®):', a: 'Conus magus (caracol marino del Océano Pacífico). Derivado de la ω-conotoxina MVIIA.' },
+            { q: 'Mecanismo de acción de la Ziconotida:', a: 'Bloqueo selectivo de canales de calcio voltaje-dependientes tipo N (Cav2.2) en neuronas del asta dorsal medular.' },
+            { q: '¿Por qué la Ziconotida requiere administración intratecal?', a: 'Es un péptido hidrofílico que no atraviesa la barrera hematoencefálica por vía oral.' },
+            { q: 'Fuente animal del Exenatide (Byetta®):', a: 'Heloderma suspectum (lagarto Monstruo de Gila). Derivado de la exendina-4 de su saliva.' },
+            { q: '¿Por qué el Exenatide es resistente a la degradación por DPP-4?', a: 'Por la sustitución de Alanina por Glicina en la posición 8 de su secuencia aminoacídica.' },
+            { q: 'Mecanismo de acción del Exenatide:', a: 'Agonista del receptor de incretina (GLP-1). Estimula insulina glucosa-dependiente y suprime glucagón.' },
+            { q: 'Fuente animal de la Hirudina, Bivalirudin y Desirudin:', a: 'Hirudo medicinalis (sanguijuela medicinal).' },
+            { q: 'Diferencia entre Bivalirudin y Desirudin:', a: 'Bivalirudin es un inhibidor reversible de trombina (angioplastia). Desirudin es irreversible (profilaxis TVP).' },
+            { q: 'Fuente del Tirofiban (Aggrastat®):', a: 'Echis carinatus (serpiente). Es un antagonista sintético del receptor GPIIb/IIIa plaquetario.' },
+            { q: 'Fuente del Eptifibatide (Integrilin®):', a: 'Sistrurus miliarius (serpiente de cascabel). Péptido cíclico antiplaquetario que inhibe la agregación vía motivo KGD.' },
+            { q: '¿Qué son las disintegrinas?', a: 'Péptidos de venenos de serpientes que contienen motivos RGD o KGD, inhibiendo la agregación plaquetaria al bloquear integrinas.' },
+            { q: 'Ventaja clínica de la Ziconotida sobre los opioides:', a: 'Proporciona analgesia potente sin causar tolerancia, dependencia o depresión respiratoria.' },
+            { q: '¿Qué es el péptido BPP?', a: 'Péptido Potenciador de Bradiquinina, aislado del veneno de Bothrops jararaca, que inspiró el diseño racional del captopril.' },
+            { q: 'Indicación clínica principal del Exenatide:', a: 'Diabetes mellitus tipo 2. Reduce la glucosa postprandial y promueve la pérdida de peso.' },
+            { q: 'Indicación clínica de la Ziconotida:', a: 'Dolor crónico severo (ej. dolor oncológico o neuropático refractario) vía intratecal.' },
+            { q: 'Clase química de la Ziconotida:', a: 'ω-conotoxina sintética (péptido neuroactivo de 25 aminoácidos con 3 puentes disulfuro).' },
+            { q: '¿Qué animal produce exendina-4?', a: 'El lagarto Heloderma suspectum (Monstruo de Gila), en sus glándulas salivales.' },
+            { q: 'Perspectiva futura: Péptidos de veneno de araña (Phoneutria):', a: 'En Fase I/II para dolor neuropático y ACV, por bloqueo de canales ASIC1a y efecto neuroprotector.' },
+            { q: 'Desafío crítico en el desarrollo de péptidos de veneno:', a: 'Farmacocinética (vida media corta, baja biodisponibilidad oral) y variabilidad del veneno por geografía/dieta del animal.' },
+            { q: 'Año de aprobación del Captopril:', a: '1981.' },
+            { q: 'Año de aprobación de la Ziconotida:', a: '2004.' }
+        ];
+
+        let fcIndex = 0, fcFlipped = false, fcGood = 0, fcBad = 0, fcDone = false;
+        function fcUpdateStats() {
+            document.getElementById('fc-good').textContent = fcGood;
+            document.getElementById('fc-bad').textContent = fcBad;
+            document.getElementById('fc-left').textContent = Math.max(0, flashcards.length - fcIndex);
+            const tg = parseInt(localStorage.getItem('fc3TotalGood') || '0', 10);
+            const tb = parseInt(localStorage.getItem('fc3TotalBad') || '0', 10);
+            document.getElementById('fc-hist').textContent = tg + ' ✓ / ' + tb + ' ✗';
+            document.getElementById('fc-bar').style.width = (fcIndex / flashcards.length * 100) + '%';
+        }
+        function fcRenderCard() {
+            const card = document.getElementById('fc-card');
+            card.classList.remove('flipped'); fcFlipped = false;
+            document.getElementById('fc-question').textContent = flashcards[fcIndex].q;
+            document.getElementById('fc-answer').textContent = flashcards[fcIndex].a;
+            document.getElementById('btn-fc-good').disabled = true;
+            document.getElementById('btn-fc-bad').disabled = true;
+            fcUpdateStats();
+        }
+        function flipCard() {
+            if (fcDone) return;
+            const card = document.getElementById('fc-card');
+            card.classList.toggle('flipped'); fcFlipped = card.classList.contains('flipped');
+            document.getElementById('btn-fc-good').disabled = !fcFlipped;
+            document.getElementById('btn-fc-bad').disabled = !fcFlipped;
+        }
+        function gradeCard(wasGood) {
+            if (!fcFlipped || fcDone) return;
+            if (wasGood) { fcGood++; localStorage.setItem('fc3TotalGood', String(parseInt(localStorage.getItem('fc3TotalGood') || '0', 10) + 1)); }
+            else { fcBad++; localStorage.setItem('fc3TotalBad', String(parseInt(localStorage.getItem('fc3TotalBad') || '0', 10) + 1)); }
+            fcIndex++;
+            if (fcIndex < flashcards.length) fcRenderCard(); else fcFinish();
+        }
+        function fcFinish() {
+            fcDone = true;
+            document.getElementById('fc-scene').style.display = 'none';
+            document.getElementById('fc-controls').style.display = 'none';
+            const total = fcGood + fcBad; const pct = Math.round(fcGood / total * 100);
+            let msg = pct >= 80 ? '¡Excelente! Dominas los fármacos de origen animal.' : (pct >= 60 ? '💪 ¡Bien! Repasa las que fallaste.' : '📚 Necesitas repasar Conceptos y Mapa.');
+            const sum = document.getElementById('fc-summary');
+            sum.innerHTML = '<strong>📊 Resumen:</strong><br>✅ Buenas: ' + fcGood + ' &nbsp; ❌ Malas: ' + fcBad + '<br>Precisión: <strong>' + pct + '%</strong><br>' + msg;
+            sum.classList.add('show'); fcUpdateStats();
+        }
+        function resetFlashcards() {
+            fcIndex = 0; fcGood = 0; fcBad = 0; fcDone = false;
+            document.getElementById('fc-scene').style.display = 'block';
+            document.getElementById('fc-controls').style.display = 'flex';
+            document.getElementById('fc-summary').classList.remove('show');
+            fcRenderCard();
+        }
+        function borrarHistorial() { localStorage.removeItem('fc3TotalGood'); localStorage.removeItem('fc3TotalBad'); fcUpdateStats(); }
+
+        // ================= NAVEGACIÓN =================
+        function showSection(sectionId, btn) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            if (sectionId === 'quiz') loadQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function showTab(groupId, tabId, btn) {
+            const group = document.getElementById(groupId);
+            group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            group.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+        function toggleMap(node) { node.parentElement.classList.toggle('open'); }
+        function toggleDefinition(element) {
+            const definition = element.querySelector('.glossary-definition');
+            definition.classList.toggle('show');
+            element.style.background = definition.classList.contains('show') ? '#fff9e6' : 'var(--white)';
+        }
+
+        // ================= QUIZ (30 preguntas) =================
+        const quizQuestions = [
+            { question: '¿En qué año se aprobó el Captopril, primer fármaco derivado de toxina animal?', options: ['1975', '1981', '1990', '2004'], correct: 1, explanation: 'El Captopril fue aprobado en 1981, marcando el inicio de una nueva era en el descubrimiento de fármacos basados en venenos.' },
+            { question: '¿Cuál es la fuente animal del Captopril y Enalapril?', options: ['Conus magus', 'Heloderma suspectum', 'Bothrops jararaca', 'Hirudo medicinalis'], correct: 2, explanation: 'Ambos IECA se derivaron del péptido BPP del veneno de la serpiente brasileña Bothrops jararaca.' },
+            { question: 'Mecanismo de acción del Captopril:', options: ['Bloqueo de canales de calcio', 'Inhibición de la ECA (IECA)', 'Agonista de GLP-1', 'Inhibición de trombina'], correct: 1, explanation: 'El captopril inhibe la enzima convertidora de angiotensina, bloqueando la formación de angiotensina II (vasoconstrictor).' },
+            { question: '¿De qué animal se deriva la Ziconotida (Prialt®)?', options: ['Serpiente Bothrops', 'Caracol marino Conus magus', 'Lagarto Heloderma', 'Sanguijuela Hirudo'], correct: 1, explanation: 'La ziconotida es una ω-conotoxina sintética derivada del veneno del caracol marino Conus magus.' },
+            { question: 'Mecanismo de acción de la Ziconotida:', options: ['Agonista de receptores opioides', 'Bloqueo de canales de Ca²⁺ tipo N (Cav2.2)', 'Inhibición de la COX-2', 'Bloqueo de canales de sodio'], correct: 1, explanation: 'Bloquea selectivamente los canales de calcio voltaje-dependientes tipo N en el asta dorsal medular, impidiendo la transmisión del dolor.' },
+            { question: '¿Por qué la Ziconotida requiere administración intratecal?', options: ['Es irritante gástrico', 'No atraviesa la barrera hematoencefálica por vía oral', 'Se degrada en la sangre', 'Es demasiado costosa para vía oral'], correct: 1, explanation: 'Es un péptido hidrofílico que no puede cruzar la barrera hematoencefálica por vía oral, requiriendo inyección directa en el líquido cefalorraquídeo.' },
+            { question: 'Fuente animal del Exenatide (Byetta®):', options: ['Conus magus', 'Bothrops jararaca', 'Heloderma suspectum', 'Echis carinatus'], correct: 2, explanation: 'El exenatide se deriva de la exendina-4, un péptido encontrado en la saliva del lagarto Monstruo de Gila (Heloderma suspectum).' },
+            { question: '¿Por qué el Exenatide es resistente a la degradación por DPP-4?', options: ['Por su gran tamaño molecular', 'Por la sustitución de Glicina por Alanina en posición 8', 'Por la sustitución de Alanina por Glicina en posición 8', 'Porque es un lípido'], correct: 2, explanation: 'La exendina-4 tiene glicina en la posición 8 (en lugar de alanina como el GLP-1 humano), lo que impide que la enzima DPP-4 la corte y degrade.' },
+            { question: 'Indicación clínica principal del Exenatide:', options: ['Hipertensión arterial', 'Dolor crónico severo', 'Diabetes mellitus tipo 2', 'Anticoagulación'], correct: 2, explanation: 'Es un agonista del receptor de GLP-1 usado en diabetes tipo 2 para estimular la insulina glucosa-dependiente y reducir el peso.' },
+            { question: 'Fuente animal de la Hirudina, Bivalirudin y Desirudin:', options: ['Serpiente', 'Caracol marino', 'Sanguijuela (Hirudo medicinalis)', 'Lagarto'], correct: 2, explanation: 'Estos anticoagulantes se derivan de la hirudina, aislada de la glándula salival de la sanguijuela Hirudo medicinalis.' },
+            { question: 'Diferencia clave entre Bivalirudin y Desirudin:', options: ['Ambos son irreversibles', 'Bivalirudin es reversible, Desirudin es irreversible', 'Bivalirudin es oral, Desirudin es IV', 'No hay diferencia'], correct: 1, explanation: 'Bivalirudin es un inhibidor reversible de trombina (usado en angioplastia), mientras que Desirudin es irreversible (profilaxis de TVP).' },
+            { question: 'Fuente del Tirofiban (Aggrastat®):', options: ['Sistrurus miliarius', 'Echis carinatus', 'Conus geographus', 'Bombina variegata'], correct: 1, explanation: 'El tirofiban es un antagonista sintético del receptor GPIIb/IIIa derivado de la serpiente Echis carinatus.' },
+            { question: '¿Qué son las disintegrinas?', options: ['Enzimas que destruyen hueso', 'Péptidos de veneno que inhiben la agregación plaquetaria bloqueando integrinas', 'Antibióticos de anfibios', 'Hormonas de mamíferos'], correct: 1, explanation: 'Son péptidos de venenos de serpientes con motivos RGD o KGD que bloquean los receptores de integrinas en plaquetas, impidiendo su agregación.' },
+            { question: 'Ventaja clínica de la Ziconotida sobre los opioides:', options: ['Es más barata', 'Se puede tomar por vía oral', 'No causa tolerancia ni dependencia', 'Actúa más rápido'], correct: 2, explanation: 'Proporciona analgesia potente sin los efectos adversos típicos de los opioides: tolerancia, dependencia o depresión respiratoria.' },
+            { question: '¿Qué es el péptido BPP?', options: ['Un tipo de insulina', 'Péptido Potenciador de Bradiquinina del veneno de Bothrops', 'Una toxina de caracol', 'Un antibiótico'], correct: 1, explanation: 'El Péptido Potenciador de Bradiquinina (BPP) fue descubierto en el veneno de Bothrops jararaca e inspiró el diseño racional del captopril.' },
+            { question: 'Año de aprobación de la Ziconotida:', options: ['1981', '1998', '2004', '2011'], correct: 2, explanation: 'La Ziconotida (Prialt®) fue aprobada por la FDA en 2004 para el tratamiento del dolor crónico severo.' },
+            { question: 'Año de aprobación del Exenatide:', options: ['1981', '2004', '2005', '2016'], correct: 2, explanation: 'El Exenatide (Byetta®) fue aprobado en 2005 para el tratamiento de la diabetes tipo 2.' },
+            { question: 'Perspectiva futura: Péptidos de veneno de araña (Phoneutria):', options: ['Tratamiento de la calvicie', 'Dolor neuropático y ACV (bloqueo de canales ASIC1a)', 'Aumento de masa muscular', 'Tratamiento de la malaria'], correct: 1, explanation: 'Están en Fase I/II para dolor neuropático y accidente cerebrovascular debido a su capacidad de bloquear canales ASIC1a y ofrecer neuroprotección.' },
+            { question: 'Desafío crítico en el desarrollo de péptidos de veneno:', options: ['Son demasiado estables', 'Farmacocinética (vida media corta, baja biodisponibilidad oral)', 'Son fáciles de sintetizar', 'No tienen efectos secundarios'], correct: 1, explanation: 'Los péptidos suelen tener vida media corta en plasma, baja biodisponibilidad oral y requieren formulaciones especializadas o vías parenterales.' },
+            { question: '¿Qué animal produce exendina-4?', options: ['Serpiente de cascabel', 'Lagarto Monstruo de Gila', 'Caracol cónico', 'Sanguijuela'], correct: 1, explanation: 'La exendina-4 se encuentra en las glándulas salivales del lagarto Heloderma suspectum (Monstruo de Gila).' },
+            { question: 'Clase química de la Ziconotida:', options: ['Alcaloide', 'ω-conotoxina sintética (péptido)', 'Esteroides', 'Glicósido'], correct: 1, explanation: 'Es una ω-conotoxina sintética, un péptido de 25 aminoácidos estabilizado por 3 puentes disulfuro.' },
+            { question: 'Fuente del Eptifibatide (Integrilin®):', options: ['Bothrops jararaca', 'Sistrurus miliarius', 'Conus magus', 'Hirudo medicinalis'], correct: 1, explanation: 'El eptifibatide es un péptido cíclico antiplaquetario derivado de la serpiente de cascabel Sistrurus miliarius, que inhibe la agregación vía motivo KGD.' },
+            { question: 'Mecanismo de acción del Tirofiban:', options: ['Inhibidor de la ECA', 'Antagonista del receptor GPIIb/IIIa plaquetario', 'Bloqueador de canales de calcio', 'Agonista de GLP-1'], correct: 1, explanation: 'Bloquea la unión del fibrinógeno al receptor GPIIb/IIIa en las plaquetas, inhibiendo la agregación plaquetaria en síndromes coronarios agudos.' },
+            { question: '¿Cuál de estos fármacos es un inhibidor reversible de trombina?', options: ['Desirudin', 'Bivalirudin', 'Captopril', 'Ziconotida'], correct: 1, explanation: 'Bivalirudin (Angiomax®) es un inhibidor reversible de trombina utilizado para anticoagulación durante angioplastias.' },
+            { question: 'La variabilidad del veneno es un desafío porque:', options: ['Siempre es idéntico', 'Difiere por geografía, dieta y edad del animal, complicando la estandarización', 'Es demasiado barato', 'No contiene principios activos'], correct: 1, explanation: 'La composición del veneno varía según la ubicación geográfica, la dieta y la edad del animal, lo que hace difícil estandarizar la materia prima natural.' },
+            { question: '¿Qué enzima degrada normalmente al GLP-1 endógeno?', options: ['ECA', 'DPP-4', 'Trombina', 'Amilasa'], correct: 1, explanation: 'La dipeptidil peptidasa-4 (DPP-4) degrada rápidamente el GLP-1 endógeno. El exenatide resiste esta enzima gracias a su estructura modificada.' },
+            { question: 'Innovación en el desarrollo del Captopril:', options: ['Extracción directa sin modificar', 'Miniaturización del péptido BPP + adición de grupo succinilo (tiol)', 'Síntesis aleatoria', 'Uso de veneno liofilizado'], correct: 1, explanation: 'Se miniaturizó el péptido natural y se añadió un grupo tiol (sustituido luego por carboxilato en enalapril) para permitir la administración oral y la unión al zinc de la ECA.' },
+            { question: 'Indicación de la Desirudin (Iprivask®):', options: ['Hipertensión', 'Profilaxis de trombosis venosa profunda (TVP) post-cirugía', 'Dolor crónico', 'Diabetes'], correct: 1, explanation: 'Desirudin es una hirudina recombinante irreversible usada para prevenir la TVP después de cirugías de reemplazo de cadera.' },
+            { question: 'Efecto pleiotrópico del Exenatide además de reducir glucosa:', options: ['Aumento de peso', 'Reducción de peso corporal y supresión de glucagón', 'Hipertensión', 'Taquicardia'], correct: 1, explanation: 'Además de estimular la insulina, el exenatide suprime la secreción de glucagón, retrasa el vaciamiento gástrico y promueve la saciedad, reduciendo el peso.' },
+            { question: 'Base de datos recomendada para fármacos aprobados:', options: ['Facebook', 'DrugCentral / FDA Green Book', 'Instagram', 'TikTok'], correct: 1, explanation: 'DrugCentral y el FDA Green Book son recursos oficiales y gratuitos para consultar información regulatoria y de aprobación de fármacos.' }
+        ];
+
+        let quizSet = [], quizAnswered = 0, quizScore = 0, quizLastIds = [];
+        function barajar(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+        function overlapCount(newSet, oldSet) { const oldQs = new Set(oldSet.map(q => q.question)); return newSet.filter(q => oldQs.has(q.question)).length; }
+        function loadQuiz() {
+            let sel, intentos = 0;
+            do { sel = barajar(quizQuestions).slice(0, 10); intentos++; } while (quizLastIds.length > 0 && overlapCount(sel, quizLastIds) > 4 && intentos < 30);
+            quizLastIds = sel; quizSet = sel; quizAnswered = 0; quizScore = 0;
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '<div class="quiz-progress" id="quiz-progress"></div>';
+            quizSet.forEach((q, index) => {
+                const div = document.createElement('div'); div.className = 'quiz-container'; div.style.marginBottom = '2rem';
+                div.innerHTML = '<div class="quiz-question">' + (index + 1) + '. ' + q.question + '</div>' +
+                    '<div class="quiz-options">' + q.options.map((opt, i) => '<button class="quiz-option" onclick="checkAnswer(' + index + ', ' + i + ', this)">' + opt + '</button>').join('') + '</div>' +
+                    '<div class="quiz-feedback" id="feedback-' + index + '" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;"></div>';
+                container.appendChild(div);
+            });
+            actualizarProgresoQuiz(); mostrarHistorialQuiz();
+        }
+        function actualizarProgresoQuiz() {
+            const p = document.getElementById('quiz-progress');
+            if (p) p.innerHTML = '📊 Progreso: <strong>' + quizAnswered + '/' + quizSet.length + '</strong> · ✅ Aciertos: <strong>' + quizScore + '</strong>';
+        }
+        function mostrarHistorialQuiz() {
+            const h = document.getElementById('quiz-historial'); if (!h) return;
+            const ciclos = parseInt(localStorage.getItem('quiz3Ciclos') || '0', 10);
+            const ultimo = localStorage.getItem('quiz3Ultimo') || '—';
+            const mejor = localStorage.getItem('quiz3Mejor') || '—';
+            h.innerHTML = '🔁 Ciclos: <strong>' + ciclos + '</strong> · 🕘 Último: ' + ultimo + ' · 🏆 Mejor: ' + mejor;
+        }
+        function checkAnswer(qIdx, sIdx, btn) {
+            if (btn.disabled) return;
+            const q = quizSet[qIdx]; const fb = document.getElementById('feedback-' + qIdx);
+            const opts = btn.parentElement.querySelectorAll('.quiz-option');
+            opts.forEach(o => o.disabled = true); quizAnswered++;
+            if (sIdx === q.correct) {
+                quizScore++; btn.classList.add('correct');
+                fb.innerHTML = '<span style="color: #4caf50; font-weight: bold;">✅ ¡Correcto!</span><br>' + q.explanation;
+                fb.style.background = '#e8f5e9'; fb.style.color = '#2c3e50';
+            } else {
+                btn.classList.add('incorrect'); opts[q.correct].classList.add('correct');
+                fb.innerHTML = '<span style="color: #f44336; font-weight: bold;">❌ Incorrecto</span><br>' + q.explanation;
+                fb.style.background = '#ffebee'; fb.style.color = '#2c3e50';
+            }
+            fb.style.display = 'block'; actualizarProgresoQuiz();
+            if (quizAnswered === quizSet.length) finalizarQuiz();
+        }
+        function finalizarQuiz() {
+            const pct = Math.round((quizScore / quizSet.length) * 100);
+            let msg = pct >= 90 ? '🏅 ¡Excelencia!' : (pct >= 70 ? '💪 ¡Muy bien!' : (pct >= 50 ? '📖 Buen intento, repasa.' : '🔄 Vuelve a Conceptos.'));
+            const ciclos = parseInt(localStorage.getItem('quiz3Ciclos') || '0', 10) + 1;
+            localStorage.setItem('quiz3Ciclos', String(ciclos));
+            localStorage.setItem('quiz3Ultimo', quizScore + '/' + quizSet.length + ' (' + pct + '%)');
+            const mejor = parseInt(localStorage.getItem('quiz3MejorNum') || '0', 10);
+            if (pct > mejor) { localStorage.setItem('quiz3MejorNum', String(pct)); localStorage.setItem('quiz3Mejor', quizScore + '/' + quizSet.length + ' (' + pct + '%)'); }
+            const container = document.getElementById('quiz-container');
+            container.insertAdjacentHTML('beforeend', '<div class="calc-result show" style="margin-top:1.5rem; text-align:center;"><h3>🏁 Resultados</h3>Aciertos: <strong>' + quizScore + ' / ' + quizSet.length + '</strong> (' + pct + '%)<br>' + msg + '<br><button class="calc-button" style="margin-top:1rem;" onclick="reiniciarQuiz()">🎲 Nuevo ciclo</button></div>');
+            mostrarHistorialQuiz(); container.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function reiniciarQuiz() { loadQuiz(); document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' }); }
+        document.addEventListener('DOMContentLoaded', () => { loadQuiz(); fcRenderCard(); });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.img-container img, .molecule-img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() { window.open(this.src, '_blank'); });
+            });
+        });
+    </script>
+</body>
+</html>
