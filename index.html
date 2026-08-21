@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmacognosia - Plataforma Educativa</title>
+    <style>
+        :root {
+            --QOMed-gold: #D4AF37;
+            --QOMed-dark: #1a1a2e;
+            --QOMed-blue: #16213e;
+            --QOMed-light: #0f3460;
+            --accent: #e94560;
+            --text: #2c3e50;
+            --white: #ffffff;
+            --sand: #f4e9c1;
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--QOMed-dark) 0%, var(--QOMed-blue) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 6px 20px var(--shadow);
+            border-bottom: 5px solid var(--QOMed-gold);
+        }
+
+        .logo-container { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 2rem; 
+            margin-bottom: 1rem; 
+            flex-wrap: wrap; 
+        }
+        
+        .logo-farmacognosia { 
+            width: 120px; 
+            height: auto; 
+            background: var(--white); 
+            border-radius: 50%; 
+            padding: 10px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+        }
+
+        h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 0.5rem; 
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3); 
+            color: var(--QOMed-gold); 
+        }
+        
+        .subtitle { 
+            font-size: 1.2rem; 
+            opacity: 0.95; 
+            font-weight: 300; 
+        }
+
+        .motivational-phrase {
+            background: linear-gradient(135deg, var(--QOMed-gold), #f4d03f);
+            color: var(--QOMed-dark);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 3rem 2rem; 
+        }
+
+        .intro-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 24px var(--shadow);
+            border-left: 6px solid var(--QOMed-gold);
+            text-align: center;
+        }
+
+        .intro-card h2 {
+            color: var(--QOMed-blue);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .topic-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px var(--shadow);
+            border-left: 6px solid var(--QOMed-gold);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+            border-left-color: var(--accent);
+        }
+
+        .topic-number {
+            background: linear-gradient(135deg, var(--QOMed-blue), var(--QOMed-light));
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            border: 3px solid var(--QOMed-gold);
+        }
+
+        .topic-card h3 {
+            color: var(--QOMed-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .topic-card p {
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .topic-card .topics-list {
+            background: var(--sand);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .topic-card .topics-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .topic-card .topics-list li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .topic-card .topics-list li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            color: var(--QOMed-gold);
+            font-weight: bold;
+        }
+
+        .footer { 
+            background: var(--QOMed-dark); 
+            color: var(--white); 
+            text-align: center; 
+            padding: 2.5rem; 
+            margin-top: 3rem; 
+            border-top: 5px solid var(--QOMed-gold); 
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .topics-grid { grid-template-columns: 1fr; }
+            .container { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="LogoFarmacognosia.png" alt="Logo Farmacognosia" class="logo-farmacognosia">
+            <div>
+                <h1>Farmacognosia</h1>
+                <p class="subtitle">Sustancias Bioactivas de Origen Animal</p>
+                <div class="motivational-phrase">
+                    🌟 "Descubre el poder curativo de la naturaleza" 
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro-card">
+            <h2> Bienvenido a la Plataforma de Farmacognosia</h2>
+            <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
+                Explora el fascinante mundo de los compuestos bioactivos de origen animal superior. 
+                Desde medicamentos farmacéuticos hasta nutracéuticos, descubre cómo la naturaleza 
+                nos proporciona herramientas poderosas para la salud y el bienestar.
+            </p>
+        </div>
+
+        <div class="topics-grid">
+            <!-- TEMA 1 -->
+            <a href="tema1-origen-desarrollo.html" class="topic-card">
+                <div class="topic-number">1</div>
+                <h3>🔬 Origen y Desarrollo de Medicamentos</h3>
+                <p>Comprende el proceso completo de descubrimiento y desarrollo de fármacos de origen animal, desde los metabolitos hasta la validación clínica.</p>
+                <div class="topics-list">
+                    <ul>
+                        <li>Metabolitos primarios y secundarios</li>
+                        <li>Fases del desarrollo farmacológico</li>
+                        <li>Mecanismos de acción terapéutica</li>
+                        <li>Validación de candidatos farmacológicos</li>
+                    </ul>
+                </div>
+            </a>
+
+            <!-- TEMA 2 -->
+            <a href="tema2-evolucion-tecnologica.html" class="topic-card">
+                <div class="topic-number">2</div>
+                <h3>⚙️ Evolución Tecnológica en el Desarrollo</h3>
+                <p>Explora las metodologías emergentes y tecnologías de vanguardia en el desarrollo de fármacos, desde la extracción tradicional hasta la IA.</p>
+                <div class="topics-list">
+                    <ul>
+                        <li>Extracción fisicoquímica tradicional</li>
+                        <li>Biotecnología moderna</li>
+                        <li>Nanotecnología aplicada</li>
+                        <li>Inteligencia Artificial y modelos in silico</li>
+                    </ul>
+                </div>
+            </a>
+
+            <!-- TEMA 3 -->
+            <a href="tema3-sustancias-farmaceuticas.html" class="topic-card">
+                <div class="topic-number">3</div>
+                <h3>💊 Sustancias Bioactivas Farmacéuticas</h3>
+                <p>Conoce los medicamentos aprobados de origen animal, sus mecanismos de acción y aplicaciones clínicas en el tratamiento de enfermedades.</p>
+                <div class="topics-list">
+                    <ul>
+                        <li>Captopril, Enalapril (IECA)</li>
+                        <li>Ziconotide (analgésico)</li>
+                        <li>Exenatide (diabetes)</li>
+                        <li>Anticoagulantes y antiplaquetarios</li>
+                    </ul>
+                </div>
+            </a>
+
+            <!-- TEMA 4 -->
+            <a href="tema4-sustancias-nutraceuticas.html" class="topic-card">
+                <div class="topic-number">4</div>
+                <h3>🥗 Sustancias Bioactivas Nutracéuticas</h3>
+                <p>Descubre los compuestos nutracéuticos de origen animal con relevancia nutricional y sus aplicaciones en la promoción de la salud.</p>
+                <div class="topics-list">
+                    <ul>
+                        <li>Omega-3 (EPA, DHA)</li>
+                        <li>CLA (Ácido Linoleico Conjugado)</li>
+                        <li>Glucosamina y Condroitina</li>
+                        <li>Péptidos bioactivos y Coenzima Q10</li>
+                    </ul>
+                </div>
+            </a>
+
+            <!-- TEMA 5 -->
+            <a href="tema5-3d-polaridad-absorcion.html" class="topic-card">
+                <div class="topic-number">5</div>
+                <h3> Aspectos 3D, Polaridad y Absorción</h3>
+                <p>Analiza la relación entre estructura tridimensional, polaridad molecular y los mecanismos de absorción y acción en el organismo humano.</p>
+                <div class="topics-list">
+                    <ul>
+                        <li>Estructura 3D y conformación molecular</li>
+                        <li>Polaridad y solubilidad</li>
+                        <li>Mecanismos de absorción intestinal</li>
+                        <li>Farmacocinética y biodisponibilidad</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Farmacognosia</p>
+        <p>Sustancias Bioactivas de Origen Animal Superior</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Prepárate para Innovar en Medicina"</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 - Material educativo para estudiantes</p>
+    </footer>
+</body>
+</html>
