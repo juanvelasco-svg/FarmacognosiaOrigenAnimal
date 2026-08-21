@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 5: Aspectos 3D, Polaridad y Absorción | Farmacognosia</title>
+    <style>
+        :root { --QOMed-gold: #D4AF37; --QOMed-dark: #1a1a2e; --QOMed-blue: #16213e; --QOMed-light: #0f3460; --accent: #e94560; --text: #2c3e50; --white: #ffffff; --sand: #f4e9c1; --shadow: rgba(0, 0, 0, 0.15); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        ul:not(.map-tree), ol { padding-left: 2.4rem; margin: 0.5rem 0 1rem; }
+        ul:not(.map-tree) { list-style: none; } ul:not(.map-tree) li, ol li { margin: 0.45rem 0; } ol { list-style: decimal; }
+        .quiz-progress { background: var(--QOMed-blue); color: #fff; border-left: 5px solid var(--QOMed-gold); padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        header { background: linear-gradient(135deg, var(--QOMed-dark) 0%, var(--QOMed-blue) 100%); color: var(--white); padding: 2rem; text-align: center; box-shadow: 0 6px 20px var(--shadow); border-bottom: 5px solid var(--QOMed-gold); }
+        .logo-container { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .logo-farmacognosia { width: 120px; height: auto; background: var(--white); border-radius: 50%; padding: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); color: var(--QOMed-gold); }
+        .subtitle { font-size: 1.2rem; opacity: 0.95; font-weight: 300; }
+        .motivational-phrase { background: linear-gradient(135deg, var(--QOMed-gold), #f4d03f); color: var(--QOMed-dark); padding: 0.5rem 1.5rem; border-radius: 25px; display: inline-block; margin-top: 0.5rem; font-weight: 600; font-size: 0.95rem; }
+        .nav-container { background: var(--QOMed-blue); padding: 1rem; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px var(--shadow); }
+        .nav-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; max-width: 1400px; margin: 0 auto; }
+        .nav-btn { background: var(--white); color: var(--QOMed-dark); border: none; padding: 0.8rem 1.5rem; border-radius: 25px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+        .nav-btn:hover, .nav-btn.active { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .section { display: none; animation: fadeIn 0.5s ease; } .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: var(--white); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 8px 24px var(--shadow); border-left: 6px solid var(--QOMed-gold); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        h2 { color: var(--QOMed-blue); margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid var(--QOMed-gold); display: flex; align-items: center; gap: 0.8rem; font-size: 2rem; }
+        h3 { color: var(--QOMed-light); margin: 1.5rem 0 1rem; font-size: 1.5rem; }
+        .molecule-img { max-width: 100%; height: auto; border-radius: 12px; margin: 1rem 0; box-shadow: 0 4px 12px var(--shadow); }
+        .img-container { text-align: center; margin: 2rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px var(--shadow); }
+        th { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); padding: 1.2rem; text-align: left; font-weight: 600; }
+        td { padding: 1rem 1.2rem; border-bottom: 1px solid #eee; transition: background 0.3s; } tr:hover td { background: #f8fff0; }
+        .info-box { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .tip-box { background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%); border-left: 5px solid #ffc107; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .bio-box { background: linear-gradient(135deg, #d1ecf1 0%, #a8dadc 100%); border-left: 5px solid #17a2b8; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .pharma-box { background: linear-gradient(135deg, #f8d7da 0%, #f1aeb5 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        .problem-box { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #28a745; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 12px 12px 0; }
+        details.solution { margin-top: 1rem; background: #f8f9fa; border: 2px solid var(--QOMed-light); border-radius: 10px; padding: 0.8rem 1.2rem; }
+        details.solution summary { cursor: pointer; font-weight: 700; color: var(--QOMed-light); }
+        details.solution[open] summary { margin-bottom: 0.8rem; border-bottom: 1px dashed var(--QOMed-light); padding-bottom: .4rem; }
+        .mnemonic-card { background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%); border: 3px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; position: relative; overflow: hidden; }
+        .mnemonic-title { color: var(--accent); font-weight: 700; margin-bottom: 0.8rem; font-size: 1.2rem; }
+        .glossary-term { background: var(--white); border: 2px solid var(--QOMed-gold); border-radius: 8px; padding: 1rem; margin: 0.8rem 0; cursor: pointer; transition: all 0.3s; }
+        .glossary-term:hover { background: #fff9e6; transform: translateX(5px); }
+        .glossary-definition { display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--QOMed-gold); }
+        .glossary-definition.show { display: block; animation: fadeIn 0.3s ease; }
+        .error-card { background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%); border-left: 5px solid #dc3545; padding: 1.5rem; margin: 1rem 0; border-radius: 0 12px 12px 0; }
+        .error-title { color: #dc3545; font-weight: 700; margin-bottom: 0.5rem; }
+        .correction { background: #d4edda; border-left: 3px solid #28a745; padding: 1rem; margin-top: 1rem; border-radius: 0 8px 8px 0; }
+        .quiz-container { background: linear-gradient(135deg, var(--QOMed-blue) 0%, var(--QOMed-light) 100%); color: var(--white); border-radius: 16px; padding: 2rem; margin: 2rem 0; }
+        .quiz-question { font-size: 1.4rem; margin-bottom: 1.5rem; font-weight: 600; }
+        .quiz-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .quiz-option { background: var(--white); color: var(--text); border: 3px solid transparent; padding: 1.2rem; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; }
+        .quiz-option:hover:not(:disabled) { border-color: var(--QOMed-gold); transform: translateY(-3px); }
+        .quiz-option:disabled { cursor: not-allowed; opacity: 0.95; }
+        .quiz-option.correct { background: #4caf50; color: white; border-color: #2e7d32; }
+        .quiz-option.incorrect { background: #f44336; color: white; border-color: #c62828; }
+        .footer { background: var(--QOMed-dark); color: var(--white); text-align: center; padding: 2.5rem; margin-top: 3rem; border-top: 5px solid var(--QOMed-gold); }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 4px 12px var(--shadow); }
+        .table-responsive table { min-width: 600px; width: 100%; margin: 0; }
+        .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tab { background: var(--sand); border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .tab.active { background: var(--QOMed-gold); color: var(--QOMed-dark); }
+        .tab-content { display: none; } .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .fc-stats { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; margin: 1rem 0; }
+        .fc-stat { padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 700; color: #fff; font-size: 0.95rem; }
+        .fc-stat.good { background: #28a745; } .fc-stat.bad { background: #dc3545; } .fc-stat.pending { background: #6c757d; } .fc-stat.total { background: var(--QOMed-light); }
+        .fc-progress { height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden; max-width: 720px; margin: 0 auto 1.5rem; }
+        .fc-progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--QOMed-gold), var(--accent)); transition: width 0.4s; }
+        .flashcard-scene { perspective: 1400px; max-width: 720px; height: 320px; margin: 0 auto 1.5rem; }
+        .flashcard { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s; cursor: pointer; }
+        .flashcard.flipped { transform: rotateY(180deg); }
+        .fc-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow: auto; box-shadow: 0 8px 24px var(--shadow); font-size: 1.15rem; }
+        .fc-front { background: linear-gradient(135deg, var(--QOMed-blue), var(--QOMed-light)); color: #fff; border: 3px solid var(--QOMed-gold); }
+        .fc-back { background: linear-gradient(135deg, #fff9e6, var(--sand)); color: var(--text); border: 3px solid var(--QOMed-gold); transform: rotateY(180deg); }
+        .fc-label { font-size: 0.85rem; letter-spacing: 2px; font-weight: 800; opacity: 0.8; margin-bottom: 1rem; }
+        .fc-hint { margin-top: 1rem; font-size: 0.85rem; opacity: 0.7; font-style: italic; }
+        .fc-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 1rem; flex-wrap: wrap; }
+        .fc-btn { border: none; padding: 0.9rem 2rem; border-radius: 30px; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s; color: #fff; }
+        .fc-btn:disabled { opacity: 0.4; cursor: not-allowed; } .fc-btn.good { background: #28a745; } .fc-btn.bad { background: #dc3545; }
+        .fc-btn:not(:disabled):hover { transform: translateY(-3px); }
+        .fc-link { background: none; border: none; color: #6c757d; text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-top: 1rem; }
+        .map-container { overflow-x: auto; padding: 1rem 0; }
+        .map-tree, .map-tree ul { list-style: none; padding-left: 0; }
+        .map-tree ul { display: none; padding-left: 1.6rem; margin-top: 0.6rem; border-left: 3px solid var(--QOMed-gold); }
+        .map-tree li.open > ul { display: block; animation: fadeIn 0.4s ease; } .map-tree li { margin: 0.4rem 0; }
+        .map-node { display: inline-block; background: var(--QOMed-blue); color: #fff; padding: 0.6rem 1.1rem; border-radius: 10px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .map-node:hover { background: var(--QOMed-gold); color: var(--QOMed-dark); transform: translateX(4px); }
+        .map-node.root { background: var(--accent); font-size: 1.15rem; } .map-node.branch { background: var(--QOMed-light); }
+        .map-leaf { display: inline-block; background: var(--sand); color: var(--text); padding: 0.45rem 0.9rem; border-radius: 8px; font-size: 0.95rem; border: 2px solid var(--QOMed-gold); }
+        li.has-children > .map-node::before { content: '▶ '; font-size: 0.8em; } li.has-children.open > .map-node::before { content: '▼ '; font-size: 0.8em; }
+        @media (max-width: 768px) { h1 { font-size: 1.8rem; } h2 { font-size: 1.5rem; } .logo-container { flex-direction: column; gap: 1rem; } .logo-farmacognosia { width: 80px; } .container { padding: 1rem; } .nav-buttons { gap: 0.5rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="LogoFarmacognosia.png" alt="Logo Farmacognosia" class="logo-farmacognosia">
+            <div>
+                <h1>Farmacognosia</h1>
+                <p class="subtitle">Tema 5: Aspectos 3D, Polaridad y Absorción de Compuestos Animales</p>
+                <div class="motivational-phrase">🔬 "La forma y la carga definen la función biológica"</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="showSection('inicio', this)">🏠 Inicio</button>
+            <button class="nav-btn" onclick="showSection('conceptos', this)">📚 Conceptos</button>
+            <button class="nav-btn" onclick="showSection('mapa', this)">🗺️ Mapa Conceptual</button>
+            <button class="nav-btn" onclick="showSection('flashcards', this)">🃏 Flashcards</button>
+            <button class="nav-btn" onclick="showSection('aplicaciones', this)">🏥 Aplicaciones</button>
+            <button class="nav-btn" onclick="showSection('mnemotecnias', this)">🧠 Mnemotecnias</button>
+            <button class="nav-btn" onclick="showSection('glosario', this)">📖 Glosario</button>
+            <button class="nav-btn" onclick="showSection('errores', this)">⚠️ Errores Comunes</button>
+            <button class="nav-btn" onclick="showSection('bibliografia', this)">📚 Bibliografía</button>
+            <button class="nav-btn" onclick="showSection('quiz', this)">🎯 Quiz</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="inicio" class="section active">
+            <div class="card">
+                <h2>🎯 Objetivos de Aprendizaje</h2>
+                <div class="info-box">
+                    <ul style="font-size: 1.1rem; line-height: 2;">
+                        <li>✓ Analizar la relación entre la estructura tridimensional (3D) y la actividad biológica de los compuestos de origen animal.</li>
+                        <li>✓ Comprender cómo la polaridad molecular (LogP) determina la solubilidad y el mecanismo de absorción.</li>
+                        <li>✓ Identificar las vías de absorción intestinal específicas para péptidos y moléculas polares.</li>
+                        <li>✓ Evaluar estrategias de formulación para superar las limitaciones de biodisponibilidad.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="conceptos" class="section">
+            <div class="card">
+                <h2>📚 Conceptos Fundamentales</h2>
+                <div id="conceptos-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('conceptos-tabs','sub-3d', this)">🧊 Estructura 3D</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-polaridad', this)">⚡ Polaridad y LogP</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-absorcion', this)">🔄 Mecanismos de Absorción</button>
+                        <button class="tab" onclick="showTab('conceptos-tabs','sub-ejemplos', this)">💡 Ejemplos Clave</button>
+                    </div>
+
+                    <div id="sub-3d" class="tab-content active">
+                        <h3>🧊 Estructura 3D y Conformación Molecular</h3>
+                        <div class="img-container">
+                            <img src="estructura-3d-ziconotida.png" alt="Estructura tridimensional de la Ziconotida con sus 3 puentes disulfuro" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 1: La estructura 3D rígida de la ziconotida, estabilizada por 3 puentes disulfuro, es esencial para su unión al canal de calcio.</p>
+                        </div>
+                        <div class="info-box">
+                            <strong>Importancia de la conformación:</strong>
+                            <ul>
+                                <li>• <strong>Puentes disulfuro:</strong> Estabilizan péptidos (ej. conotoxinas), confiriendo rigidez y resistencia a proteasas.</li>
+                                <li>• <strong>Ciclicidad:</strong> Los péptidos cíclicos tienen menor flexibilidad conformacional, lo que aumenta su afinidad y selectividad por el receptor diana.</li>
+                                <li>• <strong>Estereoquímica:</strong> Los aminoácidos L son reconocidos por enzimas humanas; la inclusión de aminoácidos D (no naturales) puede conferir resistencia a la degradación.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="sub-polaridad" class="tab-content">
+                        <h3>⚡ Polaridad y Solubilidad (Regla de Lipinski)</h3>
+                        <div class="img-container">
+                            <img src="polaridad-logp-esquema.png" alt="Esquema de moléculas lipofílicas atravesando la membrana vs moléculas hidrofílicas rebotando" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 2: Relación entre el coeficiente de partición (LogP) y la capacidad de difusión pasiva a través de la bicapa lipídica.</p>
+                        </div>
+                        <div class="table-responsive">
+                        <table>
+                            <tr><th>Propiedad</th><th>Moléculas Lipofílicas (Ej. CoQ10)</th><th>Moléculas Hidrofílicas/Polares (Ej. Glucosamina, Péptidos)</th></tr>
+                            <tr><td><strong>LogP</strong></td><td>Alto (>2)</td><td>Bajo (<0)</td></tr>
+                            <tr><td><strong>Solubilidad</strong></td><td>Lípidos/Grasas</td><td>Agua/Fluidos acuosos</td></tr>
+                            <tr><td><strong>Absorción</strong></td><td>Difusión pasiva transcelular</td><td>Requiere transportadores (PepT1) o endocitosis</td></tr>
+                            <tr><td><strong>Desafío</strong></td><td>Baja solubilidad acuosa</td><td>Baja permeabilidad de membrana, degradación enzimática</td></tr>
+                        </table>
+                        </div>
+                    </div>
+
+                    <div id="sub-absorcion" class="tab-content">
+                        <h3>🔄 Mecanismos de Absorción Intestinal</h3>
+                        <div class="img-container">
+                            <img src="absorcion-intestinal-pept1.png" alt="Esquema del transportador PepT1 absorbiendo dipéptidos y tripéptidos en el enterocito" class="molecule-img">
+                            <p style="margin-top: 0.5rem; font-style: italic; color: #666;">Figura 3: El transportador PepT1 (SLC15A1) permite la absorción de péptidos pequeños (2-3 aminoácidos) acoplada a un gradiente de protones (H⁺).</p>
+                        </div>
+                        <div class="bio-box">
+                            <strong>Vías de absorción para compuestos animales:</strong>
+                            <ol>
+                                <li><strong>Difusión pasiva:</strong> Solo para moléculas pequeñas y lipofílicas (ej. ácidos grasos omega-3, CoQ10 en micelas).</li>
+                                <li><strong>Transporte mediado por portadores:</strong> Transportador de péptidos PepT1 (absorbe dipéptidos/tripéptidos bioactivos como VPP/IPP).</li>
+                                <li><strong>Endocitosis/Transcitosis:</strong> Mecanismo para péptidos más grandes o proteínas (ej. lactoferrina), aunque de baja eficiencia.</li>
+                                <li><strong>Vía paracelular:</strong> Paso entre células epiteliales (uniones estrechas), limitado a moléculas muy pequeñas y hidrofílicas.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div id="sub-ejemplos" class="tab-content">
+                        <h3>💡 Ejemplos Clave: Estructura, Polaridad y Absorción</h3>
+                        
+                        <h3>Ejemplo 1: Exenatida y la Resistencia Estructural a DPP-4</h3>
+                        <div class="pharma-box">
+                            <ul>
+                                <li><strong>Problema:</strong> El GLP-1 humano es un péptido lineal que es rápidamente degradado (vida media < 2 min) por la enzima DPP-4 en el intestino y plasma.</li>
+                                <li><strong>Solución 3D:</strong> La exendina-4 (del lagarto <em>Heloderma</em>) tiene una <strong>sustitución de Glicina por Alanina en la posición 8</strong>. Este cambio estérico impide que el sitio activo de la DPP-4 reconozca y corte el péptido.</li>
+                                <li><strong>Resultado:</strong> Vida media extendida a ~2.4 horas, permitiendo su absorción y acción terapéutica en diabetes tipo 2.</li>
+                            </ul>
+                        </div>
+
+                        <h3>Ejemplo 2: Coenzima Q10 y la Necesidad de Formulaciones Lipídicas</h3>
+                        <div class="info-box">
+                            <ul>
+                                <li><strong>Problema:</strong> La CoQ10 es una molécula altamente lipofílica (LogP alto) y de gran peso molecular, lo que le confiere una <strong>biodisponibilidad oral muy pobre</strong> en forma de polvo cristalino.</li>
+                                <li><strong>Solución de Absorción:</strong> Se formula en <strong>sistemas auto-nanoemulsionables</strong> o micelas. Al contacto con los fluidos gastrointestinales, forma gotas nanométricas que imitan los quilomicrones, facilitando su absorción por difusión pasiva a través de la mucosa intestinal.</li>
+                                <li><strong>Resultado:</strong> Aumento de la biodisponibilidad hasta en un 300-400% comparado con la formulación en cápsulas secas tradicionales.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mapa" class="section">
+            <div class="card">
+                <h2>🗺️ Mapa Conceptual Interactivo</h2>
+                <div class="map-container">
+                    <ul class="map-tree">
+                        <li class="has-children">
+                            <div class="map-node root" onclick="toggleMap(this)">🔬 3D, Polaridad y Absorción</div>
+                            <ul>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Estructura 3D</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Puentes disulfuro: Rigidez y resistencia a proteasas</span></li>
+                                        <li><span class="map-leaf">Péptidos cíclicos: Mayor afinidad por receptores</span></li>
+                                        <li><span class="map-leaf">Estereoquímica: Aminoácidos L vs D</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Polaridad (LogP)</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Lipofílicos (CoQ10): Difusión pasiva, baja solubilidad acuosa</span></li>
+                                        <li><span class="map-leaf">Hidrofílicos (Péptidos, Glucosamina): Requieren transportadores</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Mecanismos de Absorción</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Difusión pasiva transcelular</span></li>
+                                        <li><span class="map-leaf">Transporte mediado: PepT1 (dipéptidos/tripéptidos)</span></li>
+                                        <li><span class="map-leaf">Endocitosis/Transcitosis (proteínas grandes)</span></li>
+                                    </ul>
+                                </li>
+                                <li class="has-children"><div class="map-node branch" onclick="toggleMap(this)">Ejemplos Clave</div>
+                                    <ul>
+                                        <li><span class="map-leaf">Exenatida: Glicina en pos. 8 resiste a DPP-4</span></li>
+                                        <li><span class="map-leaf">CoQ10: Requiere nanoemulsiones para absorción</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="flashcards" class="section">
+            <div class="card">
+                <h2>🃏 Flashcards de Estudio</h2>
+                <p>Haz <strong>clic en la tarjeta</strong> para voltearla y ver la respuesta.</p>
+                <div class="fc-stats">
+                    <span class="fc-stat good">✅ Buenas: <span id="fc-good">0</span></span>
+                    <span class="fc-stat bad">❌ Malas: <span id="fc-bad">0</span></span>
+                    <span class="fc-stat pending">⏳ Pendientes: <span id="fc-left">0</span></span>
+                    <span class="fc-stat total">📈 Historial: <span id="fc-hist">0 ✓ / 0 ✗</span></span>
+                </div>
+                <div class="fc-progress"><div class="fc-progress-bar" id="fc-bar"></div></div>
+                <div class="flashcard-scene" id="fc-scene">
+                    <div class="flashcard" id="fc-card" onclick="flipCard()">
+                        <div class="fc-face fc-front"><div class="fc-label">PREGUNTA</div><div id="fc-question"></div><span class="fc-hint">Clic para voltear ✨</span></div>
+                        <div class="fc-face fc-back"><div class="fc-label">RESPUESTA</div><div id="fc-answer"></div></div>
+                    </div>
+                </div>
+                <div class="fc-controls" id="fc-controls">
+                    <button class="fc-btn good" id="btn-fc-good" onclick="gradeCard(true)" disabled>✅ La sabía</button>
+                    <button class="fc-btn bad" id="btn-fc-bad" onclick="gradeCard(false)" disabled>❌ No la sabía</button>
+                </div>
+                <div id="fc-summary" class="calc-result" style="max-width:720px;margin:1rem auto;"></div>
+                <div style="text-align:center;">
+                    <button class="calc-button" onclick="resetFlashcards()">🔄 Reiniciar Flashcards</button><br>
+                    <button class="fc-link" onclick="borrarHistorial()">Borrar historial acumulado</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="aplicaciones" class="section">
+            <div class="card">
+                <h2>🏥 Aplicaciones Profesionales</h2>
+                <div id="aplicaciones-tabs" class="tab-group">
+                    <div class="tabs">
+                        <button class="tab active" onclick="showTab('aplicaciones-tabs','aplic-exenatide', this)">🦎 Caso Exenatida</button>
+                        <button class="tab" onclick="showTab('aplicaciones-tabs','aplic-coq10', this)">💊 Caso Coenzima Q10</button>
+                    </div>
+                    <div id="aplic-exenatide" class="tab-content active">
+                        <div class="problem-box">
+                            <strong>📋 Problema 1:</strong> Un paciente diabético pregunta por qué debe inyectarse exenatida y no puede tomar una pastilla de GLP-1 natural. Explique la razón basada en la estructura 3D y la polaridad.
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p>El GLP-1 natural es un péptido lineal hidrofílico que es rápidamente degradado por la DPP-4 en el tracto GI y tiene pobre permeabilidad de membrana. La <strong>exenatida</strong>, aunque también es un péptido, posee una <strong>sustitución de glicina en la posición 8</strong> que le confiere una conformación 3D resistente al corte por DPP-4, extendiendo su vida media. Aun así, su naturaleza peptídica hidrofílica impide la absorción oral eficiente, requiriendo administración subcutánea.</p>
+                        </details>
+                    </div>
+                    <div id="aplic-coq10" class="tab-content">
+                        <div class="problem-box">
+                            <strong>📋 Problema 2:</strong> Un paciente compra Coenzima Q10 en polvo cristalino barato y no siente efectos. ¿Qué principio de polaridad y absorción explica esto y qué debería buscar en la etiqueta?
+                        </div>
+                        <details class="solution">
+                            <summary>🔍 Ver solución</summary>
+                            <p>La CoQ10 es altamente lipofílica (LogP alto) y de gran tamaño molecular, por lo que el polvo cristalino tiene una <strong>biodisponibilidad oral muy baja</strong> (no se disuelve en fluidos acuosos intestinales). El paciente debería buscar formulaciones en <strong>sistemas auto-nanoemulsionables, micelares o en cápsulas blandas con aceite</strong>, que facilitan su solubilización y absorción por difusión pasiva a través de la mucosa.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mnemotecnias" class="section">
+            <div class="card">
+                <h2>🧠 Mnemotecnias y Reglas Mnemotécnicas</h2>
+                
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🚪 Absorción Intestinal: "D-T-E-P"</div>
+                    <div class="info-box">
+                        <strong>D</strong>ifusión pasiva (Lipofílicos, LogP alto).<br>
+                        <strong>T</strong>ransporte mediado (PepT1 para dipéptidos/tripéptidos).<br>
+                        <strong>E</strong>ndocitosis (Proteínas grandes, baja eficiencia).<br>
+                        <strong>P</strong>aracelular (Moléculas pequeñas e hidrofílicas entre uniones estrechas).
+                    </div>
+                    <p><strong>Frase:</strong> "El <strong>D</strong>octor <strong>T</strong>iene <strong>E</strong>l <strong>P</strong>asaporte"</p>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🧊 Estructura 3D de Péptidos: "P-C-E"</div>
+                    <div class="tip-box">
+                        <strong>P</strong>uentes disulfuro → Dan rigidez y protegen de proteasas.<br>
+                        <strong>C</strong>íclicos → Menor flexibilidad, mayor afinidad al receptor.<br>
+                        <strong>E</strong>stereoquímica → Aminoácidos D evitan degradación enzimática.
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">⚡ Polaridad y Absorción: "Lípido atraviesa, Polar necesita ayuda"</div>
+                    <div class="pharma-box">
+                        <strong>LogP Alto (Lipofílico, ej. CoQ10):</strong> Atraviesa la membrana por difusión pasiva, pero necesita ayuda para disolverse en agua (micelas/emulsiones).<br>
+                        <strong>LogP Bajo (Hidrofílico, ej. Péptidos):</strong> Se disuelve en agua, pero NO atraviesa la membrana lipídica; necesita transportadores (PepT1) o inyección.
+                    </div>
+                </div>
+
+                <div class="mnemonic-card">
+                    <div class="mnemonic-title">🦎 Exenatida vs GLP-1: "La Glicina Guarda"</div>
+                    <div class="info-box">
+                        GLP-1 natural: <strong>A</strong>lanina en pos. 8 → DPP-4 lo corta.<br>
+                        Exenatida: <strong>G</strong>licina en pos. 8 → DPP-4 no lo reconoce.<br>
+                        <em>Resultado:</em> Vida media de minutos → 2.4 horas.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="glosario" class="section">
+            <div class="card">
+                <h2>📖 Glosario Interactivo</h2>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>LogP (Coeficiente de partición)</strong><div class="glossary-definition">Medida de la lipofilicidad de una molécula. Un LogP alto indica mayor afinidad por lípidos (membranas), mientras que un LogP bajo indica mayor afinidad por el agua.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Transportador PepT1</strong><div class="glossary-definition">Proteína de membrana en el intestino (SLC15A1) que absorbe activamente dipéptidos y tripéptidos acoplada a un gradiente de protones (H⁺), crucial para la biodisponibilidad de péptidos bioactivos.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Puentes Disulfuro</strong><div class="glossary-definition">Enlaces covalentes entre dos átomos de azufre de cisteínas. En péptidos como la ziconotida, estabilizan la estructura 3D y confieren resistencia a la degradación enzimática.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Sistemas Auto-nanoemulsionables</strong><div class="glossary-definition">Formulaciones que forman espontáneamente una emulsión de gotas nanométricas al contacto con fluidos acuosos, mejorando drásticamente la absorción de fármacos lipofílicos como la CoQ10.</div></div>
+                <div class="glossary-term" onclick="toggleDefinition(this)"><strong>Biodisponibilidad</strong><div class="glossary-definition">Fracción de la dosis administrada de un fármaco o nutracéutico que llega a la circulación sistémica de forma inalterada y la velocidad a la que esto ocurre.</div></div>
+            </div>
+        </section>
+
+        <section id="errores" class="section">
+            <div class="card">
+                <h2>⚠️ Errores Comunes de Estudiantes</h2>
+                <div class="error-card"><div class="error-title">❌ Error 1: Creer que todos los péptidos se absorben por vía oral</div><p><strong>Error:</strong> "Los péptidos bioactivos de la leche se absorben igual que los aminoácidos libres."</p><div class="correction"><strong>✓ Corrección:</strong> La mayoría de los péptidos son degradados por proteasas gástricas. Solo los dipéptidos y tripéptidos específicos pueden usar el transportador PepT1; los más grandes requieren formulaciones especiales o vías parenterales.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 2: Confundir polaridad con tamaño molecular</div><p><strong>Error:</strong> "Si una molécula es pequeña, siempre se absorbe bien."</p><div class="correction"><strong>✓ Corrección:</strong> Una molécula pequeña pero altamente polar (hidrofílica) no atravesará la bicapa lipídica por difusión pasiva. Necesita un transportador específico o una vía paracelular.</div></div>
+                <div class="error-card"><div class="error-title">❌ Error 3: Pensar que la CoQ10 en polvo es igual de efectiva que la micelar</div><p><strong>Error:</strong> "La CoQ10 es CoQ10, sin importar la presentación."</p><div class="correction"><strong>✓ Corrección:</strong> Debido a su alta lipofilicidad, la CoQ10 cristalina tiene biodisponibilidad <5%. Las formulaciones nanoemulsionadas o en aceite pueden aumentar su absorción hasta un 300-400%.</div></div>
+            </div>
+        </section>
+
+        <section id="bibliografia" class="section">
+            <div class="card">
+                <h2>📚 Fuentes Bibliográficas</h2>
+                <div class="info-box"><strong>1. "Drug Delivery of Peptides and Proteins"</strong><br>• Revisión sobre mecanismos de absorción intestinal (PepT1, endocitosis) y estrategias de nanoformulación.</div>
+                <div class="bio-box"><div><strong>2. "Bioavailability of Coenzyme Q10"</strong><br>• Estudios comparativos de formulaciones cristalinas vs. nanoemulsiones, demostrando mejoras significativas en la absorción plasmática.</div></div>
+                <div class="tip-box"><strong>3. Recursos en Línea:</strong><br>• <strong>SwissADME:</strong> http://www.swissadme.ch (Calculadora gratuita de LogP, reglas de Lipinski y predicción de absorción).<br>• <strong>PubChem:</strong> Para visualizar estructuras 3D de compuestos como la ziconotida.</div>
+            </div>
+        </section>
+
+        <section id="quiz" class="section">
+            <div class="card">
+                <h2>🎯 Quiz de Autoevaluación</h2>
+                <p>10 preguntas al azar de una base de 30. Cada vez que entras se sortea un nuevo ciclo.</p>
+                <p id="quiz-historial" style="margin: .5rem 0 1rem; font-weight: 600; color: var(--QOMed-light);"></p>
+                <div id="quiz-container"></div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="calc-button" onclick="reiniciarQuiz()">🔄 Reiniciar Quiz (nuevo ciclo aleatorio)</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p style="font-size: 1.2rem; margin-bottom: 1rem;">Farmacognosia</p>
+        <p>Tema 5: Aspectos 3D, Polaridad y Absorción</p>
+        <p style="margin-top: 1rem; font-style: italic;">"Prepárate para Innovar en Medicina"</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 - Material educativo para estudiantes</p>
+    </footer>
+
+    <script>
+        const flashcards = [
+            { q: '¿Qué función cumplen los puentes disulfuro en péptidos como la ziconotida?', a: 'Estabilizan la estructura tridimensional, confiriendo rigidez y resistencia a la degradación por proteasas.' },
+            { q: '¿Qué indica un valor alto de LogP en una molécula?', a: 'Indica alta lipofilicidad (afinidad por lípidos), lo que favorece la difusión pasiva a través de membranas, pero dificulta la solubilidad en agua.' },
+            { q: '¿Cuál es el principal transportador intestinal para dipéptidos y tripéptidos?', a: 'El transportador PepT1 (SLC15A1), que absorbe estos péptidos acoplado a un gradiente de protones (H⁺).' },
+            { q: '¿Por qué el GLP-1 natural tiene una vida media muy corta?', a: 'Porque es un péptido lineal que es rápidamente degradado por la enzima DPP-4 en el tracto gastrointestinal y el plasma.' },
+            { q: '¿Qué cambio estructural hace que la exenatida resista a la DPP-4?', a: 'La sustitución de Alanina por Glicina en la posición 8 de su secuencia aminoacídica, impidiendo el reconocimiento enzimático.' },
+            { q: '¿Cuál es el principal desafío de absorción de la Coenzima Q10 en polvo?', a: 'Su alta lipofilicidad y gran tamaño molecular le confieren una biodisponibilidad oral muy pobre (<5%) en forma cristalina.' },
+            { q: '¿Cómo mejoran las nanoemulsiones la absorción de la CoQ10?', a: 'Forman gotas nanométricas al contacto con fluidos GI, imitando los quilomicrones y facilitando la difusión pasiva a través de la mucosa.' },
+            { q: '¿Qué vía de absorción utilizan las proteínas grandes como la lactoferrina?', a: 'Principalmente endocitosis o transcitosis, aunque es un mecanismo de baja eficiencia en el intestino adulto.' },
+            { q: '¿Qué es la vía de absorción paracelular?', a: 'El paso de moléculas pequeñas e hidrofílicas a través de las uniones estrechas entre las células epiteliales intestinales.' },
+            { q: '¿Por qué los péptidos cíclicos suelen tener mayor afinidad por sus receptores?', a: 'Porque su estructura cíclica reduce la flexibilidad conformacional, pre-organizándolos en la forma activa requerida para la unión.' },
+            { q: '¿Qué regla se usa comúnmente para predecir la absorción oral de fármacos?', a: 'La Regla de Lipinski (Regla de los 5), que evalúa peso molecular, LogP, donores y aceptores de enlaces de hidrógeno.' },
+            { q: '¿Qué ventaja confiere la inclusión de aminoácidos D en un péptido terapéutico?', a: 'Resistencia a la degradación por proteasas humanas, que están específicamente diseñadas para reconocer y cortar aminoácidos L.' },
+            { q: '¿La glucosamina es lipofílica o hidrofílica?', a: 'Hidrofílica (polar), debido a sus múltiples grupos hidroxilo (-OH) y el grupo amino, lo que limita su difusión pasiva a través de membranas lipídicas.' },
+            { q: '¿Qué es la biodisponibilidad?', a: 'La fracción de la dosis administrada que llega a la circulación sistémica de forma inalterada y la velocidad a la que esto ocurre.' },
+            { q: '¿Por qué la exenatida no se puede administrar por vía oral a pesar de resistir a la DPP-4?', a: 'Porque sigue siendo un péptido hidrofílico de 39 aminoácidos que no puede atravesar la barrera epitelial intestinal por difusión pasiva.' },
+            { q: '¿Qué herramienta gratuita se recomienda para predecir el LogP y la absorción?', a: 'SwissADME, que calcula propiedades fisicoquímicas y predice la farmacocinética según las reglas de Lipinski.' },
+            { q: '¿Qué mecanismo de absorción predomina para los ácidos grasos Omega-3?', a: 'Difusión pasiva transcelular, una vez que han sido emulsionados por las sales biliares en el intestino.' },
+            { q: '¿Qué papel juegan las sales biliares en la absorción de compuestos lipofílicos?', a: 'Actúan como tensioactivos naturales, formando micelas mixtas que solubilizan los lípidos y facilitan su acercamiento a la mucosa intestinal.' },
+            { q: '¿Qué es la transcitosis en el contexto de la absorción de péptidos?', a: 'El proceso por el cual una molécula es internalizada en un lado de la célula epitelial, transportada en vesículas a través del citoplasma y liberada en el otro lado.' },
+            { q: '¿Cómo afecta la rigidez conformacional a la actividad de una toxina de caracol cónico?', a: 'La rigidez (por puentes disulfuro) mantiene la forma 3D exacta necesaria para encajar como una "llave en la cerradura" en el canal iónico diana.' },
+            { q: '¿Qué es un sistema auto-nanoemulsionable (SNEDDS)?', a: 'Una mezcla isotrópica de aceite, tensioactivo y co-tensioactivo que forma espontáneamente una nanoemulsión al diluirse en medios acuosos como el jugo gástrico.' },
+            { q: '¿Por qué la hidrólisis enzimática es preferible a la ácida para obtener péptidos bioactivos?', a: 'Porque es más específica, evita la destrucción de aminoácidos sensibles (como el triptófano) y no genera subproductos tóxicos, siendo más segura (GRAS).' },
+            { q: '¿Qué relación existe entre el peso molecular y la absorción paracelular?', a: 'La absorción paracelular está estrictamente limitada a moléculas de muy bajo peso molecular (<200-300 Da) debido al tamaño restringido de las uniones estrechas.' },
+            { q: 'Menciona 2 estrategias para mejorar la biodisponibilidad oral de péptidos.', a: '1) Inhibidores de proteasas co-administrados. 2) Formulaciones con nanopartículas o ligandos que favorecen la transcitosis.' }
+        ];
+
+        let fcIndex = 0, fcFlipped = false, fcGood = 0, fcBad = 0, fcDone = false;
+        function fcUpdateStats() {
+            document.getElementById('fc-good').textContent = fcGood;
+            document.getElementById('fc-bad').textContent = fcBad;
+            document.getElementById('fc-left').textContent = Math.max(0, flashcards.length - fcIndex);
+            const tg = parseInt(localStorage.getItem('fc5TotalGood') || '0', 10);
+            const tb = parseInt(localStorage.getItem('fc5TotalBad') || '0', 10);
+            document.getElementById('fc-hist').textContent = tg + ' ✓ / ' + tb + ' ✗';
+            document.getElementById('fc-bar').style.width = (fcIndex / flashcards.length * 100) + '%';
+        }
+        function fcRenderCard() {
+            const card = document.getElementById('fc-card');
+            card.classList.remove('flipped'); fcFlipped = false;
+            document.getElementById('fc-question').textContent = flashcards[fcIndex].q;
+            document.getElementById('fc-answer').textContent = flashcards[fcIndex].a;
+            document.getElementById('btn-fc-good').disabled = true;
+            document.getElementById('btn-fc-bad').disabled = true;
+            fcUpdateStats();
+        }
+        function flipCard() {
+            if (fcDone) return;
+            const card = document.getElementById('fc-card');
+            card.classList.toggle('flipped'); fcFlipped = card.classList.contains('flipped');
+            document.getElementById('btn-fc-good').disabled = !fcFlipped;
+            document.getElementById('btn-fc-bad').disabled = !fcFlipped;
+        }
+        function gradeCard(wasGood) {
+            if (!fcFlipped || fcDone) return;
+            if (wasGood) { fcGood++; localStorage.setItem('fc5TotalGood', String(parseInt(localStorage.getItem('fc5TotalGood') || '0', 10) + 1)); }
+            else { fcBad++; localStorage.setItem('fc5TotalBad', String(parseInt(localStorage.getItem('fc5TotalBad') || '0', 10) + 1)); }
+            fcIndex++;
+            if (fcIndex < flashcards.length) fcRenderCard(); else fcFinish();
+        }
+        function fcFinish() {
+            fcDone = true;
+            document.getElementById('fc-scene').style.display = 'none';
+            document.getElementById('fc-controls').style.display = 'none';
+            const total = fcGood + fcBad; const pct = Math.round(fcGood / total * 100);
+            let msg = pct >= 80 ? '¡Excelente! Dominas la farmacocinética y estructura.' : (pct >= 60 ? '💪 ¡Bien! Repasa las que fallaste.' : '📚 Necesitas repasar Conceptos y Mapa.');
+            const sum = document.getElementById('fc-summary');
+            sum.innerHTML = '<strong>📊 Resumen:</strong><br>✅ Buenas: ' + fcGood + ' &nbsp; ❌ Malas: ' + fcBad + '<br>Precisión: <strong>' + pct + '%</strong><br>' + msg;
+            sum.classList.add('show'); fcUpdateStats();
+        }
+        function resetFlashcards() {
+            fcIndex = 0; fcGood = 0; fcBad = 0; fcDone = false;
+            document.getElementById('fc-scene').style.display = 'block';
+            document.getElementById('fc-controls').style.display = 'flex';
+            document.getElementById('fc-summary').classList.remove('show');
+            fcRenderCard();
+        }
+        function borrarHistorial() { localStorage.removeItem('fc5TotalGood'); localStorage.removeItem('fc5TotalBad'); fcUpdateStats(); }
+
+        function showSection(sectionId, btn) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            if (sectionId === 'quiz') loadQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function showTab(groupId, tabId, btn) {
+            const group = document.getElementById(groupId);
+            group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            group.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+        function toggleMap(node) { node.parentElement.classList.toggle('open'); }
+        function toggleDefinition(element) {
+            const definition = element.querySelector('.glossary-definition');
+            definition.classList.toggle('show');
+            element.style.background = definition.classList.contains('show') ? '#fff9e6' : 'var(--white)';
+        }
+
+        const quizQuestions = [
+            { question: '¿Qué función cumplen los puentes disulfuro en péptidos como la ziconotida?', options: ['Aumentan la solubilidad en agua', 'Estabilizan la estructura 3D y confieren resistencia a proteasas', 'Permiten la absorción oral', 'Disminuyen el peso molecular'], correct: 1, explanation: 'Los puentes disulfuro entre cisteínas rigidizan la estructura peptídica, protegiéndola de la degradación enzimática y manteniendo su afinidad por el receptor.' },
+            { question: '¿Qué indica un valor alto de LogP?', options: ['Alta hidrofilicidad', 'Alta lipofilicidad', 'Bajo peso molecular', 'Alta carga eléctrica'], correct: 1, explanation: 'LogP mide el coeficiente de partición octanol/agua. Un valor alto indica mayor afinidad por lípidos, favoreciendo la difusión a través de membranas.' },
+            { question: '¿Cuál es el principal transportador de dipéptidos y tripéptidos en el intestino?', options: ['GLUT4', 'PepT1', 'SGLT1', 'Na⁺/K⁺ ATPasa'], correct: 1, explanation: 'PepT1 (SLC15A1) es el transportador de protones acoplado que absorbe eficientemente dipéptidos y tripéptidos en el enterocito.' },
+            { question: '¿Por qué el GLP-1 natural tiene una vida media muy corta?', options: ['Por su gran tamaño', 'Porque es degradado rápidamente por la enzima DPP-4', 'Porque se excreta por la orina', 'Porque no se une a receptores'], correct: 1, explanation: 'La DPP-4 corta el péptido lineal del GLP-1 en los primeros minutos, inactivándolo.' },
+            { question: '¿Qué cambio estructural hace que la exenatida resista a la DPP-4?', options: ['Adición de un grupo metilo', 'Sustitución de Alanina por Glicina en la posición 8', 'Ciclicidad total del péptido', 'Inclusión de aminoácidos D'], correct: 1, explanation: 'La glicina en la posición 8 altera el reconocimiento estérico por parte de la DPP-4, extendiendo la vida media a ~2.4 horas.' },
+            { question: '¿Cuál es el principal desafío de absorción de la Coenzima Q10 en polvo?', options: ['Es demasiado hidrofílica', 'Su alta lipofilicidad le confiere muy baja biodisponibilidad oral en forma cristalina', 'Es tóxica para el hígado', 'Se degrada por el ácido gástrico'], correct: 1, explanation: 'Al ser altamente lipofílica y de gran tamaño, el polvo cristalino no se disuelve en los fluidos acuosos intestinales, resultando en una absorción <5%.' },
+            { question: '¿Cómo mejoran las nanoemulsiones la absorción de la CoQ10?', options: ['La convierten en hidrofílica', 'Forman gotas nanométricas que facilitan la difusión pasiva a través de la mucosa', 'Inhiben la DPP-4', 'Aumentan el pH gástrico'], correct: 1, explanation: 'Las nanoemulsiones imitan los quilomicrones naturales, solubilizando el compuesto lipofílico y presentándolo de forma óptima a la membrana intestinal.' },
+            { question: '¿Qué vía de absorción utilizan principalmente las proteínas grandes como la lactoferrina?', options: ['Difusión pasiva', 'Transporte PepT1', 'Endocitosis o transcitosis', 'Vía paracelular'], correct: 2, explanation: 'Las macromoléculas requieren mecanismos vesiculares como la endocitosis, aunque este proceso es de baja eficiencia en el intestino adulto.' },
+            { question: '¿Qué es la vía de absorción paracelular?', options: ['A través de las células', 'Entre las células epiteliales, a través de las uniones estrechas', 'Por el sistema linfático', 'Por inyección intramuscular'], correct: 1, explanation: 'Es el paso de moléculas pequeñas e hidrofílicas a través de los espacios intercelulares, limitado por el tamaño de las uniones estrechas (tight junctions).' },
+            { question: '¿Por qué los péptidos cíclicos suelen tener mayor afinidad por sus receptores?', options: ['Porque son más grandes', 'Porque su rigidez conformacional los pre-organiza para la unión', 'Porque son hidrofílicos', 'Porque se absorben mejor'], correct: 1, explanation: 'La ciclicidad reduce la entropía conformacional, manteniendo la forma 3D activa requerida para encajar en el sitio receptor.' },
+            { question: '¿Qué regla se usa para predecir la absorción oral de fármacos?', options: ['Regla de Henderson-Hasselbalch', 'Regla de Lipinski (de los 5)', 'Regla de Markovnikov', 'Regla de Hund'], correct: 1, explanation: 'La Regla de Lipinski evalúa peso molecular (<500), LogP (<5), donores (<5) y aceptores (<10) de enlaces de hidrógeno para predecir buena permeabilidad oral.' },
+            { question: '¿Qué ventaja confiere la inclusión de aminoácidos D en un péptido terapéutico?', options: ['Mayor solubilidad', 'Resistencia a la degradación por proteasas humanas', 'Menor costo de síntesis', 'Sabor más agradable'], correct: 1, explanation: 'Las proteasas humanas son estereoespecíficas para aminoácidos L; los isómeros D no son reconocidos, protegiendo al péptido de la degradación.' },
+            { question: '¿La glucosamina es predominantemente lipofílica o hidrofílica?', options: ['Lipofílica', 'Hidrofílica (polar)', 'Neutra', 'Gaseosa'], correct: 1, explanation: 'La glucosamina posee múltiples grupos hidroxilo (-OH) y un grupo amino, haciéndola altamente polar y soluble en agua, pero con baja permeabilidad pasiva.' },
+            { question: '¿Qué es la biodisponibilidad?', options: ['La cantidad de fármaco en la pastilla', 'La fracción de la dosis que llega a la circulación sistémica inalterada', 'El precio del medicamento', 'La velocidad de disolución en el vaso'], correct: 1, explanation: 'Es un parámetro farmacocinético clave que mide la proporción y velocidad a la que el principio activo alcanza la circulación general.' },
+            { question: '¿Por qué la exenatida no se administra por vía oral?', options: ['Porque es un gas', 'Porque, a pesar de resistir a DPP-4, su naturaleza peptídica hidrofílica impide la absorción intestinal', 'Porque es demasiado barata', 'Porque causa úlcera gástrica'], correct: 1, explanation: 'Su tamaño y polaridad le impiden cruzar la bicapa lipídica intestinal por difusión pasiva, requiriendo inyección subcutánea.' },
+            { question: '¿Qué herramienta gratuita se recomienda para predecir el LogP?', options: ['Photoshop', 'SwissADME', 'Excel', 'Word'], correct: 1, explanation: 'SwissADME es una herramienta web gratuita que calcula propiedades fisicoquímicas y predice la farmacocinética (incluyendo LogP y reglas de Lipinski).' },
+            { question: '¿Qué mecanismo de absorción predomina para los ácidos grasos Omega-3?', options: ['Transporte activo con ATP', 'Difusión pasiva transcelular tras emulsión biliar', 'Endocitosis mediada por receptores', 'Vía paracelular'], correct: 1, explanation: 'Una vez emulsionados por las sales biliares, los ácidos grasos libres atraviesan la membrana del enterocito por difusión pasiva.' },
+            { question: '¿Qué papel juegan las sales biliares en la absorción de lípidos?', options: ['Degradan los lípidos', 'Forman micelas mixtas que solubilizan los lípidos para su absorción', 'Aumentan la acidez gástrica', 'Inhiben enzimas'], correct: 1, explanation: 'Actúan como tensioactivos biológicos, reduciendo la tensión superficial y permitiendo que los lípidos se acerquen a la superficie de absorción.' },
+            { question: '¿Qué es la transcitosis?', options: ['Degradación en el lisosoma', 'Transporte vesicular de una molécula a través del citoplasma desde un lado al otro de la célula', 'Difusión a través de la membrana', 'Excreción biliar'], correct: 1, explanation: 'Es un mecanismo de transporte activo donde la molécula es internalizada, transportada en vesículas y exocitada en el lado opuesto de la célula epitelial.' },
+            { question: '¿Cómo afecta la rigidez conformacional a la actividad de una conotoxina?', options: ['La inactiva', 'Mantiene la forma 3D exacta necesaria para encajar en el canal iónico diana', 'Aumenta su peso molecular', 'La hace hidrosoluble'], correct: 1, explanation: 'La rigidez impuesta por los puentes disulfuro asegura que el péptido mantenga la conformación bioactiva "llave-cerradura" para su receptor.' },
+            { question: '¿Qué es un sistema auto-nanoemulsionable (SNEDDS)?', options: ['Un polvo seco', 'Una mezcla que forma espontáneamente una nanoemulsión al contacto con fluidos acuosos', 'Una tableta efervescente', 'Un parche transdérmico'], correct: 1, explanation: 'Es una formulación líquida o semisólida que, al diluirse en el jugo gástrico, se auto-ensambla en gotas nanométricas, mejorando la absorción de fármacos lipofílicos.' },
+            { question: '¿Por qué la hidrólisis enzimática es preferible a la ácida para péptidos?', options: ['Es más barata', 'Es más específica, evita la destrucción de aminoácidos y es más segura (GRAS)', 'Produce péptidos más largos', 'No requiere control de pH'], correct: 1, explanation: 'Las enzimas como la alcalasa cortan en sitios específicos, preservando la actividad biológica de los péptidos liberados, a diferencia del ácido que los destruye aleatoriamente.' },
+            { question: '¿Qué relación existe entre el peso molecular y la absorción paracelular?', options: ['Directa: a mayor peso, mejor absorción', 'Inversa: está limitada a moléculas de muy bajo peso molecular (<300 Da)', 'No hay relación', 'Depende solo de la carga'], correct: 1, explanation: 'Las uniones estrechas (tight junctions) actúan como un tamiz molecular que solo permite el paso de moléculas muy pequeñas.' },
+            { question: 'Menciona 2 estrategias para mejorar la biodisponibilidad oral de péptidos.', options: ['Aumentar el peso molecular y la lipofilicidad', 'Uso de inhibidores de proteasas y formulaciones con nanopartículas', 'Administración intravenosa y tópica', 'Congelación y liofilización'], correct: 1, explanation: 'Los inhibidores de proteasas protegen al péptido de la degradación, y las nanopartículas pueden facilitar su transporte a través de la barrera epitelial.' },
+            { question: '¿Qué es el coeficiente de partición octanol/agua?', options: ['Una medida de la densidad', 'Una medida de la lipofilicidad/hidrofilicidad de una molécula (LogP)', 'Una medida de la acidez', 'Una medida de la temperatura de fusión'], correct: 1, explanation: 'Es la relación de concentraciones de un compuesto en una mezcla bifásica de octanol y agua en equilibrio, indicando su preferencia por fases lipídicas o acuosas.' },
+            { question: '¿Qué le ocurre a un péptido lineal sin modificaciones en el estómago?', options: ['Se absorbe completamente', 'Es degradado por el pH ácido y las proteasas (pepsina)', 'Se convierte en lípido', 'Aumenta su tamaño'], correct: 1, explanation: 'El ambiente gástrico es hostil para los péptidos lineales, que son rápidamente hidrolizados en aminoácidos individuales, perdiendo su actividad biológica.' },
+            { question: '¿Cuál es la principal limitación de la vía paracelular para fármacos?', options: ['Es demasiado rápida', 'El área de superficie es muy pequeña y está restringida por las uniones estrechas', 'Requiere mucha energía', 'Solo funciona para lípidos'], correct: 1, explanation: 'Aunque evita el metabolismo intracelular, la fracción del área epitelial disponible para la vía paracelular es <1%, limitando severamente la cantidad absorbida.' },
+            { question: '¿Qué papel juega la estereoquímica en la interacción fármaco-receptor?', options: ['Ninguno, todos los isómeros son iguales', 'Es crucial: solo la configuración 3D correcta permite el acoplamiento molecular', 'Solo importa para los lípidos', 'Afecta solo al color del fármaco'], correct: 1, explanation: 'Los receptores biológicos son quirales; por lo tanto, reconocen específicamente una estereoisómero (ej. aminoácidos L), haciendo que la forma 3D sea determinante para la actividad.' },
+            { question: '¿Por qué la CoQ10 se formula a menudo en cápsulas blandas con aceite?', options: ['Para que se vea más profesional', 'Para aprovechar la vía de absorción de lípidos y mejorar su biodisponibilidad', 'Para reducir su costo', 'Para enmascarar el sabor'], correct: 1, explanation: 'Al estar disuelta en un vehículo lipídico, la CoQ10 se incorpora a las micelas mixtas durante la digestión, siguiendo la misma ruta de absorción que las grasas dietéticas.' },
+            { question: '¿Qué es la "Regla de los 5" de Lipinski?', options: ['5 mg de dosis máxima', 'Criterios de PM<500, LogP<5, donores H<5, aceptores H<10 para buena permeabilidad oral', '5 fases clínicas', '5 años de patente'], correct: 1, explanation: 'Es una regla empírica para evaluar la probabilidad de que una molécula sea un fármaco oralmente activo, basada en sus propiedades fisicoquímicas.' }
+        ];
+
+        let quizSet = [], quizAnswered = 0, quizScore = 0, quizLastIds = [];
+        function barajar(arr) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+        function overlapCount(newSet, oldSet) { const oldQs = new Set(oldSet.map(q => q.question)); return newSet.filter(q => oldQs.has(q.question)).length; }
+        function loadQuiz() {
+            let sel, intentos = 0;
+            do { sel = barajar(quizQuestions).slice(0, 10); intentos++; } while (quizLastIds.length > 0 && overlapCount(sel, quizLastIds) > 4 && intentos < 30);
+            quizLastIds = sel; quizSet = sel; quizAnswered = 0; quizScore = 0;
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '<div class="quiz-progress" id="quiz-progress"></div>';
+            quizSet.forEach((q, index) => {
+                const div = document.createElement('div'); div.className = 'quiz-container'; div.style.marginBottom = '2rem';
+                div.innerHTML = '<div class="quiz-question">' + (index + 1) + '. ' + q.question + '</div>' +
+                    '<div class="quiz-options">' + q.options.map((opt, i) => '<button class="quiz-option" onclick="checkAnswer(' + index + ', ' + i + ', this)">' + opt + '</button>').join('') + '</div>' +
+                    '<div class="quiz-feedback" id="feedback-' + index + '" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px;"></div>';
+                container.appendChild(div);
+            });
+            actualizarProgresoQuiz(); mostrarHistorialQuiz();
+        }
+        function actualizarProgresoQuiz() {
+            const p = document.getElementById('quiz-progress');
+            if (p) p.innerHTML = '📊 Progreso: <strong>' + quizAnswered + '/' + quizSet.length + '</strong> · ✅ Aciertos: <strong>' + quizScore + '</strong>';
+        }
+        function mostrarHistorialQuiz() {
+            const h = document.getElementById('quiz-historial'); if (!h) return;
+            const ciclos = parseInt(localStorage.getItem('quiz5Ciclos') || '0', 10);
+            const ultimo = localStorage.getItem('quiz5Ultimo') || '—';
+            const mejor = localStorage.getItem('quiz5Mejor') || '—';
+            h.innerHTML = '🔁 Ciclos: <strong>' + ciclos + '</strong> · 🕘 Último: ' + ultimo + ' · 🏆 Mejor: ' + mejor;
+        }
+        function checkAnswer(qIdx, sIdx, btn) {
+            if (btn.disabled) return;
+            const q = quizSet[qIdx]; const fb = document.getElementById('feedback-' + qIdx);
+            const opts = btn.parentElement.querySelectorAll('.quiz-option');
+            opts.forEach(o => o.disabled = true); quizAnswered++;
+            if (sIdx === q.correct) {
+                quizScore++; btn.classList.add('correct');
+                fb.innerHTML = '<span style="color: #4caf50; font-weight: bold;">✅ ¡Correcto!</span><br>' + q.explanation;
+                fb.style.background = '#e8f5e9'; fb.style.color = '#2c3e50';
+            } else {
+                btn.classList.add('incorrect'); opts[q.correct].classList.add('correct');
+                fb.innerHTML = '<span style="color: #f44336; font-weight: bold;">❌ Incorrecto</span><br>' + q.explanation;
+                fb.style.background = '#ffebee'; fb.style.color = '#2c3e50';
+            }
+            fb.style.display = 'block'; actualizarProgresoQuiz();
+            if (quizAnswered === quizSet.length) finalizarQuiz();
+        }
+        function finalizarQuiz() {
+            const pct = Math.round((quizScore / quizSet.length) * 100);
+            let msg = pct >= 90 ? '🏅 ¡Excelencia!' : (pct >= 70 ? '💪 ¡Muy bien!' : (pct >= 50 ? '📖 Buen intento, repasa.' : '🔄 Vuelve a Conceptos.'));
+            const ciclos = parseInt(localStorage.getItem('quiz5Ciclos') || '0', 10) + 1;
+            localStorage.setItem('quiz5Ciclos', String(ciclos));
+            localStorage.setItem('quiz5Ultimo', quizScore + '/' + quizSet.length + ' (' + pct + '%)');
+            const mejor = parseInt(localStorage.getItem('quiz5MejorNum') || '0', 10);
+            if (pct > mejor) { localStorage.setItem('quiz5MejorNum', String(pct)); localStorage.setItem('quiz5Mejor', quizScore + '/' + quizSet.length + ' (' + pct + '%)'); }
+            const container = document.getElementById('quiz-container');
+            container.insertAdjacentHTML('beforeend', '<div class="calc-result show" style="margin-top:1.5rem; text-align:center;"><h3>🏁 Resultados</h3>Aciertos: <strong>' + quizScore + ' / ' + quizSet.length + '</strong> (' + pct + '%)<br>' + msg + '<br><button class="calc-button" style="margin-top:1rem;" onclick="reiniciarQuiz()">🎲 Nuevo ciclo</button></div>');
+            mostrarHistorialQuiz(); container.lastElementChild.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        function reiniciarQuiz() { loadQuiz(); document.getElementById('quiz-container').scrollIntoView({ behavior: 'smooth' }); }
+        document.addEventListener('DOMContentLoaded', () => { loadQuiz(); fcRenderCard(); });
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.img-container img, .molecule-img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() { window.open(this.src, '_blank'); });
+            });
+        });
+    </script>
+</body>
+</html>
