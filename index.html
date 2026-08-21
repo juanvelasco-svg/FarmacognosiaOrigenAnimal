@@ -5,34 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmacognosia - Plataforma Educativa</title>
     <style>
-        :root {
-            --QOMed-gold: #D4AF37;
-            --QOMed-dark: #1a1a2e;
-            --QOMed-blue: #16213e;
-            --QOMed-light: #0f3460;
-            --accent: #e94560;
-            --text: #2c3e50;
-            --white: #ffffff;
-            --sand: #f4e9c1;
-            --shadow: rgba(0, 0, 0, 0.15);
+                :root {
+            /* Colores basados en el logo - Amarillo/Dorado principal */
+            --primary-gold: #FFD700;        /* Dorado brillante del logo */
+            --primary-yellow: #FFFF00;      /* Amarillo puro del logo */
+            --secondary-green: #2E8B57;     /* Verde mar - naturaleza/farmacognosia */
+            --dark-green: #1a4d2e;          /* Verde oscuro - profesional */
+            --light-green: #e8f5e9;         /* Verde muy claro - fondo */
+            --accent-coral: #ff6b6b;        /* Acento cálido */
+            --text: #2c3e50;                /* Texto principal */
+            --white: #ffffff;               /* Blanco */
+            --cream: #fffef0;               /* Crema suave */
+            --shadow: rgba(0, 0, 0, 0.15);  /* Sombra */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, var(--light-green) 0%, #e3f2fd 100%);
             color: var(--text);
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, var(--QOMed-dark) 0%, var(--QOMed-blue) 100%);
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--secondary-green) 100%);
             color: var(--white);
             padding: 2rem;
             text-align: center;
             box-shadow: 0 6px 20px var(--shadow);
-            border-bottom: 5px solid var(--QOMed-gold);
+            border-bottom: 5px solid var(--primary-gold);
         }
 
         .logo-container { 
@@ -57,7 +59,7 @@
             font-size: 2.5rem; 
             margin-bottom: 0.5rem; 
             text-shadow: 3px 3px 6px rgba(0,0,0,0.3); 
-            color: var(--QOMed-gold); 
+            color: var(--primary-yellow); 
         }
         
         .subtitle { 
@@ -67,8 +69,8 @@
         }
 
         .motivational-phrase {
-            background: linear-gradient(135deg, var(--QOMed-gold), #f4d03f);
-            color: var(--QOMed-dark);
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-yellow));
+            color: var(--dark-green);
             padding: 1rem 2rem;
             border-radius: 50px;
             display: inline-block;
@@ -90,12 +92,12 @@
             padding: 2.5rem;
             margin-bottom: 3rem;
             box-shadow: 0 8px 24px var(--shadow);
-            border-left: 6px solid var(--QOMed-gold);
+            border-left: 6px solid var(--primary-gold);
             text-align: center;
         }
 
         .intro-card h2 {
-            color: var(--QOMed-blue);
+            color: var(--dark-green);
             margin-bottom: 1rem;
             font-size: 2rem;
         }
@@ -112,7 +114,7 @@
             border-radius: 16px;
             padding: 2rem;
             box-shadow: 0 8px 24px var(--shadow);
-            border-left: 6px solid var(--QOMed-gold);
+            border-left: 6px solid var(--primary-gold);
             transition: all 0.3s ease;
             cursor: pointer;
             text-decoration: none;
@@ -123,11 +125,11 @@
         .topic-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 32px rgba(0,0,0,0.2);
-            border-left-color: var(--accent);
+            border-left-color: var(--accent-coral);
         }
 
         .topic-number {
-            background: linear-gradient(135deg, var(--QOMed-blue), var(--QOMed-light));
+            background: linear-gradient(135deg, var(--secondary-green), var(--dark-green));
             color: var(--white);
             width: 60px;
             height: 60px;
@@ -138,11 +140,11 @@
             font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: 1rem;
-            border: 3px solid var(--QOMed-gold);
+            border: 3px solid var(--primary-gold);
         }
 
         .topic-card h3 {
-            color: var(--QOMed-blue);
+            color: var(--dark-green);
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
@@ -154,7 +156,7 @@
         }
 
         .topic-card .topics-list {
-            background: var(--sand);
+            background: var(--cream);
             padding: 1rem;
             border-radius: 8px;
             margin-top: 1rem;
@@ -175,17 +177,17 @@
             content: "";
             position: absolute;
             left: 0;
-            color: var(--QOMed-gold);
+            color: var(--primary-gold);
             font-weight: bold;
         }
 
         .footer { 
-            background: var(--QOMed-dark); 
+            background: var(--dark-green); 
             color: var(--white); 
             text-align: center; 
             padding: 2.5rem; 
             margin-top: 3rem; 
-            border-top: 5px solid var(--QOMed-gold); 
+            border-top: 5px solid var(--primary-gold); 
         }
 
         @media (max-width: 768px) {
